@@ -4,7 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import logo from "@assets/generated_images/modern_logo_for_play_animation.png";
+import logo from "@assets/image_1768325229427.png";
 
 const navLinks = [
   { name: "Servizi", href: "#servizi" },
@@ -46,9 +46,9 @@ export function Navbar() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <img src={logo} alt="Play Animation" className="h-10 w-auto object-contain" />
+          <img src={logo} alt="MadeinGigi_event Srls" className="h-10 w-auto object-contain" />
           <span className={cn("font-display font-bold text-xl hidden sm:block", isScrolled ? "text-primary" : "text-white")}>
-            Play Animation
+            MadeinGigi_event Srls
           </span>
         </a>
 
@@ -85,8 +85,8 @@ export function Navbar() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-8 mt-8">
                 <div className="flex items-center gap-2">
-                  <img src={logo} alt="Play Animation" className="h-12 w-auto" />
-                  <span className="font-display font-bold text-xl text-primary">Play Animation</span>
+                  <img src={logo} alt="MadeinGigi_event Srls" className="h-12 w-auto" />
+                  <span className="font-display font-bold text-xl text-primary">MadeinGigi_event Srls</span>
                 </div>
                 <div className="flex flex-col gap-4">
                   {navLinks.map((link) => (

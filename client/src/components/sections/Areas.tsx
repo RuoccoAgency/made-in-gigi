@@ -1,7 +1,7 @@
 import { MapPin } from "lucide-react";
 
 const areas = [
-  "Napoli", "Salerno", "Caserta", "Avellino", "Benevento", "Fuori Regione"
+  "Acerra", "Napoli", "Caserta", "Salerno", "Avellino", "Benevento", "Fuori Regione"
 ];
 
 export function Areas() {
@@ -19,8 +19,8 @@ export function Areas() {
               Dove Operiamo
             </h2>
             <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-xl">
-              Siamo basati in Campania ma portiamo il divertimento ovunque tu abbia bisogno. 
-              Copriamo tutte le province e siamo disponibili per trasferte in tutta Italia su richiesta.
+              Siamo basati ad Acerra (NA) ma portiamo il divertimento ovunque tu abbia bisogno. 
+              Copriamo tutta la Campania e siamo disponibili per trasferte fuori regione su richiesta.
             </p>
             <div className="flex flex-wrap gap-3">
               {areas.map((area) => (
@@ -43,8 +43,8 @@ export function Areas() {
                     <div className="absolute top-0 left-1/2 w-4 h-4 bg-secondary rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_rgba(255,165,0,0.8)]" />
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center flex-col">
-                    <span className="text-4xl font-bold block mb-2">CAMPANIA</span>
-                    <span className="text-sm uppercase tracking-widest">+ ITALIA</span>
+                    <span className="text-4xl font-bold block mb-2">ACERRA</span>
+                    <span className="text-sm uppercase tracking-widest">+ CAMPANIA</span>
                   </div>
                </div>
             </div>

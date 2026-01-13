@@ -420,12 +420,8 @@ export function QuoteForm() {
                 <h4 className="font-bold text-lg mb-2">Orari Ufficio</h4>
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex justify-between">
-                    <span>Lunedì - Venerdì</span>
-                    <span className="font-medium text-foreground">09:00 - 19:00</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Sabato</span>
-                    <span className="font-medium text-foreground">09:00 - 13:00</span>
+                    <span>Lunedì - Sabato</span>
+                    <span className="font-medium text-foreground">10:00 - 20:00</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Domenica</span>
