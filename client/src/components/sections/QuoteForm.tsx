@@ -408,9 +408,9 @@ export function QuoteForm() {
                      </a>
                    </Button>
                    <Button asChild variant="outline" className="w-full border-white/30 text-white hover:bg-white/10 h-12 text-lg">
-                     <a href="tel:0815209692">
+                     <a href="tel:3505081212">
                        <Phone className="mr-2 w-5 h-5" />
-                       081 520 9692
+                       350 508 1212
                      </a>
                    </Button>
                  </div>

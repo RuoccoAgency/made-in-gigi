@@ -72,8 +72,7 @@ export function Hero() {
             </Button>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="w-full sm:w-auto bg-white/10 border-white/20 hover:bg-white/20 text-white text-lg h-14 px-8 rounded-full backdrop-blur-sm transition-all"
+              className="w-full sm:w-auto bg-secondary text-white hover:bg-secondary/90 text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:-translate-y-1"
               onClick={() => scrollToSection("#servizi")}
             >
               Scopri i Servizi
@@ -82,17 +81,6 @@ export function Hero() {
           </div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center gap-2"
-      >
-        <span className="text-xs uppercase tracking-widest">Scorri</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent" />
-      </motion.div>
     </section>
   );
 }
