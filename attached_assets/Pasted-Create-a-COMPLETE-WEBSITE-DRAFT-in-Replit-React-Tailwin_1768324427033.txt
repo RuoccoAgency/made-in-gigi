@@ -1,0 +1,109 @@
+Create a COMPLETE WEBSITE DRAFT in Replit (React + Tailwind CSS + Framer Motion).  
+Use these two sites ONLY as inspiration for structure, spacing, and vibe (do NOT copy text/assets): playanimation.it and dja.it.
+
+IMPORTANT
+- Website language: ITALIAN
+- Modern, energetic, “event entertainment” style (clean + fun, not childish)
+- Smooth animations and micro-interactions everywhere (hero text reveal, section fade/slide, card hover, button shimmer, parallax/light motion)
+- Fully responsive (mobile-first). Desktop must feel premium.
+- I will provide the LOGO image in chat: use it in navbar + footer (replace any placeholder logo).
+
+BRAND / BUSINESS
+Name: (use placeholder) “Play Animation” (I will confirm later if needed)
+Area served: Campania + Fuori Regione
+Phone numbers: 0815209692 — 3505081212
+
+SITE MAP (Single-page with sections + anchors)
+1) Navbar (sticky)
+   - Transparent on top of hero, becomes solid (white) + shadow on scroll
+   - Left: logo
+   - Center/right: menu links (Servizi, Gallery, Zone, Preventivo, Contatti)
+   - CTA button: “Richiedi Preventivo”
+   - Mobile: hamburger menu slide-down with the same links
+
+2) HERO (full-screen)
+   - Big headline in Italian, strong value proposition
+   - Subheadline: eventi, feste, aziende, cerimonie
+   - Two CTAs: “Richiedi Preventivo” + “Vedi Servizi”
+   - Background: use a stock image/video-like feel (animated gradient overlay) with dark overlay for readability
+   - Add subtle animated shapes/particles (very light)
+
+3) “Perché sceglierci” (3-4 feature cards)
+   - Fast setup, sicurezza, animazione professionale, copertura ampia
+   - Cards with icons + hover lift
+
+4) SERVIZI (main section)
+Create 3 premium service cards, very well designed, each with:
+   - Title
+   - Short description
+   - Bullet highlights
+   - “Scopri di più” opens a modal with more details + CTA to quote form
+
+Services to include (ONLY these for now):
+A) GONFIABILI
+   - “Castelli gonfiabili, percorsi, scivoli…”
+   - Highlights: assistenza, sicurezza, varie misure, indoor/outdoor
+B) SPETTACOLI
+   - “Animazione, show, intrattenimento…”
+   - Highlights: bambini/famiglie/aziende, impianto audio su richiesta, staff
+C) ALLESTIMENTI
+   - “Allestimenti scenografici per eventi…”
+   - Highlights: temi personalizzati, balloon decor, backdrop, angoli foto
+
+5) GALLERY / PORTFOLIO
+   - Grid masonry (responsive) with 9–12 stock images relevant to:
+     inflatable castles, event shows, party setups, balloon backdrops, stage lighting
+   - Each image: hover zoom + overlay caption
+   - Add filter tabs: Tutto / Gonfiabili / Spettacoli / Allestimenti (filters front-end)
+
+6) ZONE SERVITE
+   - Section with a clean map-style block (no real embed needed) + text:
+     “Operiamo in Campania e fuori regione su richiesta”
+   - Add chips/tags for examples: Napoli, Salerno, Caserta, Avellino, Benevento + “Fuori Regione”
+   - CTA: “Verifica disponibilità”
+
+7) PREVENTIVO (important)
+Create a complete quote form (not connected to backend, but with validation + nice UX):
+Fields:
+   - Nome e Cognome (required)
+   - Email (required)
+   - Telefono (required)
+   - Tipo evento (select: Compleanno, Comunione/Battesimo, Matrimonio, Evento Aziendale, Altro)
+   - Data evento (date picker)
+   - Città/Provincia (required)
+   - Servizio interessato (multi-select: Gonfiabili, Spettacoli, Allestimenti)
+   - Fascia oraria (Mattina / Pomeriggio / Sera)
+   - Budget indicativo (optional)
+   - Messaggio / richieste (textarea)
+   - Checkbox privacy (required)
+Buttons:
+   - Primary: “Invia richiesta”
+   - Secondary: “Chiama ora”
+After submit:
+   - Show success toast + summary preview (front-end only)
+
+8) CONTATTI
+   - Two phone numbers displayed with click-to-call
+   - Service area: Campania + fuori regione
+   - Email placeholder (info@... as placeholder)
+   - Social placeholders
+   - Clean footer
+
+WHATSAPP WIDGET (MOBILE ONLY)
+- Add a floating WhatsApp button fixed at bottom-left, visible only on small screens.
+- On click: open WhatsApp chat link using the main number 3505081212
+- Use a subtle pulse animation.
+
+DESIGN SYSTEM
+- Palette: modern, high contrast (white background, dark text), with one accent color (electric/bright but elegant) and one secondary accent.
+- Rounded corners everywhere (cards, buttons, inputs) — no sharp edges.
+- Typography: elegant sans for body + strong display for headings.
+- Buttons: slightly glossy / animated hover
+- Ensure accessibility: good contrast, readable sizes.
+
+DELIVERABLE
+- Implement the full draft as a single-page React site with reusable components:
+  Navbar, Hero, Features, Services(with modals), Gallery(with filters), Areas, QuoteForm, Contact, Footer, WhatsAppButton.
+- Use Framer Motion for animations in each section.
+- Use stock images via direct URLs (royalty-free placeholders), and ensure they render correctly.
+- Make sure there are NO placeholder addresses/phones unrelated to this brand: use ONLY the numbers given.
