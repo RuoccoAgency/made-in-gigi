@@ -9,10 +9,9 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   
-  /* Brand Colors - Electric Blue & Vibrant Orange */
-  --color-brand-blue: hsl(225 73% 57%);
-  --color-brand-orange: hsl(25 95% 53%);
-  --color-brand-purple: hsl(265 83% 57%);
+  /* Brand Colors - MadeinGigi_event */
+  --color-brand-pink: hsl(339 76% 47%);
+  --color-brand-blue: hsl(195 75% 48%);
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -37,7 +36,7 @@
   --font-sans: 'DM Sans', sans-serif;
   --font-display: 'Outfit', sans-serif;
 
-  --radius: 0.75rem;
+  --radius: 1rem;
 }
 
 :root {
@@ -51,24 +50,24 @@
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
   
-  --primary: 225 73% 57%; /* Electric Blue */
-  --primary-foreground: 210 40% 98%;
+  --primary: 339 76% 47%; /* Logo Pink #D61B5B */
+  --primary-foreground: 0 0% 100%;
   
-  --secondary: 25 95% 53%; /* Vibrant Orange */
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 195 75% 48%; /* Logo Blue #1FA8D7 */
+  --secondary-foreground: 0 0% 100%;
   
   --muted: 210 40% 96.1%;
   --muted-foreground: 215.4 16.3% 46.9%;
   
-  --accent: 265 83% 57%; /* Purple Accent */
-  --accent-foreground: 210 40% 98%;
+  --accent: 195 75% 95%; /* Very light blue for accent backgrounds */
+  --accent-foreground: 195 75% 48%;
   
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
   
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
-  --ring: 225 73% 57%;
+  --ring: 195 75% 48%; /* Focus ring matches secondary blue */
 }
 
 @layer base {
