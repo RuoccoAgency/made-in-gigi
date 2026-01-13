@@ -129,7 +129,7 @@ export function Services() {
 
       {/* Service Modal */}
       <Dialog open={!!selectedService} onOpenChange={(open) => !open && closeModal()}>
-        <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto p-0 gap-0 overflow-hidden">
+        <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto p-0 gap-0">
           {selectedService && (
             <>
               <div className="relative h-64 w-full">
