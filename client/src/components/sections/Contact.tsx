@@ -10,8 +10,8 @@ export function Contact() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-4">
-               <img src={logo} alt="MadeinGigi_event Srls" className="h-10 w-auto brightness-0 invert opacity-90" />
-               <span className="font-display font-bold text-xl text-white">MadeinGigi_event Srls</span>
+               <img src={logo} alt="MadeinGigi Events" className="h-10 w-auto brightness-0 invert opacity-90" />
+               <span className="font-display font-bold text-xl text-white">MadeinGigi Events</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
               Studio di animazione specializzato in eventi e intrattenimento.
@@ -78,7 +78,7 @@ export function Contact() {
         </div>
 
         <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
-          <p>&copy; {new Date().getFullYear()} MadeinGigi_event Srls. P.IVA 12345678901 - Via Cesare Battisti, 29, 80011 Acerra NA</p>
+          <p>&copy; {new Date().getFullYear()} MadeinGigi Events. P.IVA 12345678901 - Via Cesare Battisti, 29, 80011 Acerra NA</p>
         </div>
       </div>
     </footer>

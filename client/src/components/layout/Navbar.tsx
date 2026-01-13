@@ -46,9 +46,9 @@ export function Navbar() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <img src={logo} alt="MadeinGigi_event Srls" className="h-10 w-auto object-contain" />
+          <img src={logo} alt="MadeinGigi Events" className="h-10 w-auto object-contain" />
           <span className={cn("font-display font-bold text-xl hidden sm:block", isScrolled ? "text-primary" : "text-white")}>
-            MadeinGigi_event Srls
+            MadeinGigi Events
           </span>
         </a>
 
@@ -85,8 +85,8 @@ export function Navbar() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-8 mt-8">
                 <div className="flex items-center gap-2">
-                  <img src={logo} alt="MadeinGigi_event Srls" className="h-12 w-auto" />
-                  <span className="font-display font-bold text-xl text-primary">MadeinGigi_event Srls</span>
+                  <img src={logo} alt="MadeinGigi Events" className="h-12 w-auto" />
+                  <span className="font-display font-bold text-xl text-primary">MadeinGigi Events</span>
                 </div>
                 <div className="flex flex-col gap-4">
                   {navLinks.map((link) => (
