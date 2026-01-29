@@ -178,8 +178,8 @@ export function Services() {
                   <Button variant="outline" size="lg" onClick={closeModal} className="w-full sm:w-auto">
                     Chiudi
                   </Button>
-                  <Button size="lg" onClick={scrollToQuote} className="w-full sm:w-auto bg-primary hover:bg-primary/90 font-bold shadow-lg">
-                    Richiedi Preventivo per {selectedService.title}
+                  <Button size="lg" onClick={scrollToQuote} className="w-full sm:w-auto bg-primary hover:bg-primary/90 font-bold shadow-lg" data-testid="button-quote-service">
+                    Richiedi un preventivo
                   </Button>
                 </DialogFooter>
               </div>
