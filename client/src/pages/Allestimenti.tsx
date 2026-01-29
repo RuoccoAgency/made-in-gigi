@@ -9,7 +9,7 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = [];
+const GALLERY_IMAGES: string[] = ["/public/images/allestimenti.jpeg", "/public/images/allestimenti2.jpeg", "/public/images/allestimenti3.jpeg", "/public/images/allestimenti4.jpeg"];
 
 export default function AllestimentiPage() {
   useEffect(() => {
