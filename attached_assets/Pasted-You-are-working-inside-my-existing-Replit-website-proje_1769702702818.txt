@@ -1,0 +1,114 @@
+You are working inside my existing Replit website project (do NOT start a new project). Implement the following changes across the whole site.
+
+GOAL
+- Replace the current “I Nostri Servizi Premium” 3-card section with 3 new services:
+  1) Allestimenti
+  2) Compleanni
+  3) Prima Comunione
+- Each card must link to its own dedicated page.
+- Global background color must be #f6f3e8 (no pure white background anywhere).
+- Create a cohesive elegant palette that fits events (warm, premium, wedding/party friendly), update buttons/links/badges accordingly.
+- Keep everything responsive, modern, smooth animations, good spacing, and consistent typography.
+
+DESIGN SYSTEM (apply globally)
+- Page background: #f6f3e8
+- Text primary: #1f2937 (deep slate)
+- Text secondary: #6b7280
+- Accent 1 (primary button / highlights): #b08d57 (warm gold)
+- Accent 2 (secondary / hover / subtle): #c97c5d (terracotta)
+- Card background: rgba(255,255,255,0.75) with backdrop blur OR #fffaf0 (but never pure #ffffff full page)
+- Borders: rgba(31,41,55,0.10)
+- Shadows: soft, premium
+- Buttons: rounded, modern, strong hover/active states
+- Icons/check bullets: use accent 1
+- Add subtle entrance animations on scroll (fade + slight translate)
+
+SECTION: SERVICES (Homepage)
+1) Replace current titles/text
+- Section title: “I Nostri Servizi”
+- Subtitle: “Tre soluzioni pensate per ogni momento speciale. Scopra i dettagli e richieda un preventivo.”
+2) Replace the three cards with:
+A) Card 1: “Allestimenti”
+   - Short description: “Decorazioni, balloon art, scenografie e dettagli su misura per rendere l’evento unico.”
+   - 3 bullet points:
+     • Tema personalizzato
+     • Backdrop e decorazioni
+     • Montaggio e assistenza
+   - CTA button: “Scopri Allestimenti” -> routes to /allestimenti
+B) Card 2: “Compleanni”
+   - Short description: “Dai bimbi agli adulti: allestimenti e soluzioni complete per una festa memorabile.”
+   - Bullets:
+     • Pacchetti flessibili
+     • Animazione su richiesta
+     • Foto corner / backdrop
+   - CTA: “Scopri Compleanni” -> /compleanni
+C) Card 3: “Prima Comunione”
+   - Short description: “Eleganza e dolcezza per un giorno importante: allestimenti, tavoli e dettagli coordinati.”
+   - Bullets:
+     • Stile elegante e coordinato
+     • Centrotavola e confettata
+     • Personalizzazioni
+   - CTA: “Scopri Prima Comunione” -> /prima-comunione
+
+3) Make each card clickable (entire card hover + pointer) and keep the CTA button.
+
+PAGES (create 3 new pages)
+Create:
+- /allestimenti
+- /compleanni
+- /prima-comunione
+
+Each page must have this structure:
+
+1) HERO
+- Title (H1) same as page name
+- Short paragraph (2–3 lines) describing the service (Italian, elegant tone)
+- A primary CTA button “Richiedi un preventivo” that scrolls to the form section on the same page.
+- Optional small “breadcrumb” link back to Home.
+
+2) INTRO (short)
+- A concise section with 3 feature cards (icon + title + 1 line) matching the service.
+
+3) GALLERY
+- A responsive gallery grid (masonry-like feel if possible, otherwise uniform grid) with lightbox on click.
+- Use placeholders if no images exist yet: show empty states with “Foto in arrivo” AND implement it so later I can just drop images into an array and they render.
+- IMPORTANT: Create an easy place at top of each page file: 
+  const GALLERY_IMAGES = [ ... ]
+and render those.
+
+4) “RICHIEDI UN PREVENTIVO” CTA + FORM
+- Add a section title: “Richiedi un preventivo”
+- Add short text: “Compili il modulo: la ricontatteremo entro 24 ore.”
+- Form fields:
+  - Nome e Cognome (required)
+  - Telefono (required)
+  - Email (required)
+  - Tipo evento (pre-filled dropdown with the current page service selected; options: Allestimenti, Compleanni, Prima Comunione)
+  - Data evento (optional)
+  - Location / Comune (optional)
+  - Messaggio (required)
+- Submit button: “Invia richiesta”
+- On submit:
+  - Validate required fields
+  - Show success toast/message
+  - Send the form to the same endpoint the site currently uses for contact (if exists). If there is no backend endpoint, create a simple API route that sends an email OR stores submissions in DB (SQLite/Postgres) with timestamp.
+  - Minimum: store in DB table “leads” with columns: id, name, phone, email, eventType, eventDate, location, message, createdAt.
+
+NAVIGATION
+- Add these pages to the navbar menu under “Servizi” as dropdown OR as direct links:
+  Allestimenti | Compleanni | Prima Comunione
+- Ensure navbar is consistent with new palette and background.
+- Make sure the homepage services section scroll is still nice.
+
+GENERAL CLEANUP
+- Ensure the background color (#f6f3e8) is applied to ALL pages and full height.
+- Update any sections that were pure white to match the new theme.
+- Improve spacing/typography so it looks premium and modern.
+- Keep mobile UX clean: cards stack, gallery is 2 columns on mobile, 3–4 on desktop.
+- Add subtle hover effects for cards/buttons.
+
+DELIVERABLE
+- Implement changes in code: components, routes, styling, and DB/API for leads.
+- After finishing, list the exact files you changed/created and where to edit gallery images.
+
+Do not remove existing content unrelated to these changes unless it conflicts visually. Keep the site stable and production-ready.
