@@ -8,10 +8,6 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  
-  /* Brand Colors - MadeinGigi_event */
-  --color-brand-pink: hsl(339 76% 47%);
-  --color-brand-blue: hsl(195 75% 48%);
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -36,38 +32,37 @@
   --font-sans: 'DM Sans', sans-serif;
   --font-display: 'Outfit', sans-serif;
 
-  --radius: 1rem;
+  --radius: 1.125rem;
 }
 
 :root {
-  /* Modern High Contrast - Light Mode */
-  --background: 0 0% 100%;
-  --foreground: 222 47% 11%; /* Dark Blue/Black text */
-  
-  --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
-  
-  --popover: 0 0% 100%;
-  --popover-foreground: 222 47% 11%;
-  
-  --primary: 339 76% 47%; /* Logo Pink #D61B5B */
+  --background: 40 36% 93%; /* #f6f3e8 */
+  --foreground: 215 28% 17%; /* #1f2937 */
+
+  --card: 43 67% 96%; /* #fffaf0 */
+  --card-foreground: 215 28% 17%;
+
+  --popover: 43 67% 96%;
+  --popover-foreground: 215 28% 17%;
+
+  --primary: 34 36% 52%; /* #b08d57 */
   --primary-foreground: 0 0% 100%;
-  
-  --secondary: 195 75% 48%; /* Logo Blue #1FA8D7 */
+
+  --secondary: 15 51% 58%; /* #c97c5d */
   --secondary-foreground: 0 0% 100%;
-  
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  
-  --accent: 195 75% 95%; /* Very light blue for accent backgrounds */
-  --accent-foreground: 195 75% 48%;
-  
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 195 75% 48%; /* Focus ring matches secondary blue */
+
+  --muted: 38 28% 90%;
+  --muted-foreground: 215 16% 45%; /* #6b7280-ish */
+
+  --accent: 38 28% 90%;
+  --accent-foreground: 215 28% 17%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 215 28% 17% / 0.10;
+  --input: 215 28% 17% / 0.10;
+  --ring: 34 36% 52%;
 }
 
 @layer base {
@@ -75,7 +70,7 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary;
+    @apply font-sans antialiased bg-background text-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold tracking-tight;
@@ -83,21 +78,7 @@
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  /* Glassmorphism */
-  .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
-  }
-  
-  .glass-dark {
-    @apply bg-black/40 backdrop-blur-md border border-white/10;
-  }
-
-  /* Custom animations */
-  .hover-lift {
-    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
+  .glass-card {
+    @apply bg-white/70 backdrop-blur border border-border shadow-sm;
   }
 }
