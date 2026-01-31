@@ -17,6 +17,10 @@ deploymentTarget = "static"
 build = ["sh", "-c", "vite build"]
 publicDir = "dist/public"
 
+[[deployment.rewrites]]
+from = "/*"
+to = "/index.html"
+
 [workflows]
 runButton = "Project"
 
