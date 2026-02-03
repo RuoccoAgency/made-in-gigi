@@ -126,7 +126,7 @@ export default function PrimaComunionePage() {
                 <div className="w-12 h-px bg-slate-300 mx-auto mb-6"></div>
                 <p className="text-slate-500">Compila il form per ricevere una proposta personalizzata e senza impegno.</p>
              </div>
-             <div id="preventivo" className="max-w-2xl mx-auto bg-white p-8 shadow-sm border border-slate-100">
+             <div id="preventivo">
                 <QuoteForm />
              </div>
           </div>
