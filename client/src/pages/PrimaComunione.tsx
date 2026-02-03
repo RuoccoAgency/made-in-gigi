@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Flower2, CandlestickChart, Sparkles } from "lucide-react";
+import { Flower2, Heart, Sparkles, BookOpen } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
@@ -38,104 +38,99 @@ export default function PrimaComunionePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f3e8] text-foreground">
+    <div className="min-h-screen bg-[#fdfdfd] text-slate-700 font-sans">
       <Navbar />
-      <main className="pt-24">
-        <section className="container mx-auto px-4">
+      <main className="pt-28">
+        {/* HERO SECTION - Pure/Soft */}
+        <section className="container mx-auto px-4 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sky-50 via-transparent to-transparent opacity-70 pointer-events-none" />
+          
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-4xl mx-auto text-center relative z-10"
           >
-            <Link href="/">
-              <a className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-breadcrumb-home">
-                ← Home
+             <Link href="/">
+              <a className="inline-flex items-center text-sm uppercase tracking-widest text-slate-400 hover:text-sky-600 transition-colors mb-8" data-testid="link-breadcrumb-home">
+                Home / Prima Comunione
               </a>
             </Link>
-            <h1 className="mt-4 text-4xl md:text-5xl font-display font-bold">Prima Comunione</h1>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              Un giorno importante merita un allestimento armonioso: toni delicati, dettagli coordinati e una presenza discreta ma scenografica, pensata per famiglie e location.
+            <h1 className="text-4xl md:text-6xl font-display font-light text-slate-900 tracking-wide">
+              Prima Comunione
+            </h1>
+            <div className="w-24 h-1 bg-sky-200 mx-auto my-8 rounded-full"></div>
+            <p className="text-xl md:text-2xl text-slate-500 font-light leading-relaxed max-w-3xl mx-auto">
+              Un giorno di purezza ed eleganza. <br/>Allestimenti delicati che incorniciano l'emozione di un momento sacro.
             </p>
-            <div className="mt-8">
-              <Button onClick={scrollToForm} data-testid="button-cta-quote" className="bg-primary text-primary-foreground">
-                Richiedi un preventivo
+            <div className="mt-12">
+              <Button onClick={scrollToForm} variant="outline" className="border-sky-200 text-sky-700 hover:bg-sky-50 hover:text-sky-800 hover:border-sky-300 px-8 py-6 rounded-none uppercase tracking-widest text-sm transition-all duration-300">
+                Richiedi Preventivo
               </Button>
             </div>
           </motion.div>
         </section>
 
-        <section className="container mx-auto px-4 mt-16">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
+        {/* FEATURES - Minimal/Clean */}
+        <section className="container mx-auto px-4 mt-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { icon: Flower2, title: "Stile", desc: "Elegante e coordinato" },
-              { icon: CandlestickChart, title: "Dettagli", desc: "Centrotavola e confettata" },
-              { icon: Sparkles, title: "Personalizzazione", desc: "Nomi, colori, temi" },
+              { icon: Flower2, title: "Floreale", desc: "Composizioni delicate e fresche." },
+              { icon: Heart, title: "Cura", desc: "Attenzione ai dettagli e alla tradizione." },
+              { icon: BookOpen, title: "Confettata", desc: "Angoli dolci personalizzati e a tema." },
             ].map((f, i) => (
-              <Card key={i} className="bg-white/70 backdrop-blur border border-border">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <f.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold" data-testid={`text-feature-title-${i}`}>{f.title}</div>
-                      <div className="text-sm text-muted-foreground" data-testid={`text-feature-desc-${i}`}>{f.desc}</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <div key={i} className="text-center group">
+                <div className="h-16 w-16 mx-auto bg-sky-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sky-100 transition-colors duration-500">
+                  <f.icon className="h-6 w-6 text-sky-600/70" />
+                </div>
+                <h3 className="font-display font-medium text-xl mb-3 text-slate-900 uppercase tracking-wide">{f.title}</h3>
+                <p className="text-slate-400 font-light">{f.desc}</p>
+              </div>
             ))}
-          </motion.div>
-        </section>
-
-        <section className="container mx-auto px-4 mt-16">
-          <h2 className="text-2xl md:text-3xl font-display font-bold">Gallery</h2>
-          <p className="mt-2 text-muted-foreground">Bozza: aggiungi foto in `GALLERY_IMAGES`.</p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-          >
-            {items.map((it, idx) => (
-              <button
-                key={it.id}
-                className="group relative aspect-square rounded-2xl overflow-hidden border border-border bg-white/60 backdrop-blur shadow-sm hover:shadow-lg transition-all"
-                data-testid={`card-gallery-${idx}`}
-                onClick={() => {
-                  if (!it.placeholder) window.open(it.src, "_blank");
-                }}
-              >
-                {it.placeholder ? (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sm text-muted-foreground">Foto in arrivo</span>
-                  </div>
-                ) : (
-                  <img src={it.src} alt="Gallery" className="h-full w-full object-cover" />
-                )}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/25 to-transparent" />
-              </button>
-            ))}
-          </motion.div>
-        </section>
-
-        <section className="container mx-auto px-4 mt-20">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-display font-bold">Richiedi un preventivo</h2>
-            <p className="mt-2 text-muted-foreground">Compili il modulo: la ricontatteremo entro 24 ore.</p>
           </div>
         </section>
 
-        <QuoteForm />
+        {/* GALLERY - Clean Grid */}
+        <section className="container mx-auto px-4 mt-32">
+          <div className="flex flex-col items-center mb-16">
+            <h2 className="text-3xl font-display font-light text-slate-900">Dettagli Preziosi</h2>
+            <p className="mt-2 text-slate-400 italic font-serif">Alcuni dei nostri allestimenti più dolci.</p>
+          </div>
+
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {items.map((it, idx) => (
+              <div key={it.id} className="flex flex-col gap-4">
+                 <button
+                  className="relative aspect-[4/5] overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-500"
+                  onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                >
+                  {it.placeholder ? (
+                    <div className="absolute inset-0 flex items-center justify-center bg-slate-50">
+                      <span className="text-xs uppercase tracking-widest text-slate-300">Foto {idx + 1}</span>
+                    </div>
+                  ) : (
+                    <img src={it.src} alt="Gallery" className="h-full w-full object-cover hover:scale-105 transition-transform duration-700 opacity-90 hover:opacity-100" />
+                  )}
+                </button>
+              </div>
+            ))}
+          </motion.div>
+        </section>
+
+        <section className="mt-32 bg-sky-50/50 py-24">
+          <div className="container mx-auto px-4">
+             <div className="max-w-xl mx-auto text-center mb-12">
+                <h2 className="text-2xl font-display font-light text-slate-900 mb-2">Pianifica con noi</h2>
+                <div className="w-12 h-px bg-slate-300 mx-auto mb-6"></div>
+                <p className="text-slate-500">Compila il form per ricevere una proposta personalizzata e senza impegno.</p>
+             </div>
+             <div id="preventivo" className="max-w-2xl mx-auto bg-white p-8 shadow-sm border border-slate-100">
+                <QuoteForm />
+             </div>
+          </div>
+        </section>
       </main>
       <Contact />
       <WhatsAppWidget />
