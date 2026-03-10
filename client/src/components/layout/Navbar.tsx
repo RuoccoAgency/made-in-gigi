@@ -17,6 +17,8 @@ const servicePages = [
   { name: "Allestimenti", href: "/allestimenti" },
   { name: "Compleanni", href: "/compleanni" },
   { name: "Prima Comunione", href: "/prima-comunione" },
+  { name: "Laboratori", href: "/laboratori" },
+  { name: "Candy Wall", href: "/candy-wall" },
 ];
 
 export function Navbar() {

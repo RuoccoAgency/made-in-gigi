@@ -8,6 +8,8 @@ import Home from "@/pages/Home";
 import AllestimentiPage from "@/pages/Allestimenti";
 import CompleanniPage from "@/pages/Compleanni";
 import PrimaComunionePage from "@/pages/PrimaComunione";
+import LaboratoriPage from "@/pages/Laboratori";
+import CandyWallPage from "@/pages/CandyWall";
 
 function Router() {
   return (
@@ -16,6 +18,8 @@ function Router() {
       <Route path="/allestimenti" component={AllestimentiPage} />
       <Route path="/compleanni" component={CompleanniPage} />
       <Route path="/prima-comunione" component={PrimaComunionePage} />
+      <Route path="/laboratori" component={LaboratoriPage} />
+      <Route path="/candy-wall" component={CandyWallPage} />
       <Route component={NotFound} />
     </Switch>
   );
