@@ -207,7 +207,7 @@ export function NewServices() {
                         "text-2xl font-display font-bold mb-4 transition-colors duration-300",
                         isCreative && "tracking-wide italic",
                         isDisplay && "text-3xl leading-none",
-                        isMagical && "text-center text-slate-900 font-light tracking-widest uppercase",
+                        isMagical && "text-slate-900",
                         isDynamic && "text-orange-600 underline decoration-orange-200 underline-offset-8"
                       )}>
                         {s.title}
@@ -216,7 +216,7 @@ export function NewServices() {
                       <p className={cn(
                         "text-muted-foreground leading-relaxed mb-8",
                         isCreative && "text-sm font-medium pr-4",
-                        isMagical && "text-center italic"
+                        isMagical && "italic"
                       )}>
                         {s.description}
                       </p>
@@ -244,7 +244,6 @@ export function NewServices() {
                           s.btnColor,
                           isCreative && "rounded-full italic",
                           isDisplay && "h-14 text-lg",
-                          isMagical && "rounded-none tracking-[0.2em] font-light",
                           isDynamic && "rounded-none skew-x-[-12deg]"
                         )}
                         data-testid={`button-service-cta-${s.title.replace(/\s+/g, "-").toLowerCase()}`}
