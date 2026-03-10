@@ -19,6 +19,8 @@ const servicePages = [
   { name: "Prima Comunione", href: "/prima-comunione" },
   { name: "Laboratori", href: "/laboratori" },
   { name: "Candy Wall", href: "/candy-wall" },
+  { name: "Gender Reveal", href: "/gender-reveal" },
+  { name: "Spettacoli", href: "/spettacoli" },
 ];
 
 export function Navbar() {

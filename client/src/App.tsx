@@ -10,6 +10,8 @@ import CompleanniPage from "@/pages/Compleanni";
 import PrimaComunionePage from "@/pages/PrimaComunione";
 import LaboratoriPage from "@/pages/Laboratori";
 import CandyWallPage from "@/pages/CandyWall";
+import GenderRevealPage from "@/pages/GenderReveal";
+import ArtistiSpettacoliPage from "@/pages/ArtistiSpettacoli";
 
 function Router() {
   return (
@@ -20,6 +22,8 @@ function Router() {
       <Route path="/prima-comunione" component={PrimaComunionePage} />
       <Route path="/laboratori" component={LaboratoriPage} />
       <Route path="/candy-wall" component={CandyWallPage} />
+      <Route path="/gender-reveal" component={GenderRevealPage} />
+      <Route path="/spettacoli" component={ArtistiSpettacoliPage} />
       <Route component={NotFound} />
     </Switch>
   );
