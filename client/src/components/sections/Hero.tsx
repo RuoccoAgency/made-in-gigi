@@ -39,16 +39,6 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl mx-auto"
         >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20"
-          >
-            <span className="text-white/90 text-sm font-medium uppercase tracking-wider">
-              L'animazione numero 1 in Campania
-            </span>
-          </motion.div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold text-white mb-6 leading-[1.1] tracking-tight drop-shadow-lg">
             Rendiamo il tuo evento <br />
