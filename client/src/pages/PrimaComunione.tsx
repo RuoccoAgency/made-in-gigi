@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Sparkles, Check, Trophy, Wand2, PartyPopper, Zap, Tent, Ghost, Star, Plus } from "lucide-react";
@@ -8,6 +8,8 @@ import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
+const GALLERY_IMAGES: string[] = ["/images/foto-prima-comunione.jpeg", "/images/foto-prima-comunione2.jpeg", "/images/foto-prima-comunione3.jpeg", "/images/foto-prima-comunione4.jpeg"];
 
 const PACKAGES = [
   {
@@ -96,6 +98,22 @@ const PACKAGES = [
 export default function PrimaComunionePage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, []);
+
+  const items = useMemo(() => {
+    if (GALLERY_IMAGES.length === 0) {
+      return Array.from({ length: 8 }).map((_, idx) => ({
+        id: `placeholder-${idx}`,
+        src: "",
+        placeholder: true,
+      }));
+    }
+
+    return GALLERY_IMAGES.map((src, idx) => ({
+      id: `img-${idx}`,
+      src,
+      placeholder: false,
+    }));
   }, []);
 
   const scrollToForm = () => {
@@ -323,6 +341,36 @@ export default function PrimaComunionePage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* GALLERY SECTION */}
+        <section className="container mx-auto px-4 mt-32">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-light text-slate-900 uppercase tracking-widest">Il nostro portfolio per le comunioni</h2>
+            <div className="w-12 h-px bg-sky-200 mx-auto mt-4 mb-6"></div>
+            <p className="text-slate-400 italic font-serif leading-relaxed">Alcuni degli allestimenti e delle animazioni realizzate per le Prime Comunioni.</p>
+          </div>
+
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {items.map((it, idx) => (
+              <div key={it.id} className="flex flex-col gap-4">
+                <button
+                  className="relative aspect-[4/5] overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-500"
+                  onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                >
+                  {it.placeholder ? (
+                    <div className="absolute inset-0 flex items-center justify-center bg-slate-50 border border-slate-100">
+                      <span className="text-xs uppercase tracking-widest text-slate-300">Foto {idx + 1}</span>
+                    </div>
+                  ) : (
+                    <img src={it.src} alt="Gallery" className="h-full w-full object-cover hover:scale-105 transition-transform duration-700 opacity-90 hover:opacity-100" />
+                  )}
+                </button>
+              </div>
+            ))}
+          </motion.div>
         </section>
 
         {/* FINAL CALL TO ACTION */}
