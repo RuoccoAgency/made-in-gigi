@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroBg from "@assets/generated_images/energetic_abstract_hero_background.png";
 
 export function Hero() {
@@ -39,13 +39,12 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl mx-auto"
         >
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20"
           >
-            <Star className="w-4 h-4 text-secondary fill-secondary" />
             <span className="text-white/90 text-sm font-medium uppercase tracking-wider">
               L'animazione numero 1 in Campania
             </span>
@@ -63,15 +62,15 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white text-lg h-14 px-8 rounded-full shadow-xl hover:shadow-primary/25 transition-all hover:-translate-y-1"
               onClick={() => scrollToSection("#preventivo")}
             >
               Richiedi Preventivo
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="w-full sm:w-auto bg-secondary text-white hover:bg-secondary/90 text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:-translate-y-1"
               onClick={() => scrollToSection("#servizi")}
             >
