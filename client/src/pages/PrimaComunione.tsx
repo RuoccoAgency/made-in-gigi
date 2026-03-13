@@ -63,7 +63,7 @@ const PACKAGES = [
   {
     title: "PACCHETTO OLIMPIADI",
     price: "400 €",
-    description: "2 animatori a partire da 7 bambini",
+    description: "2 animatori",
     icon: Trophy,
     activities: [
       "Ping pong",
