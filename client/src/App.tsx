@@ -9,9 +9,11 @@ import AllestimentiPage from "@/pages/Allestimenti";
 import CompleanniPage from "@/pages/Compleanni";
 import PrimaComunionePage from "@/pages/PrimaComunione";
 import LaboratoriPage from "@/pages/Laboratori";
-import CandyWallPage from "@/pages/CandyWall";
+import AngoloDolciPage from "@/pages/AngoloDolci";
 import GenderRevealPage from "@/pages/GenderReveal";
 import ArtistiSpettacoliPage from "@/pages/ArtistiSpettacoli";
+import Feste18AnniPage from "@/pages/Feste18Anni";
+import BattesimiPage from "@/pages/Battesimi";
 
 function Router() {
   return (
@@ -21,9 +23,11 @@ function Router() {
       <Route path="/compleanni" component={CompleanniPage} />
       <Route path="/prima-comunione" component={PrimaComunionePage} />
       <Route path="/laboratori" component={LaboratoriPage} />
-      <Route path="/candy-wall" component={CandyWallPage} />
+      <Route path="/angolo-dolci" component={AngoloDolciPage} />
       <Route path="/gender-reveal" component={GenderRevealPage} />
       <Route path="/spettacoli" component={ArtistiSpettacoliPage} />
+      <Route path="/feste-18-anni" component={Feste18AnniPage} />
+      <Route path="/battesimi" component={BattesimiPage} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Check, Sparkles, PartyPopper, Flower2, Palette, Candy, Baby, Music } from "lucide-react";
+import { Check, Sparkles, PartyPopper, Flower2, Palette, Candy, Baby, Music, Star, Heart } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ const SERVICES = [
   {
     title: "Compleanni",
     href: "/compleanni",
-    description: "Dai bimbi agli adulti: allestimenti e soluzioni complete per una festa memorabile.",
+    description: "Organizziamo feste di compleanno divertenti e personalizzate con allestimenti, animazione e attività pensate per rendere la giornata speciale.",
     bullets: ["Pacchetti flessibili", "Animazione su richiesta", "Foto corner / backdrop"],
     cta: "Scopri Compleanni",
     icon: PartyPopper,
@@ -49,7 +49,7 @@ const SERVICES = [
     title: "Laboratori",
     href: "/laboratori",
     description: "Esperienze creative e coinvolgenti per bambini, con attività originali pensate per divertire, stimolare la fantasia e rendere ogni evento ancora più speciale.",
-    bullets: ["Scatola dei sogni", "Scatola per foto booth", "Passerella per sfilata", "Laser games", "Laboratori creativi"],
+    bullets: ["Laboratori creativi"],
     cta: "Scopri Laboratori",
     icon: Palette,
     theme: "indigo",
@@ -60,11 +60,11 @@ const SERVICES = [
     variant: "creative",
   },
   {
-    title: "Candy Wall",
-    href: "/candy-wall",
+    title: "Angolo per Dolci",
+    href: "/angolo-dolci",
     description: "Un angolo scenografico e goloso per arricchire il tuo evento con dolcezza, colore e intrattenimento visivo.",
-    bullets: ["Candy wall", "Zucchero filato", "Fontana di cioccolato", "Profumi bar"],
-    cta: "Scopri Candy Wall",
+    bullets: ["Angolo per Dolci", "Zucchero filato", "Fontana di cioccolato"],
+    cta: "Scopri Angolo per Dolci",
     icon: Candy,
     theme: "rose",
     borderColor: "hover:border-rose-400",
@@ -100,6 +100,32 @@ const SERVICES = [
     bgIcon: "bg-orange-100",
     btnColor: "bg-orange-600 hover:bg-orange-700",
     variant: "dynamic",
+  },
+  {
+    title: "Feste di 18 Anni",
+    href: "/feste-18-anni",
+    description: "Organizziamo il tuo 18° compleanno dalla progettazione iniziale fino all’allestimento completo, includendo musica, speaker, intrattenimento e supporto nella scelta della location per creare una festa indimenticabile.",
+    bullets: ["Allestimenti personalizzati", "Musica e speaker", "Supporto nella scelta della location", "Organizzazione completa dell’evento"],
+    cta: "Scopri Feste di 18 Anni",
+    icon: Star,
+    theme: "violet",
+    borderColor: "hover:border-violet-400",
+    iconColor: "text-violet-600",
+    bgIcon: "bg-violet-100",
+    btnColor: "bg-violet-600 hover:bg-violet-700",
+  },
+  {
+    title: "Battesimi",
+    href: "/battesimi",
+    description: "Allestimenti eleganti e delicati per celebrare il battesimo con scenografie curate, decorazioni personalizzate e dettagli che rendono l’evento speciale.",
+    bullets: ["Allestimenti eleganti", "Decorazioni personalizzate", "Tavoli e scenografie coordinate", "Dettagli curati per l’evento"],
+    cta: "Scopri Battesimi",
+    icon: Heart,
+    theme: "teal",
+    borderColor: "hover:border-teal-400",
+    iconColor: "text-teal-600",
+    bgIcon: "bg-teal-100",
+    btnColor: "bg-teal-600 hover:bg-teal-700",
   },
 ] as const;
 

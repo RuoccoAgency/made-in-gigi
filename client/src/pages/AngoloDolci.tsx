@@ -9,7 +9,7 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-export default function CandyWallPage() {
+export default function AngoloDolciPage() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
@@ -40,7 +40,7 @@ export default function CandyWallPage() {
                             </a>
                         </Link>
                         <h1 className="text-6xl md:text-8xl font-display font-black text-slate-900 tracking-tighter leading-[0.9] uppercase">
-                            Candy <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-fuchsia-600">Wall</span>
+                            Angolo per <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-fuchsia-600">Dolci</span>
                         </h1>
                         <p className="mt-8 text-2xl text-slate-700 leading-relaxed max-w-2xl mx-auto font-bold tracking-tight">
                             Un angolo scenografico e goloso per arricchire il tuo evento con dolcezza, colore e intrattenimento visivo.
@@ -54,12 +54,11 @@ export default function CandyWallPage() {
                 </section>
 
                 <section className="container mx-auto px-4 mt-32">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { icon: Candy, title: "Candy wall", desc: "Una parete di caramelle mozzafiato, perfetta per foto e golosi." },
+                            { icon: Candy, title: "Angolo per Dolci", desc: "Una parete di caramelle mozzafiato, perfetta per foto e golosi." },
                             { icon: Star, title: "Zucchero filato", desc: "La magia classica delle nuvole dolci appena fatte." },
                             { icon: IceCream, title: "Fontana di cioccolato", desc: "Fiumi di cioccolato belga per tuffare frutta e biscotti." },
-                            { icon: Heart, title: "Profumi bar", desc: "Un'esperienza sensoriale unica con fragranze e aromi dolci." },
                         ].map((f, i) => (
                             <Card key={i} className="bg-white border-none shadow-xl shadow-rose-900/5 hover:shadow-rose-900/10 transition-all group overflow-hidden rounded-[2.5rem]">
                                 <CardContent className="p-10 text-center flex flex-col items-center">

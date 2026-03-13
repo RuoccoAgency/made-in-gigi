@@ -18,9 +18,11 @@ const servicePages = [
   { name: "Compleanni", href: "/compleanni" },
   { name: "Prima Comunione", href: "/prima-comunione" },
   { name: "Laboratori", href: "/laboratori" },
-  { name: "Candy Wall", href: "/candy-wall" },
+  { name: "Angolo per Dolci", href: "/angolo-dolci" },
   { name: "Gender Reveal", href: "/gender-reveal" },
   { name: "Spettacoli", href: "/spettacoli" },
+  { name: "Feste di 18 Anni", href: "/feste-18-anni" },
+  { name: "Battesimi", href: "/battesimi" },
 ];
 
 export function Navbar() {

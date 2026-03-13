@@ -62,7 +62,7 @@ export default function CompleanniPage() {
               Feste di <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Compleanno</span> <br/>Indimenticabili
             </h1>
             <p className="mt-8 text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto">
-              Dalla festa dei bimbi scatenata all’evento elegante per i 18, 30, 40 o 50 anni. Colori, divertimento e allestimenti che lasciano il segno!
+              Dalla festa dei bimbi scatenata agli eventi per adulti. Colori, divertimento e allestimenti che lasciano il segno!
             </p>
             <div className="mt-10">
               <Button onClick={scrollToForm} size="lg" className="bg-pink-600 hover:bg-pink-700 text-white shadow-xl shadow-pink-500/20 font-bold px-10 h-16 text-xl rounded-full hover:scale-105 transition-transform">
