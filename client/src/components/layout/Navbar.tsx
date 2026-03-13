@@ -17,69 +17,64 @@ import logo from "@assets/image_1768325229427.png";
 
 const NAV_SERVICES = [
   {
-    title: "Matrimoni",
+    category: "Matrimoni",
     icon: Sparkles,
-    href: "/allestimenti",
     items: [
-      { name: "Musica in chiesa", href: "/musica-in-chiesa" },
-      { name: "Musica in sala", href: "/musica-in-sala" },
-      { name: "Casinò tavoli da gioco", href: "/casino-tavoli-gioco" },
-      { name: "Effetti speciali", href: "/effetti-speciali" },
-      { name: "Illuminazione", href: "/illuminazione" },
-      { name: "Spettacoli e intrattenimento", href: "/spettacoli" },
+      { name: "Musica in chiesa", href: "/servizi/musica-in-chiesa" },
+      { name: "Musica in sala", href: "/servizi/musica-in-sala" },
+      { name: "Casinò tavoli da gioco", href: "/servizi/casino-tavoli-gioco" },
+      { name: "Effetti speciali", href: "/servizi/effetti-speciali" },
+      { name: "Illuminazione", href: "/servizi/illuminazione" },
+      { name: "Spettacoli e intrattenimento", href: "/servizi/spettacoli-intrattenimento" },
     ],
   },
   {
-    title: "Effetti Speciali",
+    category: "Effetti Speciali",
     icon: Zap,
-    href: "/effetti-speciali",
     items: [
-      { name: "Schiuma Party Cannone", href: "/schiuma-party" },
-      { name: "Nevicata Artificiale Cannone Neve", href: "/nevicata-artificiale" },
-      { name: "Spara coriandoli a CO2", href: "/spara-coriandoli" },
-      { name: "Spara fiamme", href: "/spara-fiamme" },
-      { name: "Geyser CO2 Blaster", href: "/geyser-co2" },
-      { name: "Bazooka CO2 Cannone CO2", href: "/bazooka-co2" },
-      { name: "Sparkular", href: "/sparkular" },
-      { name: "Fumo basso", href: "/fumo-basso" },
-      { name: "Fontane fredde / fuochi freddi", href: "/fontane-fredde" },
-      { name: "Cascata palloni", href: "/cascata-palloni" },
-      { name: "Laser show", href: "/laser-show" },
-      { name: "Bolle di sapone", href: "/bolle-sapone" },
-      { name: "Dance floor / pedana", href: "/dance-floor" },
+      { name: "Schiuma Party Cannone", href: "/servizi/schiuma-party" },
+      { name: "Nevicata Artificiale Cannone Neve", href: "/servizi/nevicata-artificiale" },
+      { name: "Spara coriandoli a CO2", href: "/servizi/spara-coriandoli" },
+      { name: "Spara fiamme", href: "/servizi/spara-fiamme" },
+      { name: "Geyser CO2 Blaster", href: "/servizi/geyser-co2" },
+      { name: "Bazooka CO2 Cannone CO2", href: "/servizi/bazooka-co2" },
+      { name: "Sparkular", href: "/servizi/sparkular" },
+      { name: "Fumo basso", href: "/servizi/fumo-basso" },
+      { name: "Fontane fredde / fuochi freddi", href: "/servizi/fontane-fredde" },
+      { name: "Cascata palloni", href: "/servizi/cascata-palloni" },
+      { name: "Laser show", href: "/servizi/laser-show" },
+      { name: "Bolle di sapone", href: "/servizi/bolle-sapone" },
+      { name: "Dance floor / pedana", href: "/servizi/dance-floor" },
     ],
   },
   {
-    title: "Gonfiabili",
+    category: "Gonfiabili",
     icon: PartyPopper,
-    href: "/laboratori",
     items: [
-      { name: "Gonfiabili", href: "/gonfiabili" },
+      { name: "Gonfiabili", href: "/servizi/gonfiabili" },
     ],
   },
   {
-    title: "Service",
+    category: "Service",
     icon: Music,
-    href: "/spettacoli",
     items: [
-      { name: "Attrezzature per DJ / Consolle", href: "/attrezzature-dj" },
-      { name: "Impianti audio", href: "/impianti-audio" },
-      { name: "Ledwall maxischermo", href: "/ledwall" },
-      { name: "Video proiezioni", href: "/video-proiezioni" },
-      { name: "Pedane palchi passerelle", href: "/pedane-palchi" },
-      { name: "Illuminazione", href: "/illuminazione" },
-      { name: "Dance floor / pedana", href: "/dance-floor" },
+      { name: "Attrezzature per DJ / Consolle", href: "/servizi/attrezzature-dj" },
+      { name: "Impianti audio", href: "/servizi/impianti-audio" },
+      { name: "Ledwall maxischermo", href: "/servizi/ledwall" },
+      { name: "Video proiezioni", href: "/servizi/video-proiezioni" },
+      { name: "Pedane palchi passerelle", href: "/servizi/pedane-palchi" },
+      { name: "Illuminazione", href: "/servizi/service-illuminazione" },
+      { name: "Dance floor / pedana", href: "/servizi/service-dance-floor" },
     ],
   },
   {
-    title: "Comunicazione",
+    category: "Comunicazione",
     icon: Megaphone,
-    href: "/comunicazione",
     items: [
-      { name: "Volantinaggio", href: "/volantinaggio" },
-      { name: "Campagne pubblicitarie", href: "/campagne-pubblicitarie" },
-      { name: "Servizio hostess", href: "/servizio-hostess" },
-      { name: "Roller girls", href: "/roller-girls" },
+      { name: "Volantinaggio", href: "/servizi/volantinaggio" },
+      { name: "Campagne pubblicitarie", href: "/servizi/campagne-pubblicitarie" },
+      { name: "Servizio hostess", href: "/servizi/servizio-hostess" },
+      { name: "Roller girls", href: "/servizi/roller-girls" },
     ],
   },
 ];
@@ -150,44 +145,54 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-1">
           <NavigationMenu>
             <NavigationMenuList className="gap-1">
-              {NAV_SERVICES.map((category) => (
-                <NavigationMenuItem key={category.title}>
-                  <NavigationMenuTrigger
-                    className={cn(
-                      "bg-transparent hover:bg-white/10 text-sm font-semibold uppercase tracking-wider transition-all duration-300 h-10 px-4",
-                      isScrolled ? "text-slate-700 hover:text-secondary" : "text-white hover:text-white"
-                    )}
-                  >
-                    {category.title}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="w-[450px] p-6 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-100 ring-1 ring-slate-900/5 transition-all duration-300 animate-in fade-in zoom-in-95">
-                      <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-50">
-                        <div className="p-2 bg-secondary/10 rounded-lg">
-                          <category.icon className="w-5 h-5 text-secondary" />
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    "bg-transparent hover:bg-white/10 text-sm font-semibold uppercase tracking-wider transition-all duration-300 h-10 px-4 group",
+                    isScrolled ? "text-slate-700 hover:text-secondary" : "text-white hover:text-white"
+                  )}
+                >
+                  Servizi
+                  <ChevronDown className="ml-1 w-4 h-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-[1100px] p-10 bg-white/98 backdrop-blur-md rounded-[2.5rem] shadow-2xl border border-slate-100 ring-1 ring-slate-900/5 transition-all duration-500 animate-in fade-in zoom-in-95">
+                    <div className="grid grid-cols-5 gap-10">
+                      {NAV_SERVICES.map((cat) => (
+                        <div key={cat.category} className="space-y-4">
+                          <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
+                            <div className="p-1.5 bg-secondary/10 rounded-lg">
+                              <cat.icon className="w-4 h-4 text-secondary" />
+                            </div>
+                            <span className="font-display font-bold text-slate-900 uppercase tracking-widest text-[10px]">
+                              {cat.category}
+                            </span>
+                          </div>
+                          <ul className="space-y-1">
+                            {cat.items.map((item) => (
+                              <li key={item.name}>
+                                <NavigationMenuLink asChild>
+                                  <Link
+                                    href={item.href}
+                                    className="block p-1 text-[13px] font-medium text-slate-500 hover:text-secondary transition-colors"
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </NavigationMenuLink>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                        <span className="font-display font-bold text-slate-900 uppercase tracking-widest text-xs">
-                          {category.title}
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                        {category.items.map((item) => (
-                          <NavigationMenuLink asChild key={item.name}>
-                            <Link
-                              href={item.href}
-                              className="group block p-2 rounded-lg hover:bg-secondary/5 transition-colors"
-                            >
-                              <span className="text-sm font-medium text-slate-600 group-hover:text-secondary transition-colors">
-                                {item.name}
-                              </span>
-                            </Link>
-                          </NavigationMenuLink>
-                        ))}
-                      </div>
+                      ))}
                     </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              ))}
+                    {/* Footnote or CTA inside Mega Menu */}
+                    <div className="mt-8 pt-6 border-t border-slate-50 flex items-center justify-between">
+                       <p className="text-[10px] text-slate-400 font-medium uppercase tracking-[0.2em]">Scegli l'eccellenza per il tuo evento</p>
+                       <Link href="/gallery" className="text-xs font-bold text-secondary hover:underline underline-offset-4">Vedi tutte le foto →</Link>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -246,9 +251,9 @@ export function Navbar() {
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full sm:w-[400px] border-l-0 p-0">
+            <SheetContent side="right" className="w-full sm:w-[400px] border-l-0 p-0 overflow-y-auto">
               <div className="flex flex-col h-full bg-white">
-                <div className="p-6 border-b border-slate-50 flex items-center justify-between">
+                <div className="p-6 border-b border-slate-50 flex items-center justify-between sticky top-0 bg-white z-10">
                   <div className="flex items-center gap-2">
                     <img src={logo} alt="MadeinGigi" className="h-10 w-auto" />
                     <span className="font-display font-bold text-xl text-slate-900 tracking-tighter">
@@ -257,30 +262,37 @@ export function Navbar() {
                   </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto p-6">
+                <div className="flex-1 p-6">
                   <Accordion type="single" collapsible className="w-full space-y-2">
-                    {NAV_SERVICES.map((category) => (
-                      <AccordionItem key={category.title} value={category.title} className="border-none">
-                        <AccordionTrigger className="hover:no-underline py-4 px-4 rounded-xl hover:bg-slate-50 transition-all font-display font-bold text-lg text-slate-800 uppercase tracking-tight">
-                          <div className="flex items-center gap-4">
-                            <category.icon className="w-5 h-5 text-secondary" />
-                            {category.title}
+                    <AccordionItem value="servizi" className="border-none">
+                      <AccordionTrigger className="hover:no-underline py-4 px-4 rounded-xl hover:bg-slate-50 transition-all font-display font-bold text-lg text-slate-800 uppercase tracking-tight">
+                        <div className="flex items-center gap-4">
+                          <LayoutGrid className="w-5 h-5 text-secondary" />
+                          Servizi
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-2 pb-4 px-4 space-y-6">
+                        {NAV_SERVICES.map((category) => (
+                          <div key={category.category} className="space-y-3">
+                            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 border-l-2 border-secondary/20 pl-3">
+                              {category.category}
+                            </div>
+                            <div className="grid grid-cols-1 gap-1 pl-3">
+                              {category.items.map((item) => (
+                                <Link key={item.name} href={item.href}>
+                                  <a
+                                    onClick={() => setIsOpen(false)}
+                                    className="block py-2 text-slate-600 hover:text-secondary font-medium transition-colors"
+                                  >
+                                    {item.name}
+                                  </a>
+                                </Link>
+                              ))}
+                            </div>
                           </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-2 pb-4 px-4 space-y-1">
-                          {category.items.map((item) => (
-                            <Link key={item.name} href={item.href}>
-                              <a
-                                onClick={() => setIsOpen(false)}
-                                className="block py-3 px-8 text-slate-600 hover:text-secondary font-medium transition-colors border-l-2 border-transparent hover:border-secondary"
-                              >
-                                {item.name}
-                              </a>
-                            </Link>
-                          ))}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
+                        ))}
+                      </AccordionContent>
+                    </AccordionItem>
                   </Accordion>
 
                   <div className="mt-8 pt-8 border-t border-slate-100 flex flex-col gap-4">
@@ -303,7 +315,7 @@ export function Navbar() {
                   </div>
                 </div>
 
-                <div className="p-6 bg-slate-50/50">
+                <div className="p-6 bg-slate-50/50 mt-auto">
                   <Button
                     className="w-full bg-secondary hover:bg-secondary/90 text-white h-16 rounded-2xl font-black text-lg shadow-xl shadow-secondary/10"
                     onClick={() => {

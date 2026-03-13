@@ -14,6 +14,7 @@ import GenderRevealPage from "@/pages/GenderReveal";
 import ArtistiSpettacoliPage from "@/pages/ArtistiSpettacoli";
 import Feste18AnniPage from "@/pages/Feste18Anni";
 import BattesimiPage from "@/pages/Battesimi";
+import ServiceDetailPage from "@/pages/ServiceDetailPage";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/spettacoli" component={ArtistiSpettacoliPage} />
       <Route path="/feste-18-anni" component={Feste18AnniPage} />
       <Route path="/battesimi" component={BattesimiPage} />
+      <Route path="/servizi/:slug" component={ServiceDetailPage} />
       <Route component={NotFound} />
     </Switch>
   );
