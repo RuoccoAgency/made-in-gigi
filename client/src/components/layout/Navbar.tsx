@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from "@assets/image_1768325229427.png";
 
 const NAV_SERVICES = [
@@ -86,6 +87,7 @@ const QUICK_LINKS = [
 ];
 
 export function Navbar() {
+  const [activeCategory, setActiveCategory] = useState(NAV_SERVICES[0].category);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
@@ -156,39 +158,73 @@ export function Navbar() {
                   <ChevronDown className="ml-1 w-4 h-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[1100px] p-10 bg-white/98 backdrop-blur-md rounded-[2.5rem] shadow-2xl border border-slate-100 ring-1 ring-slate-900/5 transition-all duration-500 animate-in fade-in zoom-in-95">
-                    <div className="grid grid-cols-5 gap-10">
+                  <div className="w-[650px] h-[500px] flex overflow-hidden bg-white/98 backdrop-blur-md rounded-[2rem] shadow-2xl border border-slate-100 ring-1 ring-slate-900/5 transition-all duration-500 animate-in fade-in zoom-in-95">
+                    {/* Left Panel: Categories */}
+                    <div className="w-[240px] bg-slate-50/50 border-r border-slate-100/50 p-4 flex flex-col gap-1 overflow-y-auto">
+                      <div className="px-4 py-2 mb-2">
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Categorie</span>
+                      </div>
                       {NAV_SERVICES.map((cat) => (
-                        <div key={cat.category} className="space-y-4">
-                          <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
-                            <div className="p-1.5 bg-secondary/10 rounded-lg">
-                              <cat.icon className="w-4 h-4 text-secondary" />
-                            </div>
-                            <span className="font-display font-bold text-slate-900 uppercase tracking-widest text-[10px]">
-                              {cat.category}
-                            </span>
+                        <button
+                          key={cat.category}
+                          onMouseEnter={() => setActiveCategory(cat.category)}
+                          className={cn(
+                            "group/item w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300 text-left shrink-0",
+                            activeCategory === cat.category 
+                              ? "bg-white text-secondary shadow-md shadow-slate-200/50 ring-1 ring-slate-900/5 font-bold translate-x-1" 
+                              : "text-slate-600 hover:bg-white/60 hover:text-slate-900"
+                          )}
+                        >
+                          <div className="flex items-center gap-3">
+                            <cat.icon className={cn("w-4 h-4 transition-colors", activeCategory === cat.category ? "text-secondary" : "text-slate-400 group-hover/item:text-secondary")} />
+                            <span className="text-[11px] uppercase tracking-wider">{cat.category}</span>
                           </div>
-                          <ul className="space-y-1">
-                            {cat.items.map((item) => (
-                              <li key={item.name}>
-                                <NavigationMenuLink asChild>
-                                  <Link
-                                    href={item.href}
-                                    className="block p-1 text-[13px] font-medium text-slate-500 hover:text-secondary transition-colors"
-                                  >
-                                    {item.name}
-                                  </Link>
-                                </NavigationMenuLink>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                          {activeCategory === cat.category && (
+                            <motion.div layoutId="active-indicator" className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          )}
+                        </button>
                       ))}
                     </div>
-                    {/* Footnote or CTA inside Mega Menu */}
-                    <div className="mt-8 pt-6 border-t border-slate-50 flex items-center justify-between">
-                       <p className="text-[10px] text-slate-400 font-medium uppercase tracking-[0.2em]">Scegli l'eccellenza per il tuo evento</p>
-                       <Link href="/gallery" className="text-xs font-bold text-secondary hover:underline underline-offset-4">Vedi tutte le foto →</Link>
+
+                    {/* Right Panel: Subcategories */}
+                    <div className="flex-1 p-8 bg-white/50 overflow-y-auto">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeCategory}
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="space-y-6"
+                        >
+                          <div className="flex items-center gap-3 pb-4 border-b border-slate-50">
+                             <div className="h-8 w-8 rounded-lg bg-secondary/10 flex items-center justify-center">
+                                {NAV_SERVICES.find(c => c.category === activeCategory)?.icon && (() => {
+                                  const Icon = NAV_SERVICES.find(c => c.category === activeCategory)!.icon;
+                                  return <Icon className="w-4 h-4 text-secondary" />;
+                                })()}
+                             </div>
+                             <h3 className="font-display font-bold text-slate-900 uppercase tracking-widest text-xs">
+                               {activeCategory}
+                             </h3>
+                          </div>
+                          
+                          <div className="grid grid-cols-1 gap-x-6 gap-y-1">
+                            {NAV_SERVICES.find(c => c.category === activeCategory)?.items.map((item) => (
+                              <NavigationMenuLink asChild key={item.name}>
+                                <Link
+                                  href={item.href}
+                                  className="group block p-2 rounded-lg hover:bg-secondary/5 transition-all hover:translate-x-1"
+                                >
+                                  <span className="text-sm font-medium text-slate-500 group-hover:text-secondary transition-colors">
+                                    {item.name}
+                                  </span>
+                                </Link>
+                              </NavigationMenuLink>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </AnimatePresence>
                     </div>
                   </div>
                 </NavigationMenuContent>
@@ -271,26 +307,33 @@ export function Navbar() {
                           Servizi
                         </div>
                       </AccordionTrigger>
-                      <AccordionContent className="pt-2 pb-4 px-4 space-y-6">
-                        {NAV_SERVICES.map((category) => (
-                          <div key={category.category} className="space-y-3">
-                            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 border-l-2 border-secondary/20 pl-3">
-                              {category.category}
-                            </div>
-                            <div className="grid grid-cols-1 gap-1 pl-3">
-                              {category.items.map((item) => (
-                                <Link key={item.name} href={item.href}>
-                                  <a
-                                    onClick={() => setIsOpen(false)}
-                                    className="block py-2 text-slate-600 hover:text-secondary font-medium transition-colors"
-                                  >
-                                    {item.name}
-                                  </a>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
+                      <AccordionContent className="pt-2 pb-4 px-2">
+                        <Accordion type="single" collapsible className="w-full space-y-1">
+                          {NAV_SERVICES.map((category) => (
+                            <AccordionItem key={category.category} value={category.category} className="border-none">
+                              <AccordionTrigger className="hover:no-underline py-3 px-4 rounded-xl hover:bg-slate-50 transition-all font-display font-bold text-base text-slate-700 uppercase tracking-wide">
+                                <div className="flex items-center gap-3">
+                                  <category.icon className="w-4 h-4 text-secondary/70" />
+                                  {category.category}
+                                </div>
+                              </AccordionTrigger>
+                              <AccordionContent className="pt-1 pb-2 px-4">
+                                <div className="grid grid-cols-1 gap-1 border-l-2 border-secondary/10 ml-2 pl-4">
+                                  {category.items.map((item) => (
+                                    <Link key={item.name} href={item.href}>
+                                      <a
+                                        onClick={() => setIsOpen(false)}
+                                        className="block py-2 text-sm text-slate-500 hover:text-secondary font-medium transition-colors"
+                                      >
+                                        {item.name}
+                                      </a>
+                                    </Link>
+                                  ))}
+                                </div>
+                              </AccordionContent>
+                            </AccordionItem>
+                          ))}
+                        </Accordion>
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
