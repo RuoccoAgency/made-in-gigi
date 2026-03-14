@@ -269,7 +269,7 @@ export function QuoteForm() {
                             <FormItem>
                               <FormLabel>Budget Indicativo (Opzionale)</FormLabel>
                               <FormControl>
-                                <Input placeholder="Es. 500€" {...field} />
+                                <Input placeholder="Es. Il tuo budget" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>

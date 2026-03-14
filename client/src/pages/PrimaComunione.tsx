@@ -14,7 +14,6 @@ const GALLERY_IMAGES: string[] = ["/images/foto-prima-comunione.jpeg", "/images/
 const PACKAGES = [
   {
     title: "PACCHETTO BASE",
-    price: "120 €",
     description: "2 animatori a partire da 7 bambini",
     icon: Sparkles,
     activities: [
@@ -27,7 +26,6 @@ const PACKAGES = [
   },
   {
     title: "PACCHETTO A TEMA LUNA PARK",
-    price: "400 €",
     description: "2 animatori a partire da 7 bambini",
     icon: Tent,
     activities: [
@@ -45,7 +43,6 @@ const PACKAGES = [
   },
   {
     title: "PACCHETTO BASE CON LASER GAMES",
-    price: "250 €",
     description: "2 animatori a partire da 7 bambini",
     icon: Zap,
     activities: [
@@ -62,7 +59,6 @@ const PACKAGES = [
   },
   {
     title: "PACCHETTO OLIMPIADI",
-    price: "400 €",
     description: "2 animatori",
     icon: Trophy,
     activities: [
@@ -81,7 +77,6 @@ const PACKAGES = [
   },
   {
     title: "PACCHETTO A TEMA ALICE NEL PAESE DELLE MERAVIGLIE",
-    price: "500 €",
     description: "Allestimento scenografico e animazione a tema.",
     icon: Wand2,
     includes: [
@@ -184,7 +179,6 @@ export default function PrimaComunionePage() {
                       <h3 className="text-xl font-display font-medium text-slate-900 uppercase tracking-wide leading-tight min-h-[3rem] flex items-center">
                         {pkg.title}
                       </h3>
-                      <div className="text-2xl font-light text-sky-600 mt-2">{pkg.price}</div>
                     </div>
 
                     <p className="text-sm text-slate-400 italic mb-6">
@@ -298,7 +292,6 @@ export default function PrimaComunionePage() {
                     <div>
                       <h4 className="font-display font-medium text-slate-900 uppercase tracking-wide mb-2">Un tuffo nel mondo dei dinosauri</h4>
                       <p className="text-sm text-slate-500 font-light mb-3">con laboratori, enigmi e dinosauri in carne e ossa come mascotte.</p>
-                      <div className="text-lg font-light text-sky-600">Prezzo indicativo: 600 €</div>
                     </div>
                   </div>
 
