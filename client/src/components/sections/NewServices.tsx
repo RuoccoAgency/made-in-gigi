@@ -18,6 +18,7 @@ const SERVICES = [
     iconColor: "text-amber-600",
     bgIcon: "bg-amber-100",
     btnColor: "bg-amber-600 hover:bg-amber-700",
+    img: "/images/allestimento battesimo/napoli/339243573_544577887713398_2491566810232230303_n.jpg",
   },
   {
     title: "Compleanni",
@@ -126,6 +127,7 @@ const SERVICES = [
     iconColor: "text-teal-600",
     bgIcon: "bg-teal-100",
     btnColor: "bg-teal-600 hover:bg-teal-700",
+    img: "/images/allestimento battesimo/150 EURO.jpg",
   },
 ] as const;
 
@@ -193,6 +195,12 @@ export function NewServices() {
                     {isDynamic && (
                       <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <Music className="w-24 h-24 text-orange-500 rotate-12" />
+                      </div>
+                    )}
+
+                    {(s as any).img && (
+                      <div className="w-full h-48 overflow-hidden mb-4 rounded-t-[1.5rem]">
+                        <img src={(s as any).img} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                       </div>
                     )}
 
