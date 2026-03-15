@@ -9,7 +9,7 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = ["/images/foto-prima-comunione.jpeg", "/images/foto-prima-comunione2.jpeg", "/images/foto-prima-comunione3.jpeg", "/images/foto-prima-comunione4.jpeg"];
+const GALLERY_IMAGES: string[] = [];
 
 const PACKAGES = [
   {

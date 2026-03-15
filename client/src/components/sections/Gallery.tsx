@@ -3,26 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
-// Stock images import
-import img1 from "@assets/stock_images/colorful_bouncy_cast_53c1708a.jpg";
-import img2 from "@assets/stock_images/childrens_party_ente_7e93c1ae.jpg";
-import img3 from "@assets/stock_images/elegant_balloon_arch_a2b51acc.jpg";
-import img4 from "@assets/stock_images/colorful_stage_light_534230f0.jpg";
-import img5 from "@assets/stock_images/colorful_bouncy_cast_9eb4d68f.jpg";
-import img6 from "@assets/stock_images/childrens_party_ente_e64b0463.jpg";
-import img7 from "@assets/stock_images/elegant_balloon_arch_f4b6f3ac.jpg";
-import img8 from "@assets/stock_images/colorful_stage_light_0b96c6de.jpg";
 
-const galleryItems = [
-  { id: 1, src: img1, category: "Gonfiabili", title: "Castello Colorato" },
-  { id: 2, src: img2, category: "Spettacoli", title: "Magic Show" },
-  { id: 3, src: img3, category: "Allestimenti", title: "Arco Palloncini" },
-  { id: 4, src: img4, category: "Spettacoli", title: "Luci Stage" },
-  { id: 5, src: img5, category: "Gonfiabili", title: "Scivolo Gigante" },
-  { id: 6, src: img6, category: "Spettacoli", title: "Intrattenimento" },
-  { id: 7, src: img7, category: "Allestimenti", title: "Decorazioni Eleganti" },
-  { id: 8, src: img8, category: "Allestimenti", title: "Atmosfera Party" },
-];
+
+const galleryItems: any[] = [];
 
 const categories = ["Tutto", "Gonfiabili", "Spettacoli", "Allestimenti"];
 

@@ -91,7 +91,7 @@ export default function ArtistiSpettacoliPage() {
                         </div>
 
                         <div id="preventivo" className="bg-white p-10 md:p-20 shadow-[20px_20px_0px_rgba(0,0,0,0.5)] max-w-5xl mx-auto">
-                            <QuoteForm inverted />
+                            <QuoteForm />
                         </div>
                     </div>
                 </section>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroBg from "@assets/generated_images/energetic_abstract_hero_background.png";
+
 
 export function Hero() {
   const scrollToSection = (id: string) => {
@@ -15,11 +15,7 @@ export function Hero() {
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          alt="Event Background"
-          className="w-full h-full object-cover"
-        />
+        <div className="w-full h-full bg-slate-900" />
         <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30" />
       </div>

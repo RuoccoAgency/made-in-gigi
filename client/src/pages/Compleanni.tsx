@@ -9,7 +9,7 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = ["/images/foto-compleanno.jpeg", "/images/foto-compleanno2.jpeg", "/images/foto-compleanno3.jpeg", "/images/foto-compleanno4.jpeg"];
+const GALLERY_IMAGES: string[] = [];
 
 export default function CompleanniPage() {
   useEffect(() => {

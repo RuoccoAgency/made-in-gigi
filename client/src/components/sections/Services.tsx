@@ -14,16 +14,13 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 // Import images
-import imgInflatable from "@assets/stock_images/colorful_bouncy_cast_53c1708a.jpg";
-import imgShow from "@assets/stock_images/childrens_party_ente_e64b0463.jpg";
-import imgDecor from "@assets/stock_images/elegant_balloon_arch_a2b51acc.jpg";
 
 const services = [
   {
     id: "gonfiabili",
     title: "Gonfiabili",
     description: "Castelli gonfiabili, percorsi ad ostacoli e scivoli giganti per il massimo divertimento.",
-    image: imgInflatable,
+    image: "",
     highlights: ["Assistenza inclusa", "Certificazione di sicurezza", "Varie misure disponibili", "Indoor & Outdoor"],
     details: "I nostri gonfiabili sono l'attrazione perfetta per ogni festa. Disponiamo di una vasta gamma di strutture: dai classici castelli salterini ai percorsi avventura, fino agli scivoli giganti. Tutti i nostri giochi sono certificati, puliti e sanificati prima di ogni utilizzo. Un nostro operatore sarà sempre presente per garantire la sicurezza dei bambini durante il gioco.",
   },
@@ -31,7 +28,7 @@ const services = [
     id: "spettacoli",
     title: "Spettacoli",
     description: "Show di magia, bolle giganti, cabaret e intrattenimento coinvolgente per tutte le età.",
-    image: imgShow,
+    image: "",
     highlights: ["Per bambini e adulti", "Impianto audio incluso", "Artisti professionisti", "Temi personalizzabili"],
     details: "Trasforma il tuo evento in uno show indimenticabile! Offriamo spettacoli di magia comica, show di bolle di sapone giganti, giocoleria, cabaret e intrattenimento musicale. Il nostro staff è composto da artisti professionisti capaci di adattare lo spettacolo al tipo di pubblico, che si tratti di un compleanno, una cerimonia o un evento aziendale.",
   },
@@ -39,7 +36,7 @@ const services = [
     id: "allestimenti",
     title: "Allestimenti",
     description: "Scenografie mozzafiato, balloon art e decorazioni a tema per rendere unico il tuo evento.",
-    image: imgDecor,
+    image: "",
     highlights: ["Temi su richiesta", "Balloon Art design", "Backdrop fotografici", "Sweet table"],
     details: "Creiamo l'atmosfera perfetta per il tuo giorno speciale. Dai classici archi di palloncini alle scenografie complesse con fondali personalizzati, luci e dettagli curati. Progettiamo allestimenti per compleanni a tema, battesimi eleganti, comunioni e matrimoni, curando ogni aspetto visivo per garantire un effetto 'wow' appena si entra in sala.",
   },
@@ -85,11 +82,7 @@ export function Services() {
               <Card className="overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col group">
                 <div className="relative overflow-hidden">
                   <AspectRatio ratio={4/3}>
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                    <div className="w-full h-full bg-slate-200" />
                   </AspectRatio>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
                   <div className="absolute bottom-4 left-4 text-white">
@@ -133,11 +126,7 @@ export function Services() {
           {selectedService && (
             <>
               <div className="relative h-64 w-full">
-                <img 
-                  src={selectedService.image} 
-                  alt={selectedService.title} 
-                  className="w-full h-full object-cover"
-                />
+                <div className="w-full h-full bg-slate-200" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <Button 
                   size="icon" 

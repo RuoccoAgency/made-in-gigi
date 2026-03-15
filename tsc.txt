@@ -1,0 +1,8 @@
+﻿
+> rest-express@1.0.0 check
+> tsc
+
+client/src/pages/ArtistiSpettacoli.tsx(94,40): error TS2322: Type '{ inverted: true; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'inverted' does not exist on type 'IntrinsicAttributes'.
+shared/schema.ts(17,34): error TS2344: Type 'ZodObject<{ password: ZodString; username: ZodString; }, { out: {}; in: {}; }>' does not satisfy the constraint 'ZodType<any, any, any>'.
+  Type 'ZodObject<{ password: ZodString; username: ZodString; }, { out: {}; in: {}; }>' is missing the following properties from type 'ZodType<any, any, any>': _type, _parse, _getType, _getOrReturnCtx, and 7 more.
