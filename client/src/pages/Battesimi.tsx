@@ -75,6 +75,31 @@ export default function BattesimiPage() {
                     </div>
                 </section>
 
+                {/* GALLERY SECTION */}
+                <section className="container mx-auto px-4 mt-32">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-display font-light text-slate-900 uppercase tracking-widest">Foto Battesimi</h2>
+                        <div className="w-12 h-px bg-teal-200 mx-auto mt-4 mb-6"></div>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                            "/images/allestimento battesimo/100 EURO.jpg",
+                            "/images/allestimento battesimo/150 EURO.jpg",
+                            "/images/allestimento battesimo/200 EURO.jpg",
+                            "/images/allestimento battesimo/250 EURO.jpg"
+                        ].map((src, idx) => (
+                            <button
+                                key={idx}
+                                className="group relative aspect-[4/5] overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-500"
+                                onClick={() => window.open(src, "_blank")}
+                            >
+                                <img src={src} alt="Gallery" className="h-full w-full object-cover hover:scale-105 transition-transform duration-700 opacity-90 hover:opacity-100" />
+                            </button>
+                        ))}
+                    </div>
+                </section>
+
                 <section className="mt-32 py-24 bg-gradient-to-tr from-teal-50/20 via-white to-emerald-50/20 border-y border-slate-100">
                     <div className="container mx-auto px-4">
                         <div className="max-w-2xl mx-auto text-center mb-16">

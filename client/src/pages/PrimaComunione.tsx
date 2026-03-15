@@ -9,7 +9,12 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = [];
+const GALLERY_IMAGES: string[] = [
+  "/images/allestimento battesimo/cenerentola/133036814_2874776119245844_4103192305374465438_n.jpg",
+  "/images/allestimento battesimo/allestimenti per compleanni/temi con personalizzazione/326847291_1291176211739546_515201103014120937_n.jpg",
+  "/images/allestimento battesimo/allestimenti per compleanni/IMG_20220529_104557.jpg",
+  "/images/allestimento battesimo/100 EURO.jpg"
+];
 
 const PACKAGES = [
   {

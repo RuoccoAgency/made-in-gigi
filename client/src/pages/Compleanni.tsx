@@ -9,7 +9,16 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = [];
+const GALLERY_IMAGES: string[] = [
+  "/images/allestimento battesimo/allestimenti per compleanni/1.png",
+  "/images/allestimento battesimo/allestimenti per compleanni/2.png",
+  "/images/allestimento battesimo/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.18.42.jpeg",
+  "/images/allestimento battesimo/allestimento fattoria/344432732_953835588971549_5447697047666298297_n.jpg",
+  "/images/allestimento battesimo/shimmer/FB_IMG_1597500355447.jpg",
+  "/images/allestimento battesimo/napoli/340321271_769325701460338_2339818837136006509_n.jpg",
+  "/images/allestimento battesimo/shimmer/FB_IMG_1597500358055.jpg",
+  "/images/allestimento battesimo/allestimenti per compleanni/IMG_20220529_104557.jpg"
+];
 
 export default function CompleanniPage() {
   useEffect(() => {

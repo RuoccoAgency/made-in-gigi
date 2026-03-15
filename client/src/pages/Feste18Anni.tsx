@@ -74,6 +74,30 @@ export default function Feste18AnniPage() {
                     </div>
                 </section>
 
+                {/* GALLERY SECTION */}
+                <section className="container mx-auto px-4 mt-32">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-display font-black text-slate-900 uppercase tracking-tighter">Foto 18 Anni</h2>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                            "/images/allestimento battesimo/allestimenti per adulti/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.jpg",
+                            "/images/allestimento battesimo/allestimenti per adulti/250 EURO COME FOTO.jpg",
+                            "/images/allestimento battesimo/allestimenti per adulti/COSTO 150 EURO.jpeg",
+                            "/images/allestimento battesimo/allestimenti per adulti/COSTO 300 EURO COME FOTO.jpg"
+                        ].map((src, idx) => (
+                            <button
+                                key={idx}
+                                className="group relative aspect-square overflow-hidden bg-violet-100 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-500"
+                                onClick={() => window.open(src, "_blank")}
+                            >
+                                <img src={src} alt="Gallery" className="h-full w-full object-cover hover:scale-105 transition-transform duration-700" />
+                            </button>
+                        ))}
+                    </div>
+                </section>
+
                 <section className="mt-32 py-32 bg-violet-50/50 rounded-t-[5rem]">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center mb-16">
