@@ -9,14 +9,19 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = [];
+const GALLERY_IMAGES: string[] = [
+  "/images/allestimento battesimo/cenerentola/133036814_2874776119245844_4103192305374465438_n.jpg",
+  "/images/allestimento battesimo/shimmer/FB_IMG_1597500355447.jpg",
+  "/images/allestimento battesimo/shimmer/FB_IMG_1597500358055.jpg",
+  "/images/allestimento battesimo/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.18.42.jpeg",
+  "/images/allestimento battesimo/allestimenti per compleanni/temi con personalizzazione/326847291_1291176211739546_515201103014120937_n.jpg",
+];
 
 const PACKAGES = [
   {
     title: "PACCHETTO BASE",
     description: "2 animatori a partire da 7 bambini",
     icon: Sparkles,
-    img: "/images/allestimento battesimo/cenerentola/133036814_2874776119245844_4103192305374465438_n.jpg",
     activities: [
       "Giochi dinamici (corsa col sacco, tiro alla fune ecc.)",
       "Giochi al tavolo (forza quattro, carte uno, sfide ecc.)",
@@ -29,7 +34,6 @@ const PACKAGES = [
     title: "PACCHETTO A TEMA LUNA PARK",
     description: "2 animatori a partire da 7 bambini",
     icon: Tent,
-    img: "/images/allestimento battesimo/shimmer/FB_IMG_1597500355447.jpg",
     activities: [
       "Giochi dinamici",
       "Giochi gonfiabili",
@@ -47,7 +51,6 @@ const PACKAGES = [
     title: "PACCHETTO BASE CON LASER GAMES",
     description: "2 animatori a partire da 7 bambini",
     icon: Zap,
-    img: "/images/allestimento battesimo/shimmer/FB_IMG_1597500358055.jpg",
     activities: [
       "Giochi dinamici (corsa col sacco, tiro alla fune ecc.)",
       "Giochi al tavolo (forza quattro, carte uno ecc.)",
@@ -64,7 +67,6 @@ const PACKAGES = [
     title: "PACCHETTO OLIMPIADI",
     description: "2 animatori",
     icon: Trophy,
-    img: "/images/allestimento battesimo/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.18.42.jpeg",
     activities: [
       "Ping pong",
       "Volano",
@@ -83,7 +85,6 @@ const PACKAGES = [
     title: "PACCHETTO A TEMA ALICE NEL PAESE DELLE MERAVIGLIE",
     description: "Allestimento scenografico e animazione a tema.",
     icon: Wand2,
-    img: "/images/allestimento battesimo/allestimenti per compleanni/temi con personalizzazione/326847291_1291176211739546_515201103014120937_n.jpg",
     includes: [
       "Decorazioni da sogno",
       "Mascotte pronte ad accogliere i bambini",
@@ -173,12 +174,9 @@ export default function PrimaComunionePage() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <Card className="h-full border-slate-100 hover:border-sky-100 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-500 rounded-none bg-white flex flex-col group">
+                  {/* Placeholder for images */}
                   <div className="aspect-[16/9] bg-slate-50 flex items-center justify-center relative overflow-hidden">
-                    {(pkg as any).img ? (
-                      <img src={(pkg as any).img} alt={pkg.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    ) : (
-                      <pkg.icon className="w-12 h-12 text-sky-100 group-hover:scale-110 transition-transform duration-500" />
-                    )}
+                    <pkg.icon className="w-12 h-12 text-sky-100 group-hover:scale-110 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
 

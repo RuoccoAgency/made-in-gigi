@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Heart, Sparkles, Star, Flower2 } from "lucide-react";
@@ -9,9 +9,32 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+const GALLERY_IMAGES: string[] = [
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/100 EURO.jpg",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/150 EURO.jpg",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/200 EURO.jpg",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/250 EURO.jpg",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/298176587_5602720523118043_1171489281677965741_n.jpg",
+];
+
 export default function BattesimiPage() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }, []);
+
+    const items = useMemo(() => {
+        if (GALLERY_IMAGES.length === 0) {
+            return Array.from({ length: 8 }).map((_, i) => ({
+                id: `placeholder-${i}`,
+                src: "",
+                placeholder: true
+            }));
+        }
+        return GALLERY_IMAGES.map((src, i) => ({
+            id: `img-${i}`,
+            src,
+            placeholder: false
+        }));
     }, []);
 
     const scrollToForm = () => {
@@ -57,17 +80,12 @@ export default function BattesimiPage() {
                 <section className="container mx-auto px-4 mt-32">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
                         {[
-                            { icon: Sparkles, title: "Allestimenti Eleganti", desc: "Scenografie raffinate e delicate per un'atmosfera magica.", img: "/images/allestimento battesimo/100 EURO.jpg" },
-                            { icon: Heart, title: "Decorazioni Personalizzate", desc: "Dettagli creati su misura per riflettere il tuo stile.", img: "/images/allestimento battesimo/150 EURO.jpg" },
-                            { icon: Star, title: "Tavoli Coordinati", desc: "Confettate, sweet table e allestimenti tavoli spettacolari.", img: "/images/allestimento battesimo/200 EURO.jpg" },
-                            { icon: Flower2, title: "Dettagli Curati", desc: "Ogni piccolo elemento è pensato per rendere l'evento indimenticabile.", img: "/images/allestimento battesimo/250 EURO.jpg" },
+                            { icon: Sparkles, title: "Allestimenti Eleganti", desc: "Scenografie raffinate e delicate per un'atmosfera magica." },
+                            { icon: Heart, title: "Decorazioni Personalizzate", desc: "Dettagli creati su misura per riflettere il tuo stile." },
+                            { icon: Star, title: "Tavoli Coordinati", desc: "Confettate, sweet table e allestimenti tavoli spettacolari." },
+                            { icon: Flower2, title: "Dettagli Curati", desc: "Ogni piccolo elemento è pensato per rendere l'evento indimenticabile." },
                         ].map((f, i) => (
                             <Card key={i} className="bg-white/50 backdrop-blur-sm border border-slate-100 hover:border-teal-200 shadow-sm hover:shadow-md transition-all group rounded-none overflow-hidden">
-                                {f.img && (
-                                    <div className="w-full aspect-[4/3] overflow-hidden">
-                                        <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                                    </div>
-                                )}
                                 <CardContent className="p-8 flex flex-col items-center text-center">
                                     <div className="h-16 w-16 rounded-full bg-slate-50 flex items-center justify-center mb-6 border border-white shadow-inner group-hover:bg-teal-50 transition-colors -mt-16 relative z-10">
                                         <f.icon className="h-6 w-6 text-slate-400 group-hover:text-teal-400 transition-colors" />
@@ -78,6 +96,41 @@ export default function BattesimiPage() {
                             </Card>
                         ))}
                     </div>
+                </section>
+
+                {/* GALLERY */}
+                <section className="container mx-auto px-4 mt-24">
+                  <div className="flex items-end justify-between gap-6 mb-8 border-b border-teal-100 pb-8 max-w-5xl mx-auto">
+                    <div>
+                      <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 uppercase">I Nostri Lavori</h2>
+                      <p className="mt-2 text-slate-500">Ispirazioni dai nostri ultimi eventi.</p>
+                    </div>
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto"
+                  >
+                    {items.map((it) => (
+                      <button
+                        key={it.id}
+                        className="group relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100"
+                        onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                      >
+                        {it.placeholder ? (
+                          <div className="absolute inset-0 flex items-center justify-center bg-teal-50/50">
+                            <span className="text-sm font-medium text-teal-800/50">Foto in arrivo</span>
+                          </div>
+                        ) : (
+                          <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </button>
+                    ))}
+                  </motion.div>
                 </section>
 
 

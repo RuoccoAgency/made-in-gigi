@@ -9,7 +9,11 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = [];
+const GALLERY_IMAGES: string[] = [
+  "/images/allestimento battesimo/allestimenti per compleanni/1.png",
+  "/images/allestimento battesimo/allestimenti per compleanni/2.png",
+  "/images/allestimento battesimo/allestimenti per compleanni/IMG_20220529_104557.jpg"
+];
 
 export default function CompleanniPage() {
   useEffect(() => {
@@ -82,18 +86,13 @@ export default function CompleanniPage() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {[
-              { icon: Gift, title: "Pacchetti All-in-One", desc: "Pensiamo a tutto noi: allestimento, torta e gadget.", color: "text-purple-500", bg: "bg-purple-100", img: "/images/allestimento battesimo/allestimenti per compleanni/1.png" },
-              { icon: Smile, title: "Animazione Top", desc: "Giochi, musica e intrattenimento per non annoiarsi mai.", color: "text-pink-500", bg: "bg-pink-100", img: "/images/allestimento battesimo/allestimenti per compleanni/2.png" },
-              { icon: Star, title: "Effetto WOW", desc: "Palloncini organici, neon led e scritte personalizzate.", color: "text-yellow-500", bg: "bg-yellow-100", img: "/images/allestimento battesimo/allestimenti per compleanni/IMG_20220529_104557.jpg" },
+              { icon: Gift, title: "Pacchetti All-in-One", desc: "Pensiamo a tutto noi: allestimento, torta e gadget.", color: "text-purple-500", bg: "bg-purple-100" },
+              { icon: Smile, title: "Animazione Top", desc: "Giochi, musica e intrattenimento per non annoiarsi mai.", color: "text-pink-500", bg: "bg-pink-100" },
+              { icon: Star, title: "Effetto WOW", desc: "Palloncini organici, neon led e scritte personalizzate.", color: "text-yellow-500", bg: "bg-yellow-100" },
             ].map((f, i) => (
               <Card key={i} className="bg-white border-2 border-transparent hover:border-pink-200 shadow-sm hover:shadow-xl transition-all group overflow-hidden">
-                {f.img && (
-                  <div className="w-full h-48 overflow-hidden">
-                    <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                )}
                 <CardContent className="p-8 text-center">
-                  <div className={`h-16 w-16 rounded-full ${f.bg} flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 relative -mt-12 border-4 border-white`}>
+                  <div className={`h-16 w-16 rounded-full ${f.bg} flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}>
                     <f.icon className={`h-8 w-8 ${f.color}`} />
                   </div>
                   <div className="font-display font-bold text-xl mb-3 text-slate-900" data-testid={`text-feature-title-${i}`}>{f.title}</div>

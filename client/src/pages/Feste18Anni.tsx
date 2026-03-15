@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Star, Music, Mic, MapPin, Check, Sparkles } from "lucide-react";
@@ -9,9 +9,31 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+const GALLERY_IMAGES: string[] = [
+  "/images/allestimento battesimo/allestimenti per adulti/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.jpg",
+  "/images/allestimento battesimo/allestimenti per adulti/250 EURO COME FOTO.jpg",
+  "/images/allestimento battesimo/allestimenti per adulti/COSTO 150 EURO.jpeg",
+  "/images/allestimento battesimo/allestimenti per adulti/COSTO 300 EURO COME FOTO.jpg",
+];
+
 export default function Feste18AnniPage() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }, []);
+
+    const items = useMemo(() => {
+        if (GALLERY_IMAGES.length === 0) {
+            return Array.from({ length: 8 }).map((_, i) => ({
+                id: `placeholder-${i}`,
+                src: "",
+                placeholder: true
+            }));
+        }
+        return GALLERY_IMAGES.map((src, i) => ({
+            id: `img-${i}`,
+            src,
+            placeholder: false
+        }));
     }, []);
 
     const scrollToForm = () => {
@@ -56,19 +78,14 @@ export default function Feste18AnniPage() {
                 <section className="container mx-auto px-4 mt-32">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { icon: Sparkles, title: "Allestimenti", desc: "Decorazioni personalizzate e scenografie mozzafiato per il tuo tema.", img: "/images/allestimento battesimo/allestimenti per adulti/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.jpg" },
-                            { icon: Music, title: "Musica e Speaker", desc: "I migliori DJ e speaker per animare la tua serata con energia.", img: "/images/allestimento battesimo/allestimenti per adulti/250 EURO COME FOTO.jpg" },
-                            { icon: MapPin, title: "Location", desc: "Supporto professionale nella scelta della location perfetta.", img: "/images/allestimento battesimo/allestimenti per adulti/COSTO 150 EURO.jpeg" },
-                            { icon: Star, title: "Organizzazione", desc: "Gestione completa di ogni dettaglio, dall'inizio alla fine.", img: "/images/allestimento battesimo/allestimenti per adulti/COSTO 300 EURO COME FOTO.jpg" },
+                            { icon: Sparkles, title: "Allestimenti", desc: "Decorazioni personalizzate e scenografie mozzafiato per il tuo tema." },
+                            { icon: Music, title: "Musica e Speaker", desc: "I migliori DJ e speaker per animare la tua serata con energia." },
+                            { icon: MapPin, title: "Location", desc: "Supporto professionale nella scelta della location perfetta." },
+                            { icon: Star, title: "Organizzazione", desc: "Gestione completa di ogni dettaglio, dall'inizio alla fine." },
                         ].map((f, i) => (
-                            <Card key={i} className="bg-white border-none shadow-xl shadow-violet-900/5 hover:shadow-violet-900/10 transition-all group overflow-hidden rounded-[2.5rem] relative">
-                                {f.img && (
-                                    <div className="w-full aspect-[4/3] overflow-hidden">
-                                        <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                                    </div>
-                                )}
-                                <CardContent className="p-8 text-center flex flex-col items-center">
-                                    <div className="h-20 w-20 rounded-full bg-gradient-to-br from-violet-50 to-violet-100/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative -mt-14 border-4 border-white">
+                            <Card key={i} className="bg-white border-none shadow-xl shadow-violet-900/5 hover:shadow-violet-900/10 transition-all group overflow-hidden rounded-[2.5rem]">
+                                <CardContent className="p-10 text-center flex flex-col items-center">
+                                    <div className="h-20 w-20 rounded-[2.5rem] bg-gradient-to-br from-violet-50 to-violet-100/50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
                                         <f.icon className="h-10 w-10 text-violet-500 animate-bounce-slow" />
                                     </div>
                                     <h3 className="font-display font-black text-2xl mb-4 text-slate-900 uppercase tracking-tighter">{f.title}</h3>
@@ -77,6 +94,37 @@ export default function Feste18AnniPage() {
                             </Card>
                         ))}
                     </div>
+                </section>
+
+                {/* GALLERY */}
+                <section className="container mx-auto px-4 mt-24">
+                  <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-5xl font-display font-black text-slate-900 uppercase tracking-tighter">I Nostri Party</h2>
+                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-4"
+                  >
+                    {items.map((it) => (
+                      <button
+                        key={it.id}
+                        className="group relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100"
+                        onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                      >
+                        {it.placeholder ? (
+                          <div className="absolute inset-0 flex items-center justify-center bg-violet-50/50">
+                            <span className="text-sm font-medium text-violet-800/50">Foto in arrivo</span>
+                          </div>
+                        ) : (
+                          <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </button>
+                    ))}
+                  </motion.div>
                 </section>
 
 

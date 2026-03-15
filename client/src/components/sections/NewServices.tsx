@@ -198,12 +198,6 @@ export function NewServices() {
                       </div>
                     )}
 
-                    {(s as any).img && (
-                      <div className="w-full h-48 overflow-hidden mb-4 rounded-t-[1.5rem]">
-                        <img src={(s as any).img} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      </div>
-                    )}
-
                     <CardContent className="p-8 relative z-10 text-pretty">
                       <div className={cn(
                         "flex items-start justify-between gap-4 mb-8",
