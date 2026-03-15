@@ -80,11 +80,16 @@ export default function AllestimentiPage() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {[
-              { icon: Palette, title: "Moodboard Design", desc: "Studio della palette colori e dello stile" },
-              { icon: Crown, title: "Finiture Premium", desc: "Materiali di alta qualità e dettagli oro" },
-              { icon: Camera, title: "Scenografie", desc: "Backdrop d'impatto per foto perfette" },
+              { icon: Palette, title: "Moodboard Design", desc: "Studio della palette colori e dello stile", img: "/images/allestimento battesimo/napoli/339243573_544577887713398_2491566810232230303_n.jpg" },
+              { icon: Crown, title: "Finiture Premium", desc: "Materiali di alta qualità e dettagli oro", img: "/images/allestimento battesimo/allestimenti per adulti/250 EURO COME FOTO.jpg" },
+              { icon: Camera, title: "Scenografie", desc: "Backdrop d'impatto per foto perfette", img: "/images/allestimento battesimo/shimmer/FB_IMG_1597500351347.jpg" },
             ].map((f, i) => (
-              <Card key={i} className="bg-white/50 backdrop-blur border border-amber-100/50 hover:border-amber-200 shadow-sm hover:shadow-md transition-all group">
+              <Card key={i} className="bg-white/50 backdrop-blur border border-amber-100/50 hover:border-amber-200 shadow-sm hover:shadow-md transition-all group overflow-hidden">
+                {f.img && (
+                  <div className="w-full h-48 overflow-hidden rounded-t-xl">
+                    <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  </div>
+                )}
                 <CardContent className="p-8">
                   <div className="h-12 w-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-6 group-hover:bg-amber-100 transition-colors">
                     <f.icon className="h-6 w-6 text-amber-600" />

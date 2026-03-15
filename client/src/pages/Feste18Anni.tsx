@@ -56,14 +56,19 @@ export default function Feste18AnniPage() {
                 <section className="container mx-auto px-4 mt-32">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { icon: Sparkles, title: "Allestimenti", desc: "Decorazioni personalizzate e scenografie mozzafiato per il tuo tema." },
-                            { icon: Music, title: "Musica e Speaker", desc: "I migliori DJ e speaker per animare la tua serata con energia." },
-                            { icon: MapPin, title: "Location", desc: "Supporto professionale nella scelta della location perfetta." },
-                            { icon: Star, title: "Organizzazione", desc: "Gestione completa di ogni dettaglio, dall'inizio alla fine." },
+                            { icon: Sparkles, title: "Allestimenti", desc: "Decorazioni personalizzate e scenografie mozzafiato per il tuo tema.", img: "/images/allestimento battesimo/allestimenti per adulti/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.jpg" },
+                            { icon: Music, title: "Musica e Speaker", desc: "I migliori DJ e speaker per animare la tua serata con energia.", img: "/images/allestimento battesimo/allestimenti per adulti/250 EURO COME FOTO.jpg" },
+                            { icon: MapPin, title: "Location", desc: "Supporto professionale nella scelta della location perfetta.", img: "/images/allestimento battesimo/allestimenti per adulti/COSTO 150 EURO.jpeg" },
+                            { icon: Star, title: "Organizzazione", desc: "Gestione completa di ogni dettaglio, dall'inizio alla fine.", img: "/images/allestimento battesimo/allestimenti per adulti/COSTO 300 EURO COME FOTO.jpg" },
                         ].map((f, i) => (
-                            <Card key={i} className="bg-white border-none shadow-xl shadow-violet-900/5 hover:shadow-violet-900/10 transition-all group overflow-hidden rounded-[2.5rem]">
-                                <CardContent className="p-10 text-center flex flex-col items-center">
-                                    <div className="h-20 w-20 rounded-[2.5rem] bg-gradient-to-br from-violet-50 to-violet-100/50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                            <Card key={i} className="bg-white border-none shadow-xl shadow-violet-900/5 hover:shadow-violet-900/10 transition-all group overflow-hidden rounded-[2.5rem] relative">
+                                {f.img && (
+                                    <div className="w-full aspect-[4/3] overflow-hidden">
+                                        <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                    </div>
+                                )}
+                                <CardContent className="p-8 text-center flex flex-col items-center">
+                                    <div className="h-20 w-20 rounded-full bg-gradient-to-br from-violet-50 to-violet-100/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative -mt-14 border-4 border-white">
                                         <f.icon className="h-10 w-10 text-violet-500 animate-bounce-slow" />
                                     </div>
                                     <h3 className="font-display font-black text-2xl mb-4 text-slate-900 uppercase tracking-tighter">{f.title}</h3>

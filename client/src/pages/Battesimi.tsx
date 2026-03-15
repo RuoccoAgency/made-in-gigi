@@ -57,14 +57,19 @@ export default function BattesimiPage() {
                 <section className="container mx-auto px-4 mt-32">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
                         {[
-                            { icon: Sparkles, title: "Allestimenti Eleganti", desc: "Scenografie raffinate e delicate per un'atmosfera magica." },
-                            { icon: Heart, title: "Decorazioni Personalizzate", desc: "Dettagli creati su misura per riflettere il tuo stile." },
-                            { icon: Star, title: "Tavoli Coordinati", desc: "Confettate, sweet table e allestimenti tavoli spettacolari." },
-                            { icon: Flower2, title: "Dettagli Curati", desc: "Ogni piccolo elemento è pensato per rendere l'evento indimenticabile." },
+                            { icon: Sparkles, title: "Allestimenti Eleganti", desc: "Scenografie raffinate e delicate per un'atmosfera magica.", img: "/images/allestimento battesimo/100 EURO.jpg" },
+                            { icon: Heart, title: "Decorazioni Personalizzate", desc: "Dettagli creati su misura per riflettere il tuo stile.", img: "/images/allestimento battesimo/150 EURO.jpg" },
+                            { icon: Star, title: "Tavoli Coordinati", desc: "Confettate, sweet table e allestimenti tavoli spettacolari.", img: "/images/allestimento battesimo/200 EURO.jpg" },
+                            { icon: Flower2, title: "Dettagli Curati", desc: "Ogni piccolo elemento è pensato per rendere l'evento indimenticabile.", img: "/images/allestimento battesimo/250 EURO.jpg" },
                         ].map((f, i) => (
-                            <Card key={i} className="bg-white/50 backdrop-blur-sm border border-slate-100 hover:border-teal-200 shadow-sm hover:shadow-md transition-all group rounded-none">
-                                <CardContent className="p-10 flex flex-col items-center text-center">
-                                    <div className="h-16 w-16 rounded-full bg-slate-50 flex items-center justify-center mb-8 border border-white shadow-inner group-hover:bg-teal-50 transition-colors">
+                            <Card key={i} className="bg-white/50 backdrop-blur-sm border border-slate-100 hover:border-teal-200 shadow-sm hover:shadow-md transition-all group rounded-none overflow-hidden">
+                                {f.img && (
+                                    <div className="w-full aspect-[4/3] overflow-hidden">
+                                        <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                    </div>
+                                )}
+                                <CardContent className="p-8 flex flex-col items-center text-center">
+                                    <div className="h-16 w-16 rounded-full bg-slate-50 flex items-center justify-center mb-6 border border-white shadow-inner group-hover:bg-teal-50 transition-colors -mt-16 relative z-10">
                                         <f.icon className="h-6 w-6 text-slate-400 group-hover:text-teal-400 transition-colors" />
                                     </div>
                                     <h3 className="font-display font-medium text-lg mb-4 text-slate-900 uppercase tracking-widest">{f.title}</h3>
