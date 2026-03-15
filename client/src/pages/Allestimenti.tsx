@@ -9,16 +9,7 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = [
-  "/images/allestimento battesimo/allestimenti per adulti/250 EURO COME FOTO.jpg",
-  "/images/allestimento battesimo/allestimenti per compleanni/1.png",
-  "/images/allestimento battesimo/150 EURO.jpg",
-  "/images/allestimento battesimo/shimmer/FB_IMG_1597500351347.jpg",
-  "/images/allestimento battesimo/allestimenti per compleanni/temi con personalizzazione/326847291_1291176211739546_515201103014120937_n.jpg",
-  "/images/allestimento battesimo/allestimento fattoria/344121693_178520398467788_4580613387175050030_n.jpg",
-  "/images/allestimento battesimo/cenerentola/132890507_2874776102579179_1377889311497262485_n.jpg",
-  "/images/allestimento battesimo/napoli/339243573_544577887713398_2491566810232230303_n.jpg"
-];
+const GALLERY_IMAGES: string[] = [];
 
 export default function AllestimentiPage() {
   useEffect(() => {
