@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Sparkles, Palette, Camera, Crown } from "lucide-react";
@@ -131,6 +131,7 @@ const GALLERY_IMAGES: string[] = [
 ];
 
 export default function AllestimentiPage() {
+  const [showAll, setShowAll] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
@@ -150,6 +151,8 @@ export default function AllestimentiPage() {
       placeholder: false,
     }));
   }, []);
+
+  const displayedItems = showAll ? items : items.slice(0, 6);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -232,12 +235,12 @@ export default function AllestimentiPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"
           >
-            {items.map((it, idx) => (
+            {displayedItems.map((it, idx) => (
               <button
                 key={it.id}
-                className="group relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100"
+                className="group relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 shadow-sm hover:shadow-md transition-shadow"
                 onClick={() => !it.placeholder && window.open(it.src, "_blank")}
               >
                 {it.placeholder ? (
@@ -245,12 +248,29 @@ export default function AllestimentiPage() {
                     <span className="text-sm font-medium text-amber-800/50">Foto in arrivo</span>
                   </div>
                 ) : (
-                  <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
             ))}
           </motion.div>
+
+          {!showAll && items.length > 6 && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mt-12 flex justify-center"
+            >
+              <Button 
+                onClick={() => setShowAll(true)} 
+                size="lg" 
+                variant="outline"
+                className="bg-white border-2 border-amber-200 text-amber-800 hover:bg-amber-50 hover:text-amber-900 rounded-full px-10 h-14 text-lg font-medium shadow-sm transition-all duration-300"
+              >
+                Vedi tutte le foto ({items.length})
+              </Button>
+            </motion.div>
+          )}
         </section>
 
         <section className="mt-24 bg-white py-24 border-t border-amber-100/50">
