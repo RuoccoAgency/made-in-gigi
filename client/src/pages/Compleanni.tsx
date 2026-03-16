@@ -10,9 +10,31 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
-  "/images/allestimento battesimo/allestimenti per compleanni/1.png",
-  "/images/allestimento battesimo/allestimenti per compleanni/2.png",
-  "/images/allestimento battesimo/allestimenti per compleanni/IMG_20220529_104557.jpg"
+  "/images/allestimenti per compleanni/202341580_4309865342403574_4538620096295082383_n.jpg",
+  "/images/allestimenti per compleanni/221235282_4416454168411357_1810285300504269591_n.jpg",
+  "/images/allestimenti per compleanni/251539037_4721967907859980_6889398567289818069_n.jpg",
+  "/images/allestimenti per compleanni/280690891_5359640354092729_7898705918205218487_n.jpg",
+  "/images/allestimenti per compleanni/297009636_5602718916451537_8869247767338697131_n.jpg",
+  "/images/allestimenti per compleanni/298168800_1602628480134195_7691046820701733505_n.webp",
+  "/images/allestimenti per compleanni/310013885_5752612191462208_8532070385258570788_n.jpg",
+  "/images/allestimenti per compleanni/314953839_818141679640074_2033614512149437795_n.jpg",
+  "/images/allestimenti per compleanni/315349985_818755086245400_1435910162807736504_n.jpg",
+  "/images/allestimenti per compleanni/348677374_1713116509146512_421041108702839202_n.jpg",
+  "/images/allestimenti per compleanni/351158892_229986173087839_6233193098050466300_n.jpg",
+  "/images/allestimenti per compleanni/362639300_1022434969210743_5751204042057348135_n.jpg",
+  "/images/allestimenti per compleanni/4dc2a760-9b42-4e04-99ff-0894b2e06073.jpg",
+  "/images/allestimenti per compleanni/FB_IMG_1615409557103.jpg",
+  "/images/allestimenti per compleanni/IMG_20210703_193147.jpg",
+  "/images/allestimenti per compleanni/IMG_20210730_181059.jpg",
+  "/images/allestimenti per compleanni/IMG_20210823_182422.jpg",
+  "/images/allestimenti per compleanni/IMG_20220529_104557.jpg",
+  "/images/allestimenti per compleanni/WhatsApp Image 2021-05-25 at 10.29.23 (1).jpeg",
+  "/images/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.13.01 (6).jpeg",
+  "/images/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.18.42.jpeg",
+  "/images/allestimenti per compleanni/WhatsApp Image 2023-09-27 at 17.29.19 (2).jpeg",
+  "/images/allestimenti per compleanni/allestimenti a partire da 150 euro in base alle specifiche richieste.jfif",
+  "/images/allestimenti per compleanni/d9e14925-fc85-4f0c-8243-d1a97ed52bf9.jpg",
+  "/images/allestimenti per compleanni/f3e5276a-48fa-4282-826d-08b330866a98.jpg"
 ];
 
 export default function CompleanniPage() {

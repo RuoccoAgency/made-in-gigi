@@ -8,10 +8,30 @@ import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useMemo } from "react";
+
+const GALLERY_IMAGES: string[] = [
+  "/images/ARCHI VELA/sweet.jpeg",
+];
 
 export default function AngoloDolciPage() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }, []);
+
+    const items = useMemo(() => {
+        if (GALLERY_IMAGES.length === 0) {
+            return Array.from({ length: 4 }).map((_, i) => ({
+                id: `placeholder-${i}`,
+                src: "",
+                placeholder: true
+            }));
+        }
+        return GALLERY_IMAGES.map((src, i) => ({
+            id: `img-${i}`,
+            src,
+            placeholder: false
+        }));
     }, []);
 
     const scrollToForm = () => {
@@ -50,6 +70,39 @@ export default function AngoloDolciPage() {
                                 Dolcezza Infinita!
                             </Button>
                         </div>
+                    </motion.div>
+                </section>
+
+                {/* GALLERY */}
+                <section className="container mx-auto px-4 mt-24">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 uppercase tracking-tighter">I Nostri Angoli</h2>
+                        <p className="mt-4 text-xl text-slate-600 font-bold">Un'esplosione di dolcezza per i tuoi occhi.</p>
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+                    >
+                        {items.map((it) => (
+                            <button
+                                key={it.id}
+                                className="group relative aspect-square rounded-[3rem] overflow-hidden bg-white shadow-2xl shadow-rose-900/5 ring-1 ring-rose-100"
+                                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                            >
+                                {it.placeholder ? (
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <span className="text-lg font-black text-rose-200 uppercase tracking-widest">Foto in arrivo</span>
+                                    </div>
+                                ) : (
+                                    <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                )}
+                                <div className="absolute inset-0 bg-gradient-to-t from-rose-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </button>
+                        ))}
                     </motion.div>
                 </section>
 
