@@ -31,9 +31,7 @@ const GALLERY_IMAGES: string[] = [
   "/images/allestimenti per compleanni/WhatsApp Image 2021-05-25 at 10.29.23 (1).jpeg",
   "/images/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.13.01 (6).jpeg",
   "/images/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.18.42.jpeg",
-  "/images/allestimenti per compleanni/WhatsApp Image 2023-09-27 at 17.29.19 (2).jpeg",
-  "/images/allestimenti per compleanni/allestimenti a partire da 150 euro in base alle specifiche richieste.jfif",
-  "/images/allestimenti per compleanni/d9e14925-fc85-4f0c-8243-d1a97ed52bf9.jpg"
+  "/images/allestimenti per compleanni/WhatsApp Image 2023-09-27 at 17.29.19 (2).jpeg"
 ];
 
 export default function CompleanniPage() {
