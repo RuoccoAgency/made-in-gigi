@@ -20,13 +20,13 @@ export default function ArtistiSpettacoliPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#111111] text-white font-sans selection:bg-orange-500 selection:text-white">
+        <div className="min-h-screen bg-[#fffcf9] text-slate-800 font-sans selection:bg-orange-500 selection:text-white">
             <Navbar />
             <main className="pt-28 pb-0">
                 <section className="container mx-auto px-4 relative">
-                    {/* Neon Glow Effects */}
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-600/10 blur-[150px] rounded-full pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
+                    {/* Soft Glow Effects */}
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-200/20 blur-[150px] rounded-full pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-100/30 blur-[120px] rounded-full pointer-events-none" />
 
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -39,15 +39,15 @@ export default function ArtistiSpettacoliPage() {
                                 Back to Home / Entertainment
                             </a>
                         </Link>
-                        <h1 className="text-6xl md:text-9xl font-display font-black tracking-tighter leading-none italic uppercase">
+                        <h1 className="text-6xl md:text-9xl font-display font-black tracking-tighter leading-none italic uppercase text-slate-900">
                             Artisti <span className="text-orange-600 block md:inline">& Spettacoli</span>
                         </h1>
-                        <p className="mt-12 text-xl md:text-2xl text-slate-400 leading-relaxed max-w-3xl mx-auto font-medium tracking-tight">
+                        <p className="mt-12 text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-medium tracking-tight">
                             Collaboriamo con artisti e performer professionisti per rendere ogni evento ancora più spettacolare e coinvolgente. Dal cabaret alle grandi illusioni, portiamo il palco a casa tua.
                         </p>
                         <div className="mt-16 flex flex-col md:flex-row gap-6 justify-center">
-                            <Button onClick={scrollToForm} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-black px-12 h-20 text-xl rounded-none uppercase tracking-widest skew-x-[-15deg] transition-all hover:shadow-[10px_10px_0px_rgba(255,165,0,0.2)]">
-                                <span className="skew-x-[15deg]">Richiedi Show</span>
+                            <Button onClick={scrollToForm} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-black px-12 h-20 text-xl rounded-none uppercase tracking-widest transition-all hover:shadow-[10px_10px_0px_rgba(255,165,0,0.1)]">
+                                <span>Richiedi Show</span>
                             </Button>
                         </div>
                     </motion.div>
@@ -63,12 +63,12 @@ export default function ArtistiSpettacoliPage() {
                             { icon: Flame, title: "Effetti Speciali", desc: "Fuochi scenografici e momenti ad alto impatto visivo." },
                             { icon: PartyPopper, title: "Special Host", desc: "Presentatori e vocalist per gestire ogni fase dell'evento." },
                         ].map((f, i) => (
-                            <Card key={i} className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-orange-500/50 transition-all group overflow-hidden rounded-none relative">
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-orange-600/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-orange-600/20 transition-all duration-700" />
+                            <Card key={i} className="bg-white/80 backdrop-blur-md border border-orange-100 hover:border-orange-500/30 shadow-sm hover:shadow-xl transition-all group rounded-3xl overflow-hidden relative">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-orange-100/50 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-orange-100 transition-all duration-700" />
                                 <CardContent className="p-12">
                                     <f.icon className="h-10 w-10 text-orange-600 mb-8 transition-transform group-hover:scale-110" />
-                                    <h3 className="font-display font-black text-2xl mb-4 uppercase tracking-tight italic">{f.title}</h3>
-                                    <p className="text-slate-400 font-medium leading-relaxed">{f.desc}</p>
+                                    <h3 className="font-display font-black text-2xl mb-4 uppercase tracking-tight italic text-slate-900">{f.title}</h3>
+                                    <p className="text-slate-600 font-medium leading-relaxed">{f.desc}</p>
                                 </CardContent>
                             </Card>
                         ))}

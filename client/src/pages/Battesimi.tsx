@@ -85,7 +85,7 @@ export default function BattesimiPage() {
                             { icon: Star, title: "Tavoli Coordinati", desc: "Confettate, sweet table e allestimenti tavoli spettacolari." },
                             { icon: Flower2, title: "Dettagli Curati", desc: "Ogni piccolo elemento è pensato per rendere l'evento indimenticabile." },
                         ].map((f, i) => (
-                            <Card key={i} className="bg-white/50 backdrop-blur-sm border border-slate-100 hover:border-teal-200 shadow-sm hover:shadow-md transition-all group rounded-none overflow-hidden">
+                            <Card key={i} className="bg-white/50 backdrop-blur-sm border border-slate-100 hover:border-teal-200 shadow-sm hover:shadow-md transition-all group rounded-none">
                                 <CardContent className="p-8 flex flex-col items-center text-center">
                                     <div className="h-16 w-16 rounded-full bg-slate-50 flex items-center justify-center mb-6 border border-white shadow-inner group-hover:bg-teal-50 transition-colors -mt-16 relative z-10">
                                         <f.icon className="h-6 w-6 text-slate-400 group-hover:text-teal-400 transition-colors" />
