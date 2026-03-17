@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Baby, Sparkles, Heart, Star, PartyPopper, Check } from "lucide-react";
@@ -8,11 +8,42 @@ import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+const GALLERY_IMAGES: string[] = [
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.24 (1).jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.24.jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (1).jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (2).jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (3).jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (4).jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (5).jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (6).jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25.jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.43.jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.19.01.jpeg",
+];
+
 
 export default function GenderRevealPage() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
+
+    const items = useMemo(() => {
+        if (GALLERY_IMAGES.length === 0) {
+            return Array.from({ length: 8 }).map((_, idx) => ({
+                id: `placeholder-${idx}`,
+                src: "",
+                placeholder: true,
+            }));
+        }
+
+        return GALLERY_IMAGES.map((src, idx) => ({
+            id: `img-${idx}`,
+            src,
+            placeholder: false,
+        }));
+    }, []);
+
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -75,6 +106,40 @@ export default function GenderRevealPage() {
                         ))}
                     </div>
                 </section>
+
+                <section className="container mx-auto px-4 mt-32">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-display font-light text-slate-900 mb-6 uppercase tracking-widest">Le Nostre Rivelazioni</h2>
+                        <div className="w-12 h-px bg-fuchsia-200 mx-auto" />
+                    </div>
+
+                    <motion.div
+                        className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 auto-rows-[250px] md:auto-rows-[300px]"
+                    >
+                        {items.map((it, idx) => (
+                            <button
+                                key={it.id}
+                                className={`group relative overflow-hidden transition-all ${idx % 7 === 0 ? 'md:col-span-2 md:row-span-2' : ''
+                                    }`}
+                                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                            >
+                                {it.placeholder ? (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-slate-50 border border-slate-100">
+                                        <span className="font-light text-slate-300">Foto in arrivo</span>
+                                    </div>
+                                ) : (
+                                    <img
+                                        src={it.src}
+                                        alt="Gender Reveal Gallery"
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                )}
+                                <div className="absolute inset-0 bg-fuchsia-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </button>
+                        ))}
+                    </motion.div>
+                </section>
+
 
                 <section className="mt-32 py-24 bg-gradient-to-tr from-blue-50/20 via-white to-pink-50/20 border-y border-slate-100">
                     <div className="container mx-auto px-4">
