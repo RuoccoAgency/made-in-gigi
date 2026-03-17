@@ -10,10 +10,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
-  "/images/allestimento battesimo/allestimenti per adulti/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.jpg",
-  "/images/allestimento battesimo/allestimenti per adulti/250 EURO COME FOTO.jpg",
-  "/images/allestimento battesimo/allestimenti per adulti/COSTO 150 EURO.jpeg",
-  "/images/allestimento battesimo/allestimenti per adulti/COSTO 300 EURO COME FOTO.jpg",
+  "/images/18esimi/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.jpg",
+  "/images/18esimi/293324034_5523000047756758_2071711076166925323_n.jpg",
+  "/images/18esimi/299985517_5629259487130813_6636565796765681418_n.jpg",
+  "/images/18esimi/COSTO 250 EURO COME FOTO.jpg",
 ];
 
 export default function Feste18AnniPage() {
