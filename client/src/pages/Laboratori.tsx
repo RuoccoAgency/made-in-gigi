@@ -9,10 +9,42 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+const GALLERY_IMAGES: string[] = [
+    "/images/Laser games luna park/11.jpeg",
+    "/images/Laser games luna park/12.jpeg",
+    "/images/Laser games luna park/3.jpg",
+    "/images/Laser games luna park/4.jpg",
+    "/images/Laser games luna park/5.jpg",
+    "/images/Laser games luna park/6.jpg",
+    "/images/Laser games luna park/7.jpg",
+    "/images/Laser games luna park/8.jpeg",
+    "/images/Laser games luna park/9.jpeg",
+    "/images/Laser games luna park/WhatsApp Image 2025-10-24 at 11.14.58.jpeg",
+    "/images/Laser games luna park/WhatsApp Image 2025-10-24 at 11.15.07.jpeg",
+];
+
+
 export default function LaboratoriPage() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
+
+    const items = useMemo(() => {
+        if (GALLERY_IMAGES.length === 0) {
+            return Array.from({ length: 8 }).map((_, idx) => ({
+                id: `placeholder-${idx}`,
+                src: "",
+                placeholder: true,
+            }));
+        }
+
+        return GALLERY_IMAGES.map((src, idx) => ({
+            id: `img-${idx}`,
+            src,
+            placeholder: false,
+        }));
+    }, []);
+
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -73,6 +105,40 @@ export default function LaboratoriPage() {
                         ))}
                     </div>
                 </section>
+
+                <section className="container mx-auto px-4 mt-32">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-display font-black text-slate-900 mb-6 italic">Momenti in Laboratorio</h2>
+                        <div className="w-12 h-1 bg-indigo-200 mx-auto rounded-full" />
+                    </div>
+
+                    <motion.div
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[300px]"
+                    >
+                        {items.map((it, idx) => (
+                            <button
+                                key={it.id}
+                                className={`group relative rounded-[2rem] overflow-hidden border-4 border-white shadow-lg hover:shadow-2xl transition-all ${idx % 5 === 0 ? 'md:col-span-2 md:row-span-2' : ''
+                                    }`}
+                                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                            >
+                                {it.placeholder ? (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-indigo-50">
+                                        <span className="font-bold text-indigo-200">Foto in arrivo</span>
+                                    </div>
+                                ) : (
+                                    <img
+                                        src={it.src}
+                                        alt="Laboratori Gallery"
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                )}
+                                <div className="absolute inset-0 bg-indigo-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </button>
+                        ))}
+                    </motion.div>
+                </section>
+
 
                 <section className="mt-24 py-24 bg-indigo-50/30">
                     <div className="container mx-auto px-4">

@@ -78,6 +78,26 @@ const NAV_SERVICES = [
       { name: "Roller girls", href: "/servizi/roller-girls" },
     ],
   },
+  {
+    category: "Format",
+    icon: LayoutGrid,
+    items: [
+      { name: "Photobooth", href: "/servizi/photobooth" },
+      { name: "Silent Disco / Silent Party", href: "/servizi/silent-disco" },
+      { name: "Villaggio dello Sport", href: "/servizi/villaggio-sport" },
+      { name: "Luna Park", href: "/servizi/luna-park" },
+      { name: "Sala Giochi Arcade", href: "/servizi/sala-giochi-arcade" },
+      { name: "Calcio Biliardo", href: "/servizi/calcio-biliardo" },
+      { name: "Calcio Balilla", href: "/servizi/calcio-balilla" },
+      { name: "Casinò tavoli da gioco", href: "/servizi/casino-tavoli-gioco" },
+      { name: "Giochi di Quartiere", href: "/servizi/giochi-quartiere" },
+      { name: "Gli impiantati", href: "/servizi/gli-impiantati" },
+      { name: "Scacchiera Gigante", href: "/servizi/scacchiera-gigante" },
+      { name: "Porta rigori", href: "/servizi/porta-rigori" },
+      { name: "Laboratori", href: "/laboratori" },
+      { name: "Villaggio di Babbo Natale", href: "/servizi/villaggio-babbo-natale" },
+    ],
+  },
 ];
 
 const QUICK_LINKS = [

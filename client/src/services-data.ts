@@ -20,7 +20,17 @@ import {
   Utensils,
   Camera,
   Heart,
-  Star
+  Star,
+  Trophy,
+  Gamepad2,
+  Puzzle,
+  Settings,
+  Target,
+  Gift,
+  Palette,
+  Tent,
+  LayoutGrid,
+  Smile
 } from "lucide-react";
 
 export const SERVICES_DATA: Record<string, {
@@ -29,6 +39,85 @@ export const SERVICES_DATA: Record<string, {
   description: string;
   icon: any;
 }> = {
+  // Format
+  "photobooth": {
+    title: "Photobooth",
+    category: "Format",
+    description: "Cattura i momenti più divertenti del tuo evento con i nostri set photobooth professionali. Accessori a tema, stampe istantanee e condivisione social per un'esperienza indimenticabile.",
+    icon: Camera
+  },
+  "silent-disco": {
+    title: "Silent Disco / Silent Party",
+    category: "Format",
+    description: "Porta la musica dove vuoi senza disturbare nessuno! Tre canali musicali simultanei su cuffie wireless ad alta fedeltà per un party esclusivo e coinvolgente.",
+    icon: Music
+  },
+  "villaggio-sport": {
+    title: "Villaggio dello Sport",
+    category: "Format",
+    description: "Uno spazio dinamico dedicato alle attività sportive per grandi e piccini. Percorsi fitness, sfide a squadre e tanto divertimento all'aria aperta o indoor.",
+    icon: Trophy
+  },
+  "luna-park": {
+    title: "Luna Park",
+    category: "Format",
+    description: "Rivivi l'atmosfera magica delle fiere classiche con il nostro luna park portatile. Giochi di abilità, attrazioni iconiche e profumo di festa per un evento dal sapore vintage.",
+    icon: Tent
+  },
+  "sala-giochi-arcade": {
+    title: "Sala Giochi Arcade",
+    category: "Format",
+    description: "Un tuffo nel passato con i cabinati arcade più famosi. Da Pac-Man a Street Fighter, offriamo il noleggio di postazioni retrogaming originali per un tocco nerd al tuo party.",
+    icon: Gamepad2
+  },
+  "calcio-biliardo": {
+    title: "Calcio Biliardo",
+    category: "Format",
+    description: "L'unione perfetta tra il biliardo e il calcio! Una sfida originale su una pedana gigante dove i piedi prendono il posto della stecca e le palline da calcio delle boccette.",
+    icon: CircleDot
+  },
+  "calcio-balilla": {
+    title: "Calcio Balilla",
+    category: "Format",
+    description: "L'intramontabile classico dei bar e degli oratori. Noleggiamo biliardini professionali per tornei agguerriti e momenti di pura aggregazione durante ogni tipo di festa.",
+    icon: Smile
+  },
+  "giochi-quartiere": {
+    title: "Giochi di Quartiere",
+    category: "Format",
+    description: "I giochi di una volta tornano protagonisti. Tiro alla fune, corsa nei sacchi e giochi in legno della tradizione per riscoprire il piacere dello stare insieme.",
+    icon: Puzzle
+  },
+  "gli-impiantati": {
+    title: "Gli impiantati",
+    category: "Format",
+    description: "Installazioni e allestimenti unici che trasformano lo spazio. Soluzioni scenografiche originali pensate per dare un carattere forte e distintivo al tuo evento.",
+    icon: Settings
+  },
+  "scacchiera-gigante": {
+    title: "Scacchiera Gigante",
+    category: "Format",
+    description: "Sfida il tuo avversario su una scala monumentale. I pezzi giganti aggiungono una dimensione fisica e divertente al gioco della strategia per eccellenza.",
+    icon: LayoutGrid
+  },
+  "porta-rigori": {
+    title: "Porta rigori",
+    category: "Format",
+    description: "Metti alla prova la tua precisione dal dischetto! Una porta gonfiabile o professionale dotata di sensori o teloni per sfide ai rigori adrenaliniche e divertenti.",
+    icon: Target
+  },
+  "laboratori": {
+    title: "Laboratori",
+    category: "Format",
+    description: "Esperienze creative e coinvolgenti per bambini, con attività originali pensate per divertire, stimolare la fantasia e rendere ogni evento ancora più speciale.",
+    icon: Palette
+  },
+  "villaggio-babbo-natale": {
+    title: "Villaggio di Babbo Natale",
+    category: "Format",
+    description: "Tutta la magia del Natale racchiusa in un villaggio incantato. Casa di Babbo Natale, ufficio postale degli elfi e laboratori a tema per un'esperienza polare indimenticabile.",
+    icon: Gift
+  },
   // Matrimoni
   "musica-in-chiesa": {
     title: "Musica in chiesa",
