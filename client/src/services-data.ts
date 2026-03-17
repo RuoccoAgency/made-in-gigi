@@ -35,7 +35,7 @@ import {
 
 export const SERVICES_DATA: Record<string, {
   title: string;
-  category: string;
+  category: string | string[];
   description: string;
   icon: any;
 }> = {
@@ -133,7 +133,7 @@ export const SERVICES_DATA: Record<string, {
   },
   "casino-tavoli-gioco": {
     title: "Casinò tavoli da gioco",
-    category: "Matrimoni",
+    category: ["Matrimoni", "Format"],
     description: "Un angolo di divertimento con tavoli da gioco professionali (Roulotte, Blackjack, Poker) e croupier per intrattenere gli ospiti con eleganza.",
     icon: Dices
   },

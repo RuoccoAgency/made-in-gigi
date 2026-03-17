@@ -15,90 +15,51 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@assets/image_1768325229427.png";
+import { SERVICES_DATA } from "@/services-data";
 
-const NAV_SERVICES = [
-  {
-    category: "Matrimoni",
-    icon: Sparkles,
-    items: [
-      { name: "Musica in chiesa", href: "/servizi/musica-in-chiesa" },
-      { name: "Musica in sala", href: "/servizi/musica-in-sala" },
-      { name: "Casinò tavoli da gioco", href: "/servizi/casino-tavoli-gioco" },
-      { name: "Effetti speciali", href: "/servizi/effetti-speciali" },
-      { name: "Illuminazione", href: "/servizi/illuminazione" },
-      { name: "Spettacoli e intrattenimento", href: "/servizi/spettacoli-intrattenimento" },
-    ],
-  },
-  {
-    category: "Effetti Speciali",
-    icon: Zap,
-    items: [
-      { name: "Schiuma Party Cannone", href: "/servizi/schiuma-party" },
-      { name: "Nevicata Artificiale Cannone Neve", href: "/servizi/nevicata-artificiale" },
-      { name: "Spara coriandoli a CO2", href: "/servizi/spara-coriandoli" },
-      { name: "Spara fiamme", href: "/servizi/spara-fiamme" },
-      { name: "Geyser CO2 Blaster", href: "/servizi/geyser-co2" },
-      { name: "Bazooka CO2 Cannone CO2", href: "/servizi/bazooka-co2" },
-      { name: "Sparkular", href: "/servizi/sparkular" },
-      { name: "Fumo basso", href: "/servizi/fumo-basso" },
-      { name: "Fontane fredde / fuochi freddi", href: "/servizi/fontane-fredde" },
-      { name: "Cascata palloni", href: "/servizi/cascata-palloni" },
-      { name: "Laser show", href: "/servizi/laser-show" },
-      { name: "Bolle di sapone", href: "/servizi/bolle-sapone" },
-      { name: "Dance floor / pedana", href: "/servizi/dance-floor" },
-    ],
-  },
-  {
-    category: "Gonfiabili",
-    icon: PartyPopper,
-    items: [
-      { name: "Gonfiabili", href: "/servizi/gonfiabili" },
-    ],
-  },
-  {
-    category: "Service",
-    icon: Music,
-    items: [
-      { name: "Attrezzature per DJ / Consolle", href: "/servizi/attrezzature-dj" },
-      { name: "Impianti audio", href: "/servizi/impianti-audio" },
-      { name: "Ledwall maxischermo", href: "/servizi/ledwall" },
-      { name: "Video proiezioni", href: "/servizi/video-proiezioni" },
-      { name: "Pedane palchi passerelle", href: "/servizi/pedane-palchi" },
-      { name: "Illuminazione", href: "/servizi/service-illuminazione" },
-      { name: "Dance floor / pedana", href: "/servizi/service-dance-floor" },
-    ],
-  },
-  {
-    category: "Comunicazione",
-    icon: Megaphone,
-    items: [
-      { name: "Volantinaggio", href: "/servizi/volantinaggio" },
-      { name: "Campagne pubblicitarie", href: "/servizi/campagne-pubblicitarie" },
-      { name: "Servizio hostess", href: "/servizi/servizio-hostess" },
-      { name: "Roller girls", href: "/servizi/roller-girls" },
-    ],
-  },
-  {
-    category: "Format",
-    icon: LayoutGrid,
-    items: [
-      { name: "Photobooth", href: "/servizi/photobooth" },
-      { name: "Silent Disco / Silent Party", href: "/servizi/silent-disco" },
-      { name: "Villaggio dello Sport", href: "/servizi/villaggio-sport" },
-      { name: "Luna Park", href: "/servizi/luna-park" },
-      { name: "Sala Giochi Arcade", href: "/servizi/sala-giochi-arcade" },
-      { name: "Calcio Biliardo", href: "/servizi/calcio-biliardo" },
-      { name: "Calcio Balilla", href: "/servizi/calcio-balilla" },
-      { name: "Casinò tavoli da gioco", href: "/servizi/casino-tavoli-gioco" },
-      { name: "Giochi di Quartiere", href: "/servizi/giochi-quartiere" },
-      { name: "Gli impiantati", href: "/servizi/gli-impiantati" },
-      { name: "Scacchiera Gigante", href: "/servizi/scacchiera-gigante" },
-      { name: "Porta rigori", href: "/servizi/porta-rigori" },
-      { name: "Laboratori", href: "/laboratori" },
-      { name: "Villaggio di Babbo Natale", href: "/servizi/villaggio-babbo-natale" },
-    ],
-  },
+const CATEGORY_ORDER = [
+  "Matrimoni",
+  "Effetti Speciali",
+  "Format",
+  "Gonfiabili",
+  "Service",
+  "Comunicazione",
 ];
+
+const CATEGORY_ICONS: Record<string, any> = {
+  "Matrimoni": Sparkles,
+  "Effetti Speciali": Zap,
+  "Format": LayoutGrid,
+  "Gonfiabili": PartyPopper,
+  "Service": Music,
+  "Comunicazione": Megaphone,
+};
+
+// Generate NAV_SERVICES dynamically from SERVICES_DATA
+const allCategoriesInData = Array.from(new Set(
+  Object.values(SERVICES_DATA).flatMap(s => Array.isArray(s.category) ? s.category : [s.category])
+));
+
+const finalCategoryOrder = [
+  ...CATEGORY_ORDER.filter(c => allCategoriesInData.includes(c)),
+  ...allCategoriesInData.filter(c => !CATEGORY_ORDER.includes(c))
+];
+
+const NAV_SERVICES = finalCategoryOrder.map(catName => ({
+  category: catName,
+  icon: CATEGORY_ICONS[catName] || LayoutGrid,
+  items: Object.entries(SERVICES_DATA)
+    .filter(([_, data]) => 
+      Array.isArray(data.category) 
+        ? data.category.includes(catName) 
+        : data.category === catName
+    )
+    .map(([slug, data]) => ({
+      name: data.title,
+      href: slug === "laboratori" ? "/laboratori" : `/servizi/${slug}`
+    }))
+}));
+
 
 const QUICK_LINKS = [
   { name: "Gallery", href: "#gallery" },
@@ -107,7 +68,7 @@ const QUICK_LINKS = [
 ];
 
 export function Navbar() {
-  const [activeCategory, setActiveCategory] = useState(NAV_SERVICES[0].category);
+  const [activeCategory, setActiveCategory] = useState(NAV_SERVICES.length > 0 ? NAV_SERVICES[0].category : "");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();

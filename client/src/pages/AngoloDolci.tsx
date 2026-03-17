@@ -12,6 +12,22 @@ import { useMemo } from "react";
 
 const GALLERY_IMAGES: string[] = [
   "/images/ARCHI VELA/sweet.jpeg",
+  "/images/torte/297039539_5582994698423959_4263431021959720845_n - Copia.jpg",
+  "/images/torte/297039539_5582994698423959_4263431021959720845_n.jpg",
+  "/images/torte/3fcdd9b7afb02487dec6962b2a7c1903.jpg",
+  "/images/torte/408961082_1169670374487201_2688390413769390592_n.jpg",
+  "/images/torte/BBUG3367.JPG",
+  "/images/torte/FB_IMG_1626127615333.jpg",
+  "/images/torte/FB_IMG_1627479916939.jpg",
+  "/images/torte/FB_IMG_1632555017368.jpg",
+  "/images/torte/IMG_20210703_193159.jpg",
+  "/images/torte/IMG_20210703_193204.jpg",
+  "/images/torte/IMG_3112.JPG",
+  "/images/torte/JGQI0534.JPEG",
+  "/images/torte/NZCJ2958.JPG",
+  "/images/torte/RLMT9631.JPG",
+  "/images/torte/WhatsApp Image 2023-09-27 at 17.29.20.jpeg",
+  "/images/torte/WhatsApp Image 2025-05-12 at 19.03.51.jpeg",
 ];
 
 export default function AngoloDolciPage() {
