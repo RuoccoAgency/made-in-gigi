@@ -12,7 +12,6 @@ import { useMemo } from "react";
 
 const GALLERY_IMAGES: string[] = [
   "/images/ARCHI VELA/sweet.jpeg",
-  "/images/torte/297039539_5582994698423959_4263431021959720845_n - Copia.jpg",
   "/images/torte/297039539_5582994698423959_4263431021959720845_n.jpg",
   "/images/torte/3fcdd9b7afb02487dec6962b2a7c1903.jpg",
   "/images/torte/408961082_1169670374487201_2688390413769390592_n.jpg",
