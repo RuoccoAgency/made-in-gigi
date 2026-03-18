@@ -21,20 +21,20 @@ export default function Feste18AnniPage() {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
 
-    const items = useMemo(() => {
-        if (GALLERY_IMAGES.length === 0) {
-            return Array.from({ length: 8 }).map((_, i) => ({
-                id: `placeholder-${i}`,
-                src: "",
-                placeholder: true
-            }));
-        }
-        return GALLERY_IMAGES.map((src, i) => ({
-            id: `img-${i}`,
-            src,
-            placeholder: false
+    const items = GALLERY_IMAGES.map((src, i) => ({
+        id: `img-${i}`,
+        src,
+        placeholder: false
+    }));
+
+    // If no images, provide placeholders
+    const displayItems = items.length > 0 
+        ? items 
+        : Array.from({ length: 8 }).map((_, i) => ({
+            id: `placeholder-${i}`,
+            src: "",
+            placeholder: true
         }));
-    }, []);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -108,7 +108,7 @@ export default function Feste18AnniPage() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="grid grid-cols-2 md:grid-cols-4 gap-4"
                   >
-                    {items.map((it) => (
+                    {displayItems.map((it) => (
                       <button
                         key={it.id}
                         className="group relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100"
