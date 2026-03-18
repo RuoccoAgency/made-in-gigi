@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Instagram, Facebook, Clock } from "lucide-react";
-import logo from "@assets/image_1768325229427.png";
+const logo = "/images/logo.png";
 
 export function Contact() {
   return (
