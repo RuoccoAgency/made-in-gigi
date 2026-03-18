@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Instagram, Facebook, Clock } from "lucide-react";
-const logo = "/images/logo.png";
+const logo = "/images/logo.webp";
 
 export function Contact() {
   return (

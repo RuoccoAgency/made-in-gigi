@@ -14,7 +14,7 @@ import {
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-const logo = "/images/logo.png";
+const logo = "/images/logo.webp";
 import { SERVICES_DATA } from "@/services-data";
 
 const CATEGORY_ORDER = [

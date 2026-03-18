@@ -10,11 +10,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
-  "/images/allestimento battesimo/cenerentola/133036814_2874776119245844_4103192305374465438_n.jpg",
-  "/images/allestimento battesimo/shimmer/FB_IMG_1597500355447.jpg",
-  "/images/allestimento battesimo/shimmer/FB_IMG_1597500358055.jpg",
-  "/images/allestimento battesimo/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.18.42.jpeg",
-  "/images/allestimento battesimo/allestimenti per compleanni/temi con personalizzazione/326847291_1291176211739546_515201103014120937_n.jpg",
+  "/images/allestimento battesimo/cenerentola/133036814_2874776119245844_4103192305374465438_n.webp",
+  "/images/allestimento battesimo/shimmer/FB_IMG_1597500355447.webp",
+  "/images/allestimento battesimo/shimmer/FB_IMG_1597500358055.webp",
+  "/images/allestimento battesimo/allestimenti per compleanni/WhatsApp Image 2023-04-19 at 18.18.42.webp",
+  "/images/allestimento battesimo/allestimenti per compleanni/temi con personalizzazione/326847291_1291176211739546_515201103014120937_n.webp",
 ];
 
 const PACKAGES = [

@@ -10,15 +10,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
-  "/images/gonfiabili/20150913_130141.jpg",
-  "/images/gonfiabili/81ulwVwHslL._AC_SX522_.jpg",
-  "/images/gonfiabili/Calcetto 8 4 noleggio un ora 40 euro - Copia.jpeg",
-  "/images/gonfiabili/gonfiabile scivolo - Copia.jpg",
-  "/images/gonfiabili/gonfiabile scivolo misure - Copia.jpg",
-  "/images/gonfiabili/noleggio gonfiabile 50 euro.jpg",
-  "/images/gonfiabili/noleggio gonfiabile acquatico 70 euro.jpg",
-  "/images/gonfiabili/noleggio gonfiabile pesce 70 euro - Copia.jpg",
-  "/images/gonfiabili/noleggio un ora 50 euro - Copia.jpg"
+  "/images/gonfiabili/20150913_130141.webp",
+  "/images/gonfiabili/81ulwVwHslL._AC_SX522_.webp",
+  "/images/gonfiabili/Calcetto 8 4 noleggio un ora 40 euro - Copia.webp",
+  "/images/gonfiabili/gonfiabile scivolo - Copia.webp",
+  "/images/gonfiabili/gonfiabile scivolo misure - Copia.webp",
+  "/images/gonfiabili/noleggio gonfiabile 50 euro.webp",
+  "/images/gonfiabili/noleggio gonfiabile acquatico 70 euro.webp",
+  "/images/gonfiabili/noleggio gonfiabile pesce 70 euro - Copia.webp",
+  "/images/gonfiabili/noleggio un ora 50 euro - Copia.webp"
 ];
 
 export default function GonfiabiliPage() {

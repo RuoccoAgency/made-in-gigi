@@ -18,7 +18,7 @@ const SERVICES = [
     iconColor: "text-amber-600",
     bgIcon: "bg-amber-100",
     btnColor: "bg-amber-600 hover:bg-amber-700",
-    img: "/images/allestimento battesimo/napoli/339243573_544577887713398_2491566810232230303_n.jpg",
+    img: "/images/allestimento battesimo/napoli/339243573_544577887713398_2491566810232230303_n.webp",
   },
   {
     title: "Compleanni",
@@ -114,7 +114,7 @@ const SERVICES = [
     iconColor: "text-violet-600",
     bgIcon: "bg-violet-100",
     btnColor: "bg-violet-600 hover:bg-violet-700",
-    img: "/images/18esimi/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.jpg",
+    img: "/images/18esimi/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.webp",
   },
   {
     title: "Battesimi",
@@ -128,7 +128,7 @@ const SERVICES = [
     iconColor: "text-teal-600",
     bgIcon: "bg-teal-100",
     btnColor: "bg-teal-600 hover:bg-teal-700",
-    img: "/images/allestimento battesimo/150 EURO.jpg",
+    img: "/images/allestimento battesimo/150 EURO.webp",
   },
 ] as const;
 

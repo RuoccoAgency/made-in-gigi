@@ -10,17 +10,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
-    "/images/Laser games luna park/11.jpeg",
-    "/images/Laser games luna park/12.jpeg",
-    "/images/Laser games luna park/3.jpg",
-    "/images/Laser games luna park/4.jpg",
-    "/images/Laser games luna park/5.jpg",
-    "/images/Laser games luna park/6.jpg",
-    "/images/Laser games luna park/7.jpg",
-    "/images/Laser games luna park/8.jpeg",
-    "/images/Laser games luna park/9.jpeg",
-    "/images/Laser games luna park/WhatsApp Image 2025-10-24 at 11.14.58.jpeg",
-    "/images/Laser games luna park/WhatsApp Image 2025-10-24 at 11.15.07.jpeg",
+    "/images/Laser games luna park/11.webp",
+    "/images/Laser games luna park/12.webp",
+    "/images/Laser games luna park/3.webp",
+    "/images/Laser games luna park/4.webp",
+    "/images/Laser games luna park/5.webp",
+    "/images/Laser games luna park/6.webp",
+    "/images/Laser games luna park/7.webp",
+    "/images/Laser games luna park/8.webp",
+    "/images/Laser games luna park/9.webp",
+    "/images/Laser games luna park/WhatsApp Image 2025-10-24 at 11.14.58.webp",
+    "/images/Laser games luna park/WhatsApp Image 2025-10-24 at 11.15.07.webp",
 ];
 
 

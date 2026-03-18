@@ -9,17 +9,17 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 const GALLERY_IMAGES: string[] = [
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.24 (1).jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.24.jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (1).jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (2).jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (3).jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (4).jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (5).jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (6).jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25.jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.43.jpeg",
-    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.19.01.jpeg",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.24 (1).webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.24.webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (1).webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (2).webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (3).webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (4).webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (5).webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25 (6).webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.25.webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.18.43.webp",
+    "/images/gender reveal/WhatsApp Image 2026-03-17 at 10.19.01.webp",
 ];
 
 

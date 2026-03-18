@@ -10,11 +10,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/100 EURO.jpg",
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/150 EURO.jpg",
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/200 EURO.jpg",
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/250 EURO.jpg",
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/298176587_5602720523118043_1171489281677965741_n.jpg",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/100 EURO.webp",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/150 EURO.webp",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/200 EURO.webp",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/250 EURO.webp",
+  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/298176587_5602720523118043_1171489281677965741_n.webp",
 ];
 
 export default function BattesimiPage() {
