@@ -1,6 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
-import { serveStatic } from "./static";
 import { createServer } from "http";
 
 const app = express();
@@ -71,6 +70,7 @@ export const appWithRoutes = (async () => {
   });
 
   if (process.env.NODE_ENV === "production" && !process.env.VERCEL) {
+    const { serveStatic } = await import("./static");
     serveStatic(app);
   } else if (process.env.NODE_ENV !== "production") {
     const { setupVite } = await import("./vite");
