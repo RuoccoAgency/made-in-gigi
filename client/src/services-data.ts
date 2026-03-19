@@ -684,6 +684,21 @@ Ricordi Eterni
 Allestiamo set fotografici dedicati per catturare ogni sorriso in una cornice da favola che resterà nel cuore.`,
     icon: Baby
   },
+  "compleanni": {
+    title: "Compleanni",
+    category: "Compleanni",
+    description: `Organizziamo feste di compleanno indimenticabili per ogni fascia d'età, dai più piccoli ai ragazzi, con allestimenti a tema e animazione professionale.
+    
+    Divertimento Assicurato
+    Il compleanno è il giorno più atteso. Creiamo un'atmosfera di gioia e divertimento per il festeggiato e tutti gli invitati.
+    
+    Allestimenti a Tema
+    Dal supereroe preferito alla principessa dei sogni, realizziamo scenografie personalizzate con palloncini e decorazioni coordinate.
+    
+    Animazione e Giochi
+    Staff qualificato pronto a coinvolgere i bambini con giochi, baby dance e tante attività originali.`,
+    icon: PartyPopper
+  },
   "18-anni": {
     title: "Feste 18 Anni",
     category: "Compleanni",
@@ -699,8 +714,8 @@ Sound & Light
 Service audio professionale, DJ set coinvolgenti e show di luci per far ballare te e i tuoi amici fino a tardi.`,
     icon: Star
   },
-  "40-50-anni": {
-    title: "Feste 40-50 Anni",
+  "compleanni-per-adulti": {
+    title: "Compleanni per Adulti",
     category: "Compleanni",
     description: `Rendi memorabili i traguardi dei 40 e 50 anni con un evento elegante e sofisticato, perfetto per festeggiare con stile e classe.
 

@@ -14,9 +14,10 @@ interface ServiceLayoutProps {
   description: string;
   category: string;
   icon?: LucideIcon;
+  images?: string[];
 }
 
-export function ServiceLayout({ title, description, category, icon: Icon }: ServiceLayoutProps) {
+export function ServiceLayout({ title, description, category, icon: Icon, images }: ServiceLayoutProps) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
@@ -26,10 +27,14 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const placeholders = Array.from({ length: 6 }).map((_, idx) => ({
-    id: `placeholder-${idx}`,
-    label: `Progetto ${idx + 1}`
-  }));
+  const galleryItems = images && images.length > 0 
+    ? images.map((src, idx) => ({ id: `img-${idx}`, src, label: `${title} ${idx + 1}`, placeholder: false }))
+    : Array.from({ length: 6 }).map((_, idx) => ({
+        id: `placeholder-${idx}`,
+        src: "",
+        label: `Progetto ${idx + 1}`,
+        placeholder: true
+      }));
 
   // Parse description into sections
   const lines = description.split('\n').map(l => l.trim()).filter(Boolean);
@@ -172,21 +177,30 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {placeholders.map((p, idx) => (
+              {galleryItems.map((p, idx) => (
                 <motion.div
                   key={p.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="group relative aspect-[4/3] bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center"
+                  className="group relative aspect-[4/3] bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center cursor-pointer"
+                  onClick={() => !p.placeholder && window.open(p.src, "_blank")}
                 >
-                  <div className="flex flex-col items-center gap-4 text-slate-300 group-hover:text-secondary transition-colors duration-500">
-                    <div className="w-16 h-16 rounded-full border-2 border-dashed border-current flex items-center justify-center">
-                      <span className="text-xs font-bold uppercase tracking-tighter">Photo</span>
+                  {p.placeholder ? (
+                    <div className="flex flex-col items-center gap-4 text-slate-300 group-hover:text-secondary transition-colors duration-500">
+                      <div className="w-16 h-16 rounded-full border-2 border-dashed border-current flex items-center justify-center">
+                        <span className="text-xs font-bold uppercase tracking-tighter">Photo</span>
+                      </div>
+                      <span className="text-sm font-display font-bold uppercase tracking-widest">{p.label}</span>
                     </div>
-                    <span className="text-sm font-display font-bold uppercase tracking-widest">{p.label}</span>
-                  </div>
+                  ) : (
+                    <img 
+                      src={p.src} 
+                      alt={p.label} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>
               ))}

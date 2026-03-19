@@ -10,11 +10,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/100 EURO.webp",
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/150 EURO.webp",
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/200 EURO.webp",
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/250 EURO.webp",
-  "/images/wetransfer_allestimento-battesimo_2026-03-13_1002/allestimento battesimo/298176587_5602720523118043_1171489281677965741_n.webp",
+  "/images/battesimo/100 EURO.webp",
+  "/images/battesimo/150 EURO.webp",
+  "/images/battesimo/200 EURO.webp",
+  "/images/battesimo/250 EURO.webp",
+  "/images/battesimo/297009636_5602718916451537_8869247767338697131_n.webp",
+  "/images/battesimo/298176587_5602720523118043_1171489281677965741_n.webp",
+  "/images/battesimo/305092745_5678014938921934_1893668868365247599_n.webp",
+  "/images/battesimo/WhatsApp Image 2023-09-27 at 17.29.19 (2).webp",
+  "/images/battesimo/d9e14925-fc85-4f0c-8243-d1a97ed52bf9.webp",
+  "/images/battesimo/f3e5276a-48fa-4282-826d-08b330866a98.webp",
 ];
 
 export default function BattesimiPage() {

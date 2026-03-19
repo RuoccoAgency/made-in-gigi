@@ -1,67 +1,78 @@
-import sharp from "sharp";
-import fs from "fs/promises";
-import path from "path";
-import { fileURLToPath } from "url";
+import sharp from 'sharp';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const IMAGES_DIR = path.resolve(__dirname, "../client/public/images");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const TARGET_DIR = path.resolve(__dirname, '../client/public/images');
+const MAX_WIDTH = 1200;
+const QUALITY = 80;
+
+// Disable sharp cache to avoid file locks
+sharp.cache(false);
 
 async function walk(dir: string): Promise<string[]> {
-  const files = await fs.readdir(dir);
-  const paths: string[] = [];
-  for (const file of files) {
-    const fullPath = path.join(dir, file);
-    const stats = await fs.stat(fullPath);
-    if (stats.isDirectory()) {
-      paths.push(...(await walk(fullPath)));
+  let files: string[] = [];
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files = files.concat(await walk(fullPath));
     } else {
-      paths.push(fullPath);
+      files.push(fullPath);
     }
   }
-  return paths;
+  return files;
 }
 
-async function optimize() {
-  const allFiles = await walk(IMAGES_DIR);
-  const imageFiles = allFiles.filter((f) =>
-    /\.(jpg|jpeg|png)$/i.test(f)
-  );
+async function start() {
+  console.log(`Starting image optimization in ${TARGET_DIR}...`);
+  const files = await walk(TARGET_DIR);
+  console.log(`Found ${files.length} files.`);
 
-  console.log(`Found ${imageFiles.length} images to optimize...`);
-
-  let totalOriginalSize = 0;
-  let totalOptimizedSize = 0;
-
-  for (const file of imageFiles) {
-    const originalStats = await fs.stat(file);
-    totalOriginalSize += originalStats.size;
-
-    const ext = path.extname(file);
-    const webpPath = file.replace(ext, ".webp");
-
-    try {
-      // Step 1: Convert to WebP
-      await sharp(file)
-        .resize({ width: 1920, withoutEnlargement: true })
-        .webp({ quality: 80 })
-        .toFile(webpPath);
-
-      const optimizedStats = await fs.stat(webpPath);
-      totalOptimizedSize += optimizedStats.size;
-
-      console.log(`Optimized: ${path.relative(IMAGES_DIR, file)} -> ${path.relative(IMAGES_DIR, webpPath)} (${(optimizedStats.size / originalStats.size * 100).toFixed(2)}%)`);
-
-      // Delete original to save space
-      await fs.unlink(file);
-    } catch (err) {
-      console.error(`Failed to optimize: ${file}`, err);
+  for (const file of files) {
+    const ext = path.extname(file).toLowerCase();
+    const isImage = ['.jpg', '.jpeg', '.png', '.jfif'].includes(ext);
+    
+    if (isImage) {
+      const webpPath = file.substring(0, file.lastIndexOf('.')) + '.webp';
+      try {
+        console.log(`Processing: ${file}`);
+        const inputBuffer = await fs.readFile(file);
+        let s = sharp(inputBuffer);
+        const metadata = await s.metadata();
+        
+        if (metadata.width && metadata.width > MAX_WIDTH) {
+          s = s.resize(MAX_WIDTH);
+        }
+        
+        const outputBuffer = await s.webp({ quality: QUALITY }).toBuffer();
+        
+        await fs.writeFile(webpPath, outputBuffer);
+        await fs.unlink(file);
+        console.log(`- Success: ${webpPath}`);
+      } catch (err) {
+        console.error(`- Error processing ${file}:`, err);
+      }
+    } else if (ext === '.webp') {
+       try {
+          const inputBuffer = await fs.readFile(file);
+          const s = sharp(inputBuffer);
+          const metadata = await s.metadata();
+          if (metadata.width && metadata.width > MAX_WIDTH) {
+             console.log(`Resizing large webp: ${file}`);
+             const outputBuffer = await sharp(inputBuffer).resize(MAX_WIDTH).webp({ quality: QUALITY }).toBuffer();
+             await fs.writeFile(file, outputBuffer);
+             console.log(`- Resized large webp.`);
+          }
+       } catch (err) {
+          console.error(`- Error optimizing existing webp ${file}:`, err);
+       }
     }
   }
-
-  console.log("-------------------");
-  console.log(`Original total: ${(totalOriginalSize / 1024 / 1024).toFixed(2)} MB`);
-  console.log(`Optimized total: ${(totalOptimizedSize / 1024 / 1024).toFixed(2)} MB`);
-  console.log(`Saved: ${((totalOriginalSize - totalOptimizedSize) / 1024 / 1024).toFixed(2)} MB`);
+  console.log('Optimization complete!');
 }
 
-optimize().catch(console.error);
+start();

@@ -27,8 +27,9 @@ import ScacchieraGigantePage from "@/pages/servizi/scacchiera-gigante";
 import PortaRigoriPage from "@/pages/servizi/porta-rigori";
 import VillaggioBabboNatalePage from "@/pages/servizi/villaggio-babbo-natale";
 import PrimoCompleannoPage from "./pages/servizi/primo-compleanno";
+import CompleanniPage from "./pages/servizi/compleanni";
 import Feste18AnniPage from "./pages/servizi/18-anni";
-import Feste4050AnniPage from "./pages/servizi/40-50-anni";
+import CompleanniAdultiPage from "./pages/servizi/compleanni-per-adulti";
 import ChiSiamoPage from "@/pages/ChiSiamo";
 import { Areas } from "@/components/sections/Areas";
 import { Contact } from "@/components/sections/Contact";
@@ -41,8 +42,9 @@ function Router() {
       <Route path="/chi-siamo" component={ChiSiamoPage} />
       <Route path="/allestimenti" component={AllestimentiPage} />
       <Route path="/servizi/primo-compleanno" component={PrimoCompleannoPage} />
+      <Route path="/servizi/compleanni" component={CompleanniPage} />
       <Route path="/servizi/18-anni" component={Feste18AnniPage} />
-      <Route path="/servizi/40-50-anni" component={Feste4050AnniPage} />
+      <Route path="/servizi/compleanni-per-adulti" component={CompleanniAdultiPage} />
       <Route path="/mappa-zone" component={Areas} />
       <Route path="/contatti" component={Contact} />
       <Route path="/prima-comunione" component={PrimaComunionePage} />
