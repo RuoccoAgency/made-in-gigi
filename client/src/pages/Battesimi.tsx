@@ -13,7 +13,6 @@ const GALLERY_IMAGES: string[] = [
   "/images/battesimo/100 EURO.webp",
   "/images/battesimo/150 EURO.webp",
   "/images/battesimo/200 EURO.webp",
-  "/images/battesimo/250 EURO.webp",
   "/images/battesimo/297009636_5602718916451537_8869247767338697131_n.webp",
   "/images/battesimo/298176587_5602720523118043_1171489281677965741_n.webp",
   "/images/battesimo/305092745_5678014938921934_1893668868365247599_n.webp",
