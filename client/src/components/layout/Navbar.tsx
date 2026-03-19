@@ -62,6 +62,7 @@ const NAV_SERVICES = finalCategoryOrder.map(catName => ({
 
 
 const QUICK_LINKS = [
+  { name: "Chi Siamo", href: "/chi-siamo" },
   { name: "Gallery", href: "#gallery" },
   { name: "Zone", href: "#zone" },
   { name: "Contatti", href: "#contatti" },
@@ -215,12 +216,14 @@ export function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <div className="h-4 w-[1px] bg-slate-200 mx-4 hidden xl:block" />
-
           {QUICK_LINKS.map((link) => (
             <button
               key={link.name}
               onClick={() => {
+                if (link.href.startsWith("/")) {
+                  window.location.href = link.href;
+                  return;
+                }
                 if (location !== "/") {
                   window.location.href = `/${link.href}`;
                   return;
@@ -228,7 +231,7 @@ export function Navbar() {
                 scrollToSection(link.href);
               }}
               className={cn(
-                "font-bold text-xs uppercase tracking-[0.2em] px-4 py-2 hover:text-secondary transition-all",
+                "font-bold text-[11px] uppercase tracking-[0.2em] px-4 py-2 hover:text-secondary transition-all",
                 showSolid ? "text-slate-500" : "text-white/80"
               )}
             >
@@ -326,6 +329,10 @@ export function Navbar() {
                       <button
                         key={link.name}
                         onClick={() => {
+                          if (link.href.startsWith("/")) {
+                            window.location.href = link.href;
+                            return;
+                          }
                           if (location !== "/") {
                             window.location.href = `/${link.href}`;
                             return;

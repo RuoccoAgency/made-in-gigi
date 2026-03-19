@@ -28,12 +28,14 @@ import GliImpiantatiPage from "@/pages/servizi/gli-impiantati";
 import ScacchieraGigantePage from "@/pages/servizi/scacchiera-gigante";
 import PortaRigoriPage from "@/pages/servizi/porta-rigori";
 import VillaggioBabboNatalePage from "@/pages/servizi/villaggio-babbo-natale";
+import ChiSiamoPage from "@/pages/ChiSiamo";
 
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/chi-siamo" component={ChiSiamoPage} />
       <Route path="/allestimenti" component={AllestimentiPage} />
       <Route path="/compleanni" component={CompleanniPage} />
       <Route path="/prima-comunione" component={PrimaComunionePage} />
