@@ -49,73 +49,213 @@ export const SERVICES_DATA: Record<string, {
   "silent-disco": {
     title: "Silent Disco / Silent Party",
     category: "Format",
-    description: "Porta la musica dove vuoi senza disturbare nessuno! Tre canali musicali simultanei su cuffie wireless ad alta fedeltà per un party esclusivo e coinvolgente.",
+    description: `Organizza il tuo Silent Party
+Vuoi organizzare un party in un centro storico dove la musica ad alto volume potrebbe disturbare? Noleggia le nostre cuffie wireless e risolvi il problema.
+
+Caratteristiche del sistema
+Le cuffie hanno 3 frequenze: possono suonare 3 DJ in contemporanea e gli ospiti scelgono chi ascoltare.
+
+Ideale per molti contesti:
+Guide turistiche
+Meeting e Convegni
+Eventi aziendali
+Cinema all’aperto
+Matrimoni e 18 anni
+Party per bambini
+
+Servizi inclusi
+Possibilità di noleggiare il kit con ritiro in deposito o scegliere il pacchetto completo con DJ.`,
     icon: Music
   },
   "villaggio-sport": {
     title: "Villaggio dello Sport",
     category: "Format",
-    description: "Uno spazio dinamico dedicato alle attività sportive per grandi e piccini. Percorsi fitness, sfide a squadre e tanto divertimento all'aria aperta o indoor.",
+    description: `Villaggio dello Sport
+Un progetto di animazione sportiva collaudato per centri commerciali, feste private o eventi in piazza.
+
+Il format prevede l'allestimento di uno spazio con diverse postazioni sportive:
+
+Postazioni incluse:
+Porta per rigori (6x4 mt) con recinzione
+Basket game per tiri liberi
+Tennis da tavolo (2 postazioni)
+Tiro con l'arco Soft
+Campo Badminton (13x6 mt)
+Scacchiera gigante (5x5 mt)
+Calcio Balilla Umano (20x10 mt)
+Calcio Saponato (20x10 mt)
+Mini golf e Foot golf
+
+Allestimento e Premiazioni
+All'ingresso troverai un arco gonfiabile, un podio olimpico per le premiazioni e musica di sottofondo.
+
+Personalizzazione
+È possibile scegliere il numero di postazioni desiderate. Il villaggio può essere delimitato con reti di recinzione.`,
     icon: Trophy
   },
   "luna-park": {
     title: "Luna Park",
     category: "Format",
-    description: "Rivivi l'atmosfera magica delle fiere classiche con il nostro luna park portatile. Giochi di abilità, attrazioni iconiche e profumo di festa per un evento dal sapore vintage.",
+    description: `Luna Park itinerante
+Il nostro Luna Park mobile è ideale per feste a tema, serate disco a tema luna park, eventi e cerimonie, feste di piazza e intrattenimento per centri commerciali.
+
+Giochi artigianali in legno
+Il format prevede l'installazione di tipici giochi realizzati completamente in legno e cartapesta, dipinti a mano.
+
+Giochi disponibili:
+LANCIO DEI BARATTOLI
+TIRO AL SEGNO E AL BERSAGLIO
+LANCIO DEGLI ANELLI
+PESCA DEI PESCIOLINI
+BOWLING IN LEGNO
+
+Animazione e Sweet Food
+Personale in abiti tipici gestisce i giochi consegnando gadget. Possiamo integrare carrettini di pop corn, zucchero filato, hot dog e crepes.`,
     icon: Tent
   },
   "sala-giochi-arcade": {
     title: "Sala Giochi Arcade",
     category: "Format",
-    description: "Un tuffo nel passato con i cabinati arcade più famosi. Da Pac-Man a Street Fighter, offriamo il noleggio di postazioni retrogaming originali per un tocco nerd al tuo party.",
+    description: `Party a Tema Arcade
+Ricrea una vera sala giochi ambientandola nell’epoca che più ti piace.
+
+Attrezzature a noleggio:
+N° 1 Videogiochi Cabinato Arcade (1000+ giochi)
+Cabinati PlayStation
+Calcio balilla professionale Garlando
+Tavolo da ping pong
+Basket Game
+Hokey da tavolo ad aria
+
+Mini Tornei e Divertimento
+Gli ospiti possono utilizzare liberamente tutti i giochi e organizzare tornei. Ideale per adulti e bambini.
+
+Un tuffo nel passato
+Dai classici Pacman e Super Mario fino ai titoli per PlayStation 1, 2 e 3. Rivivi l’emozionante mondo arcade.`,
     icon: Gamepad2
   },
   "calcio-biliardo": {
     title: "Calcio Biliardo",
     category: "Format",
-    description: "L'unione perfetta tra il biliardo e il calcio! Una sfida originale su una pedana gigante dove i piedi prendono il posto della stecca e le palline da calcio delle boccette.",
+    description: `Calcio Biliardo Snook Ball
+Il fenomeno virale dello Snook Ball arriva al tuo evento nella versione italianizzata: il Calcio Biliardo.
+
+Come si gioca
+Un tavolo da biliardo 7x4 mt dove, invece delle stecche, si usano i piedi. Si gioca alla carambola classica o a Palla 8.
+
+Noleggio professionale
+Ideale per eventi sportivi, piazze e centri commerciali.
+
+Sito di riferimento
+Per maggiori dettagli visita: www.calciobiliardo.com`,
     icon: CircleDot
   },
   "calcio-balilla": {
     title: "Calcio Balilla",
     category: "Format",
-    description: "L'intramontabile classico dei bar e degli oratori. Noleggiamo biliardini professionali per tornei agguerriti e momenti di pura aggregazione durante ogni tipo di festa.",
+    description: `Noleggio Calcio Balilla Professionale
+Noleggiamo biliardini Garlando professionali in tutta Italia per eventi privati e pubblici.
+
+Modello Garlando G-500 Weatherproof
+Adatto per uso esterno, realizzato con materiali resistenti agli agenti atmosferici e umidità.
+
+Caratteristiche tecniche:
+Compensato multistrati resistente all'acqua
+Gambe regolabili per terreni irregolari
+Aste rientranti di sicurezza (ideali per bambini)
+Dimensioni aperto: 143 x 110 x 88 cm
+Peso: 60 Kg
+
+Sicurezza e Qualità
+Le aste rientranti evitano colpi accidentali al viso, rendendo il gioco sicuro per i più piccoli. Conforme alle norme europee.`,
     icon: Smile
   },
   "giochi-quartiere": {
     title: "Giochi di Quartiere",
     category: "Format",
-    description: "I giochi di una volta tornano protagonisti. Tiro alla fune, corsa nei sacchi e giochi in legno della tradizione per riscoprire il piacere dello stare insieme.",
+    description: `Giochi di Quartiere della Tradizione
+Un format con 5 postazioni in legno dipinte a mano per riscoprire la bellezza dei giochi di una volta.
+
+I giochi inclusi:
+La grovigliera
+N° 2 Labirinti
+Lancio ai barattoli in latta
+Lancio nel barile
+Binario, pallina e Barattoli
+
+Aggregazione e Famiglia
+Il format prevede il coinvolgimento di adulti e bambini, creando veri momenti di condivisione durante tutta la cerimonia.
+
+Atmosfera Napoli Antica
+Abbinabile a figuranti della tradizione napoletana come Pulcinella, Totò e Lo scartellato.`,
     icon: Puzzle
   },
   "gli-impiantati": {
     title: "Gli impiantati",
     category: "Format",
-    description: "Installazioni e allestimenti unici che trasformano lo spazio. Soluzioni scenografiche originali pensate per dare un carattere forte e distintivo al tuo evento.",
+    description: `Gli Impiantati - Candid Camera
+Vuoi far ridere (o spaventare) i tuoi ospiti? Simpaticissime piante animate pronte a sorprendere chiunque.
+
+Cosa sono?
+All'apparenza sembrano normali piante finte, ma all'interno si nasconde un attore pronto ad agire al momento giusto.
+
+Contesti ideali:
+Centri Commerciali
+Eventi in piazza
+Meeting aziendali
+Feste private originali
+
+Disponibile in tutta Italia basati in Campania.`,
     icon: Settings
   },
   "scacchiera-gigante": {
     title: "Scacchiera Gigante",
     category: "Format",
-    description: "Sfida il tuo avversario su una scala monumentale. I pezzi giganti aggiungono una dimensione fisica e divertente al gioco della strategia per eccellenza.",
+    description: `Scacchiera e Dama Gigante
+Noleggio scacchiera monumentale per centri commerciali, tornei, piazze e cerimonie private.
+
+Specifiche tecniche
+La scacchiera misura 5x5 mt con pezzi alti fino a 64 cm (il Re), circondata da uno steccato di un metro.
+
+Due giochi in uno
+Possibilità di configurare la base per giocare sia a scacchi che a dama.`,
     icon: LayoutGrid
   },
   "porta-rigori": {
     title: "Porta rigori",
     category: "Format",
-    description: "Metti alla prova la tua precisione dal dischetto! Una porta gonfiabile o professionale dotata di sensori o teloni per sfide ai rigori adrenaliniche e divertenti.",
+    description: `Porta per Rigori con Gabbia
+Postazione professionale per eventi sportivi, piazze o serate disco a tema.
+
+Dimensioni e Struttura
+Gabbia in ferro 6x4 mt con porta regolamentare 3x2 mt.
+
+Modalità di gioco
+Sfida con telo forato di precisione o con portiere reale. Chi segna vince un premio!
+
+Incluso nel Villaggio dello Sport
+Questa struttura fa parte anche del format completo dedicato alle attività olimpiche.`,
     icon: Target
-  },
-  "laboratori": {
-    title: "Laboratori",
-    category: "Format",
-    description: "Esperienze creative e coinvolgenti per bambini, con attività originali pensate per divertire, stimolare la fantasia e rendere ogni evento ancora più speciale.",
-    icon: Palette
   },
   "villaggio-babbo-natale": {
     title: "Villaggio di Babbo Natale",
     category: "Format",
-    description: "Tutta la magia del Natale racchiusa in un villaggio incantato. Casa di Babbo Natale, ufficio postale degli elfi e laboratori a tema per un'esperienza polare indimenticabile.",
+    description: `Villaggio di Babbo Natale
+Realizziamo scenografie natalizie complete di qualsiasi dimensione e stile in tutta Italia.
+
+Temi disponibili:
+Villaggio Classico Tradizionale
+Stile Marzapane e Dolciumi
+Stile Glaciale e Polare
+La Fabbrica dei Giocattoli
+
+Elementi scenografici inclusi:
+Soldatini Schiaccianoci ad altezza uomo
+Slitta in legno e Renne in cartapesta
+Trono e mobili casa di Babbo Natale
+Albero di Natale (5 mt)
+Postazioni laboratori elfi
+Caselle postali e finto innevamento`,
     icon: Gift
   },
   // Matrimoni
