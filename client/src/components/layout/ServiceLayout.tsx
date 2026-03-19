@@ -57,14 +57,14 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
             className="max-w-4xl"
           >
             {Icon && (
-              <div className="inline-flex items-center justify-center p-4 bg-secondary/10 rounded-2xl mb-8">
-                <Icon className="w-10 h-10 text-secondary" />
+              <div className="inline-flex items-center justify-center p-3 bg-secondary/10 rounded-xl mb-6">
+                <Icon className="w-8 h-8 text-secondary" />
               </div>
             )}
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-slate-900 mb-8 tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6 tracking-tight">
               {title}
             </h1>
-            <div className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl font-light whitespace-pre-wrap">
+            <div className="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl font-light whitespace-pre-wrap">
               {description.split('\n').map((line, i) => {
                 const trimmedLine = line.trim();
                 if (!trimmedLine) return <div key={i} className="h-4" />;
@@ -77,7 +77,7 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
                 return (
                   <span key={i} className={cn(
                     "block",
-                    isTitle ? "text-secondary font-bold mt-8 mb-2 text-xl md:text-2xl tracking-tight" : "mb-1 text-slate-500"
+                    isTitle ? "text-secondary font-bold mt-6 mb-2 text-lg md:text-xl tracking-tight" : "mb-1 text-sm md:text-base text-slate-500/90"
                   )}>
                     {trimmedLine}
                   </span>
@@ -101,9 +101,9 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
               <div>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900">Portfolio & Gallery</h2>
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-slate-900">Portfolio & Gallery</h2>
                 <div className="w-12 h-1 bg-secondary mt-4 rounded-full"></div>
-                <p className="mt-6 text-slate-500 text-lg max-w-xl">
+                <p className="mt-6 text-slate-500 text-base max-w-xl">
                   Scopri alcuni dei nostri lavori più recenti per il servizio di {title}. 
                   Ogni evento è unico e personalizzato.
                 </p>
@@ -138,8 +138,8 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">Prenota il tuo evento</h2>
-                <p className="text-xl text-slate-600 font-light">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">Prenota il tuo evento</h2>
+                <p className="text-lg text-slate-600 font-light">
                   Compila il form per richiedere informazioni dettagliate o un preventivo personalizzato. 
                   Ti risponderemo entro 24 ore.
                 </p>
