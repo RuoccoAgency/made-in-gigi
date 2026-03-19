@@ -30,7 +30,8 @@ import {
   Palette,
   Tent,
   LayoutGrid,
-  Smile
+  Smile,
+  Baby
 } from "lucide-react";
 
 export const SERVICES_DATA: Record<string, {
@@ -667,6 +668,45 @@ Ideale per matrimoni, 18esimi ed eventi aziendali a Napoli e in tutta la Campani
 Personalizzazione
 Possibilità di aggiungere pedane rialzate e strutture per delimitare l'area ballo professionale.`,
     icon: Layers
+  },
+  "primo-compleanno": {
+    title: "Allestimenti Primo Compleanno",
+    category: "Compleanni",
+    description: `Il tuo Primo Grande Traguardo
+Il primo compleanno è un momento magico per tutta la famiglia. Creiamo allestimenti delicati e scenografici per celebrare questo giorno indimenticabile.
+
+Temi e Allestimenti
+Dalle mongolfiere ai temi "Little Prince" o "Little Princess", ogni dettaglio è pensato per i più piccoli. Balloon art professionale e backdrop personalizzati.
+
+Ricordi Indimenticabili
+Angolo foto dedicato, tavoli coordinati e scenografie che rendono le foto del tuo bimbo dei veri capolavori da conservare per sempre.`,
+    icon: Baby
+  },
+  "18-anni": {
+    title: "Feste 18 Anni",
+    category: "Compleanni",
+    description: `Il tuo debutto in Società
+Il 18esimo è il compleanno più atteso. Organizziamo party esclusivi con allestimenti moderni, luci spettacolari e intrattenimento di tendenza.
+
+Allestimenti Glamour
+Utilizziamo strutture oro, archi di palloncini organici, neon signs e backdrop glitterati per un effetto wow garantito.
+
+Musica e Party
+Supporto nella scelta della location, DJ set professionali, speaker trascinanti e coreografie di luci per una serata indimenticabile.`,
+    icon: Star
+  },
+  "40-50-anni": {
+    title: "Feste 40-50 Anni",
+    category: "Compleanni",
+    description: `I Grandi Traguardi
+I 40 e i 50 anni sono l'occasione perfetta per un evento elegante e sofisticato che celebri la maturità e i successi raggiunti.
+
+Eleganza e Stile
+Allestimenti raffinati con palette colori sobrie come Black & Gold, Navy o temi vintage. Scenografie curate nei minimi dettagli.
+
+Party Esclusivo
+Intrattenimento musicale ricercato, angoli bar specializzati e un'atmosfera che unisce divertimento e classe per te e i tuoi amici.`,
+    icon: Trophy
   },
   // Gonfiabili
   "gonfiabili": {

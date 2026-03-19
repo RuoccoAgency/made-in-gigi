@@ -19,6 +19,7 @@ import { SERVICES_DATA } from "@/services-data";
 
 const CATEGORY_ORDER = [
   "Matrimoni",
+  "Compleanni",
   "Effetti Speciali",
   "Format",
   "Gonfiabili",
@@ -28,6 +29,7 @@ const CATEGORY_ORDER = [
 
 const CATEGORY_ICONS: Record<string, any> = {
   "Matrimoni": Sparkles,
+  "Compleanni": PartyPopper,
   "Effetti Speciali": Zap,
   "Format": LayoutGrid,
   "Gonfiabili": PartyPopper,

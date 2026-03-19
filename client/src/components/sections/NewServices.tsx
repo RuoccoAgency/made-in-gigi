@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Check, Sparkles, PartyPopper, Flower2, Palette, Candy, Baby, Music, Star, Heart } from "lucide-react";
+import { Check, Sparkles, PartyPopper, Flower2, Palette, Candy, Baby, Music, Star, Heart, Trophy } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -21,17 +21,43 @@ const SERVICES = [
     img: "/images/allestimento battesimo/napoli/339243573_544577887713398_2491566810232230303_n.webp",
   },
   {
-    title: "Compleanni",
-    href: "/compleanni",
-    description: "Organizziamo feste di compleanno divertenti e personalizzate con allestimenti, animazione e attività pensate per rendere la giornata speciale.",
-    bullets: ["Pacchetti flessibili", "Animazione su richiesta", "Foto corner / backdrop"],
-    cta: "Scopri Compleanni",
-    icon: PartyPopper,
+    title: "Primo Compleanno",
+    href: "/servizi/primo-compleanno",
+    description: "Il primo grande traguardo: allestimenti magici, balloon art delicata e scenografie fotografiche per i più piccoli.",
+    bullets: ["Temi fiabeschi", "Backdrop fotografico", "Animazione soft"],
+    cta: "Scopri Primo Compleanno",
+    icon: Baby,
     theme: "pink",
     borderColor: "hover:border-pink-400",
     iconColor: "text-pink-600",
     bgIcon: "bg-pink-100",
     btnColor: "bg-pink-600 hover:bg-pink-700",
+  },
+  {
+    title: "Feste 18 Anni",
+    href: "/servizi/18-anni",
+    description: "Il party più atteso: allestimenti glamour, neon signs, luci scenografiche e intrattenimento di tendenza.",
+    bullets: ["Scenografie oro e neon", "DJ Set e Speaker", "Supporto location"],
+    cta: "Scopri 18 Anni",
+    icon: Star,
+    theme: "violet",
+    borderColor: "hover:border-violet-400",
+    iconColor: "text-violet-600",
+    bgIcon: "bg-violet-100",
+    btnColor: "bg-violet-600 hover:bg-violet-700",
+  },
+  {
+    title: "40-50 Anni",
+    href: "/servizi/40-50-anni",
+    description: "Celebra i grandi traguardi con stile: eventi eleganti, allestimenti raffinati e atmosfere sofisticate.",
+    bullets: ["Stile Black & Gold", "Musica e Intrattenimento", "Scenografie di classe"],
+    cta: "Scopri 40-50 Anni",
+    icon: Trophy,
+    theme: "amber",
+    borderColor: "hover:border-amber-400",
+    iconColor: "text-amber-600",
+    bgIcon: "bg-amber-100",
+    btnColor: "bg-amber-600 hover:bg-amber-700",
   },
   {
     title: "Prima Comunione",
@@ -101,20 +127,6 @@ const SERVICES = [
     bgIcon: "bg-orange-100",
     btnColor: "bg-orange-600 hover:bg-orange-700",
     variant: "dynamic",
-  },
-  {
-    title: "Feste di 18 Anni",
-    href: "/feste-18-anni",
-    description: "Organizziamo il tuo 18° compleanno dalla progettazione iniziale fino all’allestimento completo, includendo musica, speaker, intrattenimento e supporto nella scelta della location per creare una festa indimenticabile.",
-    bullets: ["Allestimenti personalizzati", "Musica e speaker", "Supporto nella scelta della location", "Organizzazione completa dell’evento"],
-    cta: "Scopri Feste di 18 Anni",
-    icon: Star,
-    theme: "violet",
-    borderColor: "hover:border-violet-400",
-    iconColor: "text-violet-600",
-    bgIcon: "bg-violet-100",
-    btnColor: "bg-violet-600 hover:bg-violet-700",
-    img: "/images/18esimi/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.webp",
   },
   {
     title: "Battesimi",

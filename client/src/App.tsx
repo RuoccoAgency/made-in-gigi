@@ -6,13 +6,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import AllestimentiPage from "@/pages/Allestimenti";
-import CompleanniPage from "@/pages/Compleanni";
 import PrimaComunionePage from "@/pages/PrimaComunione";
 import LaboratoriPage from "@/pages/Laboratori";
 import AngoloDolciPage from "@/pages/AngoloDolci";
 import GenderRevealPage from "@/pages/GenderReveal";
 import ArtistiSpettacoliPage from "@/pages/ArtistiSpettacoli";
-import Feste18AnniPage from "@/pages/Feste18Anni";
 import BattesimiPage from "@/pages/Battesimi";
 import GonfiabiliPage from "@/pages/Gonfiabili";
 import ServiceDetailPage from "@/pages/ServiceDetailPage";
@@ -28,7 +26,12 @@ import GliImpiantatiPage from "@/pages/servizi/gli-impiantati";
 import ScacchieraGigantePage from "@/pages/servizi/scacchiera-gigante";
 import PortaRigoriPage from "@/pages/servizi/porta-rigori";
 import VillaggioBabboNatalePage from "@/pages/servizi/villaggio-babbo-natale";
+import PrimoCompleannoPage from "./pages/servizi/primo-compleanno";
+import Feste18AnniPage from "./pages/servizi/18-anni";
+import Feste4050AnniPage from "./pages/servizi/40-50-anni";
 import ChiSiamoPage from "@/pages/ChiSiamo";
+import { Areas } from "@/components/sections/Areas";
+import { Contact } from "@/components/sections/Contact";
 
 
 function Router() {
@@ -37,7 +40,11 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/chi-siamo" component={ChiSiamoPage} />
       <Route path="/allestimenti" component={AllestimentiPage} />
-      <Route path="/compleanni" component={CompleanniPage} />
+      <Route path="/servizi/primo-compleanno" component={PrimoCompleannoPage} />
+      <Route path="/servizi/18-anni" component={Feste18AnniPage} />
+      <Route path="/servizi/40-50-anni" component={Feste4050AnniPage} />
+      <Route path="/mappa-zone" component={Areas} />
+      <Route path="/contatti" component={Contact} />
       <Route path="/prima-comunione" component={PrimaComunionePage} />
       <Route path="/laboratori" component={LaboratoriPage} />
       <Route path="/angolo-dolci" component={AngoloDolciPage} />
