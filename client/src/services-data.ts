@@ -118,7 +118,8 @@ export const SERVICES_DATA: Record<string, {
     description: "Tutta la magia del Natale racchiusa in un villaggio incantato. Casa di Babbo Natale, ufficio postale degli elfi e laboratori a tema per un'esperienza polare indimenticabile.",
     icon: Gift
   },
-  // Mat  "musica-in-chiesa": {
+  // Matrimoni
+  "musica-in-chiesa": {
     title: "Musica in chiesa",
     category: "Matrimoni",
     description: `Formazione base
@@ -328,10 +329,6 @@ Macchiettisti (Macchiette napoletane)
 La serenata di pulcinella
 Tavolo per casinò – Roulette, black jack e Poker
 Servizio foto istantanea con Polaroid`,
-    icon: Star
-  },ck e Poker
-
-Servizio foto instantanea con Polaroid.`,
     icon: Star
   },
   // Effetti Speciali
