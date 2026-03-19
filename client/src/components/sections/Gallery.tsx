@@ -11,10 +11,13 @@ const categories = ["Tutto", "Gonfiabili", "Spettacoli", "Allestimenti"];
 
 export function Gallery() {
   const [filter, setFilter] = useState("Tutto");
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
 
   const filteredItems = filter === "Tutto" 
     ? galleryItems 
     : galleryItems.filter(item => item.category === filter);
+
+  const displayedItems = showAllPhotos ? filteredItems : filteredItems.slice(0, 4);
 
   return (
     <section id="gallery" className="py-24 bg-white">
@@ -45,10 +48,10 @@ export function Gallery() {
 
         <motion.div 
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item) => (
+            {displayedItems.map((item) => (
               <motion.div
                 key={item.id}
                 layout
@@ -73,6 +76,17 @@ export function Gallery() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {filteredItems.length > 4 && !showAllPhotos && (
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => setShowAllPhotos(true)}
+              className="px-10 py-4 bg-primary text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 uppercase tracking-widest text-sm"
+            >
+              Vedi tutte le foto ({filteredItems.length})
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

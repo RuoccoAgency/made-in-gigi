@@ -179,7 +179,7 @@ export function ServiceLayout({ title, description, category, icon: Icon, images
               </div>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
               {displayedItems.map((p, idx) => (
                 <motion.div
                   key={p.id}

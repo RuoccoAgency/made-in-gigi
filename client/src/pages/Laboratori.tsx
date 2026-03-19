@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Palette, Box, Camera, Zap, Layout, Shapes } from "lucide-react";
@@ -25,13 +25,14 @@ const GALLERY_IMAGES: string[] = [
 
 
 export default function LaboratoriPage() {
+    const [showAllPhotos, setShowAllPhotos] = useState(false);
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
 
-    const items = useMemo(() => {
+    const allItems = useMemo(() => {
         if (GALLERY_IMAGES.length === 0) {
-            return Array.from({ length: 8 }).map((_, idx) => ({
+            return Array.from({ length: 4 }).map((_, idx) => ({
                 id: `placeholder-${idx}`,
                 src: "",
                 placeholder: true,
@@ -44,6 +45,8 @@ export default function LaboratoriPage() {
             placeholder: false,
         }));
     }, []);
+
+    const items = showAllPhotos ? allItems : allItems.slice(0, 4);
 
 
     const scrollToForm = () => {
@@ -113,18 +116,17 @@ export default function LaboratoriPage() {
                     </div>
 
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[300px]"
+                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"
                     >
                         {items.map((it, idx) => (
                             <button
                                 key={it.id}
-                                className={`group relative rounded-[2rem] overflow-hidden border-4 border-white shadow-lg hover:shadow-2xl transition-all ${idx % 5 === 0 ? 'md:col-span-2 md:row-span-2' : ''
-                                    }`}
+                                className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-white shadow-md hover:shadow-xl transition-all"
                                 onClick={() => !it.placeholder && window.open(it.src, "_blank")}
                             >
                                 {it.placeholder ? (
                                     <div className="absolute inset-0 flex items-center justify-center bg-indigo-50">
-                                        <span className="font-bold text-indigo-200">Foto in arrivo</span>
+                                        <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-tighter">Photo</span>
                                     </div>
                                 ) : (
                                     <img
@@ -137,6 +139,18 @@ export default function LaboratoriPage() {
                             </button>
                         ))}
                     </motion.div>
+
+                    {!showAllPhotos && allItems.length > 4 && (
+                        <div className="mt-12 text-center">
+                            <Button 
+                                onClick={() => setShowAllPhotos(true)} 
+                                variant="outline"
+                                className="bg-white border-indigo-200 text-indigo-600 hover:bg-indigo-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                            >
+                                Vedi tutte le foto ({allItems.length})
+                            </Button>
+                        </div>
+                    )}
                 </section>
 
 

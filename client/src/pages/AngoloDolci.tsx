@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Candy, Cookie, IceCream, Cake, Star, Heart } from "lucide-react";
@@ -30,11 +30,12 @@ const GALLERY_IMAGES: string[] = [
 ];
 
 export default function AngoloDolciPage() {
+    const [showAllPhotos, setShowAllPhotos] = useState(false);
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
 
-    const items = useMemo(() => {
+    const allItems = useMemo(() => {
         if (GALLERY_IMAGES.length === 0) {
             return Array.from({ length: 4 }).map((_, i) => ({
                 id: `placeholder-${i}`,
@@ -48,6 +49,8 @@ export default function AngoloDolciPage() {
             placeholder: false
         }));
     }, []);
+
+    const items = showAllPhotos ? allItems : allItems.slice(0, 4);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -100,25 +103,37 @@ export default function AngoloDolciPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
                     >
-                        {items.map((it) => (
+                        {items.map((it, idx) => (
                             <button
                                 key={it.id}
-                                className="group relative aspect-square rounded-[3rem] overflow-hidden bg-white shadow-2xl shadow-rose-900/5 ring-1 ring-rose-100"
+                                className="group relative aspect-square rounded-2xl overflow-hidden bg-white shadow-md border-2 border-white hover:shadow-xl transition-all"
                                 onClick={() => !it.placeholder && window.open(it.src, "_blank")}
                             >
                                 {it.placeholder ? (
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-lg font-black text-rose-200 uppercase tracking-widest">Foto in arrivo</span>
+                                        <span className="text-[10px] font-black text-rose-200 uppercase tracking-widest">Photo</span>
                                     </div>
                                 ) : (
                                     <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                 )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-rose-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-rose-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </button>
                         ))}
                     </motion.div>
+
+                    {!showAllPhotos && allItems.length > 4 && (
+                        <div className="mt-12 text-center">
+                            <Button 
+                                onClick={() => setShowAllPhotos(true)} 
+                                variant="outline"
+                                className="bg-white border-rose-200 text-rose-600 hover:bg-rose-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                            >
+                                Vedi tutte le foto ({allItems.length})
+                            </Button>
+                        </div>
+                    )}
                 </section>
 
                 <section className="container mx-auto px-4 mt-32">

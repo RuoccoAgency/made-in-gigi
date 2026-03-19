@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Baby, Sparkles, Heart, Star, PartyPopper, Check } from "lucide-react";
@@ -24,13 +24,14 @@ const GALLERY_IMAGES: string[] = [
 
 
 export default function GenderRevealPage() {
+    const [showAllPhotos, setShowAllPhotos] = useState(false);
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
 
-    const items = useMemo(() => {
+    const allItems = useMemo(() => {
         if (GALLERY_IMAGES.length === 0) {
-            return Array.from({ length: 8 }).map((_, idx) => ({
+            return Array.from({ length: 4 }).map((_, idx) => ({
                 id: `placeholder-${idx}`,
                 src: "",
                 placeholder: true,
@@ -43,6 +44,8 @@ export default function GenderRevealPage() {
             placeholder: false,
         }));
     }, []);
+
+    const items = showAllPhotos ? allItems : allItems.slice(0, 4);
 
 
     const scrollToForm = () => {
@@ -114,18 +117,17 @@ export default function GenderRevealPage() {
                     </div>
 
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 auto-rows-[250px] md:auto-rows-[300px]"
+                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"
                     >
                         {items.map((it, idx) => (
                             <button
                                 key={it.id}
-                                className={`group relative overflow-hidden transition-all ${idx % 7 === 0 ? 'md:col-span-2 md:row-span-2' : ''
-                                    }`}
+                                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm"
                                 onClick={() => !it.placeholder && window.open(it.src, "_blank")}
                             >
                                 {it.placeholder ? (
                                     <div className="absolute inset-0 flex items-center justify-center bg-slate-50 border border-slate-100">
-                                        <span className="font-light text-slate-300">Foto in arrivo</span>
+                                        <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest leading-none text-center">Photo</span>
                                     </div>
                                 ) : (
                                     <img
@@ -138,6 +140,18 @@ export default function GenderRevealPage() {
                             </button>
                         ))}
                     </motion.div>
+
+                    {!showAllPhotos && allItems.length > 4 && (
+                        <div className="mt-12 text-center">
+                            <Button 
+                                onClick={() => setShowAllPhotos(true)} 
+                                variant="outline"
+                                className="bg-white border-fuchsia-200 text-fuchsia-600 hover:bg-fuchsia-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                            >
+                                Vedi tutte le foto ({allItems.length})
+                            </Button>
+                        </div>
+                    )}
                 </section>
 
 

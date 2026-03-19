@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Sparkles, Check, Trophy, Wand2, PartyPopper, Zap, Tent, Ghost, Star, Plus } from "lucide-react";
@@ -97,13 +97,14 @@ const PACKAGES = [
 ];
 
 export default function PrimaComunionePage() {
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
 
-  const items = useMemo(() => {
+  const allItems = useMemo(() => {
     if (GALLERY_IMAGES.length === 0) {
-      return Array.from({ length: 8 }).map((_, idx) => ({
+      return Array.from({ length: 4 }).map((_, idx) => ({
         id: `placeholder-${idx}`,
         src: "",
         placeholder: true,
@@ -116,6 +117,8 @@ export default function PrimaComunionePage() {
       placeholder: false,
     }));
   }, []);
+
+  const items = showAllPhotos ? allItems : allItems.slice(0, 4);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -174,11 +177,7 @@ export default function PrimaComunionePage() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <Card className="h-full border-slate-100 hover:border-sky-100 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-500 rounded-none bg-white flex flex-col group">
-                  {/* Placeholder for images */}
-                  <div className="aspect-[16/9] bg-slate-50 flex items-center justify-center relative overflow-hidden">
-                    <pkg.icon className="w-12 h-12 text-sky-100 group-hover:scale-110 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
+
 
                   <CardContent className="p-8 flex flex-col flex-grow">
                     <div className="mb-4">
@@ -332,10 +331,7 @@ export default function PrimaComunionePage() {
                     ))}
                   </div>
 
-                  {/* Space for image placeholder */}
-                  <div className="mt-12 aspect-[16/6] bg-slate-100 flex items-center justify-center border border-dashed border-slate-200">
-                    <span className="text-[10px] uppercase tracking-widest text-slate-300 font-bold">Area Foto Extra</span>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -351,25 +347,41 @@ export default function PrimaComunionePage() {
           </div>
 
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6"
           >
             {items.map((it, idx) => (
-              <div key={it.id} className="flex flex-col gap-4">
-                <button
-                  className="relative aspect-[4/5] overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-500"
-                  onClick={() => !it.placeholder && window.open(it.src, "_blank")}
-                >
-                  {it.placeholder ? (
-                    <div className="absolute inset-0 flex items-center justify-center bg-slate-50 border border-slate-100">
-                      <span className="text-xs uppercase tracking-widest text-slate-300">Foto {idx + 1}</span>
-                    </div>
-                  ) : (
-                    <img src={it.src} alt="Gallery" className="h-full w-full object-cover hover:scale-105 transition-transform duration-700 opacity-90 hover:opacity-100" />
-                  )}
-                </button>
-              </div>
+              <motion.button
+                key={it.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm"
+                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+              >
+                {it.placeholder ? (
+                  <div className="absolute inset-0 flex items-center justify-center bg-sky-50/30">
+                    <span className="text-[10px] font-bold text-sky-200 uppercase tracking-widest">Photo</span>
+                  </div>
+                ) : (
+                  <img src={it.src} alt="Portfolio" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                )}
+                <div className="absolute inset-0 bg-sky-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.button>
             ))}
           </motion.div>
+
+          {!showAllPhotos && allItems.length > 4 && (
+            <div className="mt-16 text-center">
+                <Button 
+                    onClick={() => setShowAllPhotos(true)} 
+                    variant="outline"
+                    className="border-sky-200 text-sky-700 hover:bg-sky-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                >
+                    Vedi tutte le foto ({allItems.length})
+                </Button>
+            </div>
+          )}
         </section>
 
         {/* FINAL CALL TO ACTION */}
