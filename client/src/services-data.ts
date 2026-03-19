@@ -118,33 +118,27 @@ export const SERVICES_DATA: Record<string, {
     description: "Tutta la magia del Natale racchiusa in un villaggio incantato. Casa di Babbo Natale, ufficio postale degli elfi e laboratori a tema per un'esperienza polare indimenticabile.",
     icon: Gift
   },
-  // Matrimoni
-  "musica-in-chiesa": {
+  // Mat  "musica-in-chiesa": {
     title: "Musica in chiesa",
     category: "Matrimoni",
     description: `Formazione base
 Organo e Voce (Soprano o Tenore)
-
 Chitarra e Voce (voce Femminile di musica leggera “NO LIRICA SOPRANO”)
 
 Strumenti aggiuntivi:
-
 Violino
 Violoncello
 Tromba
 Arpa
-Flauto 
- 
+Flauto
 
 Formazione strumentale
 Arpa e Violino
- 
 
-Gospel e Organo  
+Gospel e Organo
 Canti popolari dei neri d’America coro con 8 voci
- 
 
-Quartetto d’Archi 
+Quartetto d’Archi
 I Violino + II Violino + Viola + Violoncello`,
     icon: Music
   },
@@ -152,132 +146,73 @@ I Violino + II Violino + Viola + Violoncello`,
     title: "Musica in sala",
     category: "Matrimoni",
     description: `Disponiamo di tantissime soluzioni per l’intrattenimento musicale in sala, in base al gusto e allo stile che si vuole dare alla cerimonia.
- 
 
 Pop Band – Gruppi di Musica Live
-
 (da 3 a 5 elementi – Musica dal vivo con repertorio internazionale)
 
- 
-
 Band Revival
-
-(da 3 a 5 elementi – Musica dal vivo con repertorio internazionale,
-
-musica revival anni 60/70/80 – Musica dance, colonne sonore)
-
- 
+(da 3 a 5 elementi – Musica dal vivo con repertorio internazionale, musica revival anni 60/70/80 – Musica dance, colonne sonore)
 
 Piano Show
-
-(Repertorio internazionale, musica classica napoletana,
-
-musica pop, revival anni 70/80/90, musica dance)
-
+(Repertorio internazionale, musica classica napoletana, musica pop, revival anni 70/80/90, musica dance)
 Formazione: Duo o trio
-
- 
 
 Trio Jazz (Basso, Pianoforte, batteria)
-
 (repertorio jazz solo musicale)
 
- 
-
-Tiro Jazz + Voce 
-
+Tiro Jazz + Voce
 (4 elementi – Standard jazz, canzoni arrangiante in chiave jazz)
 
- 
-
 Swing e Jazz Band
-
 (7 elementi – jazz, Chorus e standard americani anni 30- 40, musica leggera)
 
- 
-
-Blues Band  
-
+Blues Band
 (chitarra, basso, batteria)
 
- 
-
-Piano Bar Classico   (Repertorio internazionale, musica classica napoletana, musica pop)
-
+Piano Bar Classico
+(Repertorio internazionale, musica classica napoletana, musica pop)
 Formazione: Duo o trio
 
- 
-
 Duo o Trio Acustico
-
 (colonne sonore, musica internazionale, musica classica napoletana, jazz)
 
- 
-
-Deejay in sala  
-
+Deejay in sala
 (selezione di musica pop, deep, lounge, revival, standard, anni 60, 70, 80, 90)
 
- 
-
 Posteggia
-
-Formazioni: – Chitarra/voce e mandolino    o – Chitarra/voce, mandolino e voce femminile
-
+Formazioni: – Chitarra/voce e mandolino o – Chitarra/voce, mandolino e voce femminile
 (Musica Classica Napoletana)
 
- 
-
-Tamburriata 
-
+Tamburriata
 (tamburriata, canti popolari)
-
- 
-
- 
 
 Interventi musicali
 Da scegliere per Accoglienza Buffet iniziale e Buffe finale dolci e torta. Durata intervento 1,30 /2 ore
 
-Sassofonista – Sax Bar     
-
+Sassofonista – Sax Bar
 (colonne sonore, musica internazionale, musica classica napoletana)
 
- 
-
-Violinista 
-
+Violinista
 (colonne sonore, musica internazionale, musica classica)
 
- 
-
-Posteggia                                                                                                          
-
-Formazioni: – Chitarra/voce e mandolino    o – Chitarra/voce, mandolino e voce femminile
-
+Posteggia
+Formazioni: – Chitarra/voce e mandolino o – Chitarra/voce, mandolino e voce femminile
 (Musica Classica Napoletana)
 
- 
-
-Trombettista 
-
+Trombettista
 (colonne sonore, musica internazionale, musica classica napoletana, jazz)
 
- 
+Deejay dopo nozze
+(con impianto audio e Luci, Musica Dance, House, Revival, Anni 70/80/90, animazione disco, Disco Show)
 
-Deejay  dopo nozze – 
-
-(con impianto audio e Luci, Musica Dance, House, Revival,  Anni 70/80/90, animazione disco, Disco Show)
-
-Duo o Trio Acustico 
-
+Duo o Trio Acustico
 (colonne sonore, musica internazionale, musica classica napoletana, jazz)`,
     icon: Mic2
   },
   "casino-tavoli-gioco": {
     title: "Casinò tavoli da gioco",
     category: ["Matrimoni", "Format"],
-    description: `Noleggio Tavoli da Gioco Casinò  professionali con Roulette, Black Jack e Poker
+    description: `Noleggio Tavoli da Gioco Casinò professionali con Roulette, Black Jack e Poker
 Noleggiamo per il tuo evento a tema casinò
 
 Tavolo Roulette professionale con roulette 80 cm
@@ -290,7 +225,6 @@ Possibilità di personalizzare fiches con il logo del tuo evento.
 Un raffinato format di intrattenimento adatto ad ogni tipo di evento, dal party di compleanno al wedding party. L’eleganza dei tavoli, la qualità dei panni da gioco, la professionalità dei nostri croupier, sono gli elementi che mescolati insieme danno vita ad un party di gran classe.
 
 Party A tema Casinò Las Vegas
-
 Noleggio Slot machine vintage a rulli con gettoni.`,
     icon: Dices
   },
@@ -300,16 +234,34 @@ Noleggio Slot machine vintage a rulli con gettoni.`,
     description: `Effetti speciali Matrimonio Napoli
 Elenco dei possibili effetti speciali per stupire gli invitati del tuo matrimonio
 
-Nevicata Artificale   (Riproduzione di una nevicata artificiale) Momenti: Fuori Chiesa, Fuori al locale
-Sparo coriandoli  (Sparo coriandoli effetto mondiali)  
-Sparkular (Effetto scintille non pirotecniche, per taglio torta nunziale)
-Stelle filanti 
-Bolle di sapone  (Macchine per migliaia di bolle di sapone)  – Momenti: Fuori chiesa, sulla torta nunziale
-Fontane fredde   (Getti di fuoco)  – Momenti: Fuori chiesa, sulla torta nunziale
-Fumo basso  (Ambientazione al chiuso)
-Schiuma party  (Una novità assoluta, una festa a tema per festeggiare il matrimonio in un modo completamente diverso, sotto tanta schiuma insieme ai tuoi invitati)
-Esplosione di palloni  (Espolosione di palloncini telecomandati da cui possono fuoriuscire palloncini più piccoli, sia a caduta che volando)                                                                         
-Spara fiamme  Spara fuoco vero`,
+Nevicata Artificale
+(Riproduzione di una nevicata artificiale) Momenti: Fuori Chiesa, Fuori al locale
+
+Sparo coriandoli
+(Sparo coriandoli effetto mondiali)
+
+Sparkular
+(Effetto scintille non pirotecniche, per taglio torta nunziale)
+
+Stelle filanti
+
+Bolle di sapone
+(Macchine per migliaia di bolle di sapone) – Momenti: Fuori chiesa, sulla torta nunziale
+
+Fontane fredde
+(Getti di fuoco) – Momenti: Fuori chiesa, sulla torta nunziale
+
+Fumo basso
+(Ambientazione al chiuso)
+
+Schiuma party
+(Una novità assoluta, una festa a tema sotto tanta schiuma insieme ai tuoi invitati)
+
+Esplosione di palloni
+(Esplosione di palloncini telecomandati da cui possono fuoriuscire palloncini più piccoli)
+
+Spara fiamme
+Spara fuoco vero`,
     icon: Zap
   },
   "illuminazione": {
@@ -318,10 +270,9 @@ Spara fiamme  Spara fuoco vero`,
     description: `Noleggio Impianto Luci professionale Napoli
 Installazione Impianto Luci
 
-Noleggiamo ed installiamo luci in discoteche, locali, piazze concerti, eventi privati, meeating, teatri, matrimoni a Napoli, Caserta, Salernio, Avellino in Campania e tutta Italia. 
+Noleggiamo ed installiamo luci in discoteche, locali, piazze concerti, eventi privati, meeating, teatri, matrimoni a Napoli, Caserta, Salernio, Avellino in Campania e tutta Italia.
 
-Inoltre ci occupiamo di: 
-
+Inoltre ci occupiamo di:
 Illuminazione luci concerti
 Luci architettura
 Illuminotecnica
@@ -331,80 +282,54 @@ Luci per feste discoteca
 Illuminazione per sfilate di moda
 Illuminazione palazzetti dello sport
 Spettacolo di Luci per teatro
-Luci a Batteria Par 
-Bat wosh a Batteria con calamita 
-Luci e illuminazione per tavoli 
-wedding light 
+Luci a Batteria Par
+Bat wosh a Batteria con calamita
+Luci e illuminazione per tavoli
+wedding light
 Laser show
-Attenti alle nuove tecnologie e alle esigenze sempre più ampie del mondo dello spettacolo, al passo con l’innovazione tecnologica.`,
+
+Attenti alle nuove tecnologie e alle esigenze sempre più ampie del mondo dello spettacolo.`,
     icon: Sparkles
   },
   "spettacoli-intrattenimento": {
     title: "Spettacoli e intrattenimento",
     category: "Matrimoni",
     description: `Spettacoli per matrimonio Napoli
-La collaborazione decennale con i migliori artisti del panorama nazionale ed internazionale, ci hanno permesso di selezionale i migliori spettacoli da proporre alle cerimonie nuziali.
+La collaborazione decennale con i migliori artisti ci ha permesso di selezionare i migliori spettacoli.
 
-Elenco di alcuni possibili spettacoli:
-Violinista con Pittore 
-
-Water Ball  – Danzatrice in sfera trasparente
-
-Trapezista e tessuto aereo   (Spettacolo di contorsioni aeree)
-
-Statue viventi  
-
+Violinista con Pittore
+Water Ball – Danzatrice in sfera trasparente
+Trapezista e tessuto aereo (Spettacolo di contorsioni aeree)
+Statue viventi
 Caricaturista (2 ore circa 50 caricature)
-
-Trampolieri Sposi  (2 simpatici trampolieri travestiti da sposo e sposa)
-
+Trampolieri Sposi (Travestiti da sposo e sposa)
 Parata trampolieri
-
 Farfalle con ali luminose (Butterfly Led)
-
 Spettacolo di Danza con il fuoco
-
 Pole Dance – Spettacolo
-
 Sand Art – Spettacoli disegni con sabbia
-
 Artisti circensi Giocolieri, Funabolo, Monociclo
-
-Accoglienza con Artisti di Strada 
-
-Fachiro  (fuco, tappeto di chiodi, tappeto di vetro, inserimento)
-
-Camerieri finti  Coppia di attori, che faranno finta di essere camerieri molto sbadati.
-
-Magia   (Spettacolo di Magia per Adulti)
-
+Accoglienza con Artisti di Strada
+Fachiro (fuoco, tappeto di chiodi, tappeto di vetro)
+Camerieri finti (Coppia di attori molto sbadati)
+Magia (Spettacolo per Adulti)
 Ombre Cinesi
-
-Illusionismo (Spettacolo di magia con numeri di grandi illusioni: Es. donna tagliata e metà)
-
-Magia Close-up  (Spettacolo di magia tra i tavoli)
-
-Ballerine/i brasiliane (Spettacolo di ballo e animazione con ballerine brasiliane)
-
-Bolle di Sapone Giganti –
-
-Danza del ventre (Spettacolo di danza del ventre con animazione orientale)
-
-Drag Queen 
-
-Acro Yoga – Un misto tra ginnastica acrobatica e yoga.
-
-Ballerini latino americani (Ballerini professionisti con spettacolo e coinvolgimento)
-
-Spettacolo di animazione (Giochi di animazione, latino, show disco e revival) Deejay e animatore
-
-Cabarettisti (Spettacolo di cabaret comico)
-
-Macchiettisti (Spettacolo di macchiette napoletane)
-
-La serenata di pulcinella (Pulcinella interpreta uno spettacolo comico-musicale)
-
+Illusionismo (Grandi illusioni: Es. donna tagliata a metà)
+Magia Close-up (Tra i tavoli)
+Ballerine/i brasiliane
+Bolle di Sapone Giganti
+Danza del ventre (Animazione orientale)
+Drag Queen
+Acro Yoga (Ginnastica acrobatica e yoga)
+Ballerini latino americani
+Spettacolo di animazione (Latino, show disco e revival)
+Cabarettisti (Cabaret comico)
+Macchiettisti (Macchiette napoletane)
+La serenata di pulcinella
 Tavolo per casinò – Roulette, black jack e Poker
+Servizio foto istantanea con Polaroid`,
+    icon: Star
+  },ck e Poker
 
 Servizio foto instantanea con Polaroid.`,
     icon: Star

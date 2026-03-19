@@ -7,6 +7,7 @@ import { Contact } from "../sections/Contact";
 import { WhatsAppWidget } from "../ui/WhatsAppWidget";
 import { Button } from "../ui/button";
 import { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ServiceLayoutProps {
   title: string;
@@ -63,9 +64,26 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
             <h1 className="text-5xl md:text-7xl font-display font-bold text-slate-900 mb-8 tracking-tight">
               {title}
             </h1>
-            <p className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl font-light">
-              {description}
-            </p>
+            <div className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl font-light whitespace-pre-wrap">
+              {description.split('\n').map((line, i) => {
+                const trimmedLine = line.trim();
+                if (!trimmedLine) return <div key={i} className="h-4" />;
+                
+                const isTitle = trimmedLine.length > 0 && 
+                               trimmedLine.length < 65 && 
+                               !trimmedLine.includes('(') && 
+                               !trimmedLine.startsWith('-') &&
+                               !trimmedLine.includes('€');
+                return (
+                  <span key={i} className={cn(
+                    "block",
+                    isTitle ? "text-secondary font-bold mt-8 mb-2 text-xl md:text-2xl tracking-tight" : "mb-1 text-slate-500"
+                  )}>
+                    {trimmedLine}
+                  </span>
+                );
+              })}
+            </div>
             <div className="mt-12">
               <Button 
                 onClick={scrollToForm} 
