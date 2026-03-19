@@ -475,79 +475,197 @@ Servizio foto istantanea con Polaroid`,
   "schiuma-party": {
     title: "Schiuma Party Cannone",
     category: "Effetti Speciali",
-    description: "Divertimento allo stato puro con i nostri cannoni sparachiuma ad alta potenza, ideali per eventi estivi e feste in piscina.",
+    description: `Il Cannone più potente d'Italia
+Fai il pieno di ragazzi pronti a divertirsi buttandosi nella schiuma. Ideale per grandi serate in disco e all'aperto.
+
+Potenza e Gittata
+Il nostro cannone raggiunge un getto di oltre 15 metri, garantendo una copertura massiccia dell'area interessata.
+
+Due modalità in una
+La macchina funziona sia come cannone che come generatore di schiuma: una caratteristica che permette di usarlo in due modi diversi nella stessa serata.`,
     icon: Waves
   },
   "nevicata-artificiale": {
     title: "Nevicata Artificiale Cannone Neve",
     category: "Effetti Speciali",
-    description: "Crea un'atmosfera invernale magica in qualsiasi momento dell'anno con i nostri cannoni sparaneve professionale.",
+    description: `Effetto Nevicata Professionale
+Disponiamo di macchine di diverse dimensioni per realizzare una nevicata artificiale perfetta in qualsiasi contesto.
+
+Indoor e Outdoor
+Le macchine piccole sono ideali per teatri, locali e sale al chiuso. Per spazi aperti usiamo i poderosi Cannoni Snow 500.
+
+Cannone Snow 500
+Progettato per piazze, set cinematografici e grandi discoteche. Riesce a far nevicare fino a 20 metri di distanza dall'installazione.`,
     icon: Snowflake
   },
   "spara-coriandoli": {
     title: "Spara coriandoli a CO2",
     category: "Effetti Speciali",
-    description: "Esplosioni scenografiche di colori per premiazioni, tagli della torta o finali di festa con cannoni a CO2 di grande impatto.",
+    description: `Caduta di Coriandoli Scenografica
+Un magico effetto di mega caduta di coriandoli di qualsiasi forma e dimensione. Creiamo piogge colorate o nevicate artificiali lente.
+
+Contesti d'uso
+Ideale per premiazioni, grandi eventi all'aperto, matrimoni e comunioni. Un effetto di grande impatto visivo.
+
+Personalizzazione unica
+È possibile personalizzare i coriandoli stampando il nome dell'azienda o dei festeggiati per un tocco esclusivo.
+
+Potenza CO2
+Utilizziamo la forza del CO2 per lanciare i coriandoli fino a 20 metri di altezza. Per info e prezzi contatta lo 081 19802287.`,
     icon: PartyPopper
   },
   "spara-fiamme": {
     title: "Spara fiamme",
     category: "Effetti Speciali",
-    description: "Effetti di fuoco controllato sincronizzati con la musica, ideali per palchi, festival ed eventi ad alta energia.",
+    description: `Spara Fiamme Coreografico
+Macchine professionali capaci di generare fiamme reali alte fino a 3 metri per un effetto adrenalinico.
+
+Sincronizzazione Musicale
+Le macchine possono essere azionate singolarmente o in gruppi, sincronizzate con la musica o altri effetti speciali.
+
+Fiamme colorate
+Offriamo la possibilità di variare i colori delle fiamme per adattarle al tema del vostro spettacolo o evento.
+
+Stupisci il tuo pubblico
+Ideale per concerti, sfilate di moda, presentazioni aziendali e grandi eventi in piazza.`,
     icon: Flame
   },
   "geyser-co2": {
     title: "Geyser CO2 Blaster",
     category: "Effetti Speciali",
-    description: "Colonne di fumo bianco a scomparsa immediata, cariche di energia, perfette per i momenti drop dei DJ set.",
+    description: `Getti di fumo ghiacciato Geyser
+Effetto spettacolare di colonne di fumo bianco realizzate grazie al CO2 ad alta pressione.
+
+Installazioni Blaster
+Disponiamo dei poderosi BLASTER con una gettata reale di 30 metri, tra le macchine più potenti in Europa.
+
+Automazione e Sincronia
+Realizziamo installazioni fisse o mobili che possono essere centralizzate e sincronizzate perfettamente con la musica.
+
+Noleggio e Service
+Effettuiamo noleggio a freddo e installazioni professionali, anche per lunghi periodi in discoteche e club.`,
     icon: Wind
   },
   "bazooka-co2": {
     title: "Bazooka CO2 Cannone CO2",
     category: "Effetti Speciali",
-    description: "Effetto CO2 mobile gestito direttamente dagli animatori o dai DJ per un'interazione diretta con il pubblico.",
+    description: `Bazooka CO2 - Effetto Club
+Lo spettacolare effetto visto nei migliori club internazionali, ora disponibile per il tuo party.
+
+Interazione diretta
+Un getto di fumo freddo sparato da DJ, ballerini o vocalist direttamente sul pubblico per caricare l'atmosfera.
+
+Versatilità
+Perfetto per locali e discoteche, sia al chiuso che all'aperto, per momenti di puro hype durante la serata.`,
     icon: Wind
   },
   "sparkular": {
     title: "Sparkular",
     category: "Effetti Speciali",
-    description: "Fontane di scintille fredde sicure anche per interni, senza fumo né odore, per un effetto Hollywoodiano garantito.",
+    description: `Sparkular - Scintille Fredde
+Macchina innovativa che riproduce l'effetto delle fontane pirotecniche in modo totalmente sicuro e senza fuoco.
+
+Sicurezza assoluta
+Non brucia, non produce fumo né odore ed è atossico. Può essere usato liberamente in ambienti chiusi senza permessi speciali.
+
+Specifiche tecniche
+Uso indoor e outdoor
+Nessun sistema pirotecnico o infiammabile
+Fino a 3 minuti di autonomia per ricarica
+Controllo professionale tramite DMX
+
+Il tocco magico per cerimonie
+Perfetto per il taglio della torta in matrimoni e cerimonie eleganti a Napoli e dintorni.`,
     icon: Zap
   },
   "fumo-basso": {
     title: "Fumo basso",
     category: "Effetti Speciali",
-    description: "L'effetto 'camminata sulle nuvole' perfetto per il primo ballo degli sposi o ingressi trionfali.",
+    description: `Effetto Paradiso - Fumo Basso
+Il celebre effetto del fumo pesante che resta ancorato al pavimento, creando un'atmosfera magica "sulle nuvole".
+
+Macchinari Professionali
+Utilizziamo le celebri Le Maitre G300SMART con FREEZEFOG Pro, le eccellenze del mercato mondiale.
+
+Potenza e Copertura
+La macchina copre fino a 80 mq al minuto. L'effetto è di lunga durata, non lascia residui e non fa scivolare.
+
+Ambiti d'uso
+Ideale per il primo ballo degli sposi, produzioni televisive, teatri, set cinematografici e showroom.`,
     icon: Wind
   },
   "fontane-fredde": {
     title: "Fontane fredde / fuochi freddi",
     category: "Effetti Speciali",
-    description: "Scenografie luminose eleganti e sicure, ideali per sottolineare i momenti clou di matrimoni ed eventi aziendali.",
+    description: `Fontane Fredde e Scintille
+Scenografie luminose eleganti con colonne di scintille di varie altezze, durata e intensità.
+
+Sicuro in ogni location
+La caratteristica di non bruciare permette l'installazione su palchi, teatri o anche vicino alla consolle DJ in sicurezza.
+
+Controllo remoto
+I fuochi sono gestiti tramite centraline radio-comandate per attivare scene sincronizzate con i momenti clou.`,
     icon: Zap
   },
   "cascata-palloni": {
     title: "Cascata palloni",
     category: "Effetti Speciali",
-    description: "Una pioggia gioiosa di palloncini colorati che scende dall'alto per chiudere in bellezza cerimonie e inaugurazioni.",
+    description: `Cascata di Palloncini
+Regala un'emozione gioiosa e colorata con una scenografica cascata di palloncini che scende dall'alto.
+
+Dimensioni su misura
+Possiamo realizzare cascate di qualsiasi dimensione, adattandoci alle altezze di qualsiasi location o centro commerciale.
+
+Personalizzazione totale
+I palloncini possono essere di qualsiasi misura e colore, con possibilità di stampa personalizzata con loghi o nomi.`,
     icon: CircleDot
   },
   "laser-show": {
     title: "Laser show",
     category: "Effetti Speciali",
-    description: "Proiezioni laser professionali e volumetriche per creare coreografie di luce spettacolari e futuristiche.",
+    description: `Sistemi Laser Professionali
+Proiezioni laser ad alta potenza per creare coreografie volumetriche o disegni su superfici.
+
+Grafica e Testi
+I nostri laser possono riprodurre loghi aziendali, scritte personalizzate e immagini vettoriali in 2D e 3D in movimento.
+
+Grandi Spazi
+Capaci di animare discoteche, grandi concerti in piazza e scenografie pubblicitarie di forte impatto.`,
     icon: Pointer
   },
   "bolle-sapone": {
     title: "Bolle di sapone",
     category: "Effetti Speciali",
-    description: "Macchine professionali per bolle di sapone, per un tocco di leggerezza e magia a matrimoni e feste per bambini.",
+    description: `Coreografie di Bolle di Sapone
+Macchine professionali capaci di inondare palchi e aree sceniche con migliaia di bolle scintillanti.
+
+Tecnologia DMX
+Utilizziamo macchinari controllabili via DMX per integrare le bolle perfettamente con l'impianto luci e la musica.
+
+Liquidi Atossici
+Utilizziamo esclusivamente liquido speciale atossico ed anallergico che non macchia e non rovina i tessuti.
+
+Ideale per:
+Matrimoni e Comunioni
+Eventi Teatrali
+Sfilate e Inaugurazioni
+Strutture turistiche`,
     icon: Waves
   },
   "dance-floor": {
     title: "Dance floor / pedana",
     category: "Effetti Speciali",
-    description: "Piste da ballo professionali, pedane luminose e moduli per creare l'area dance perfetta per qualsiasi location.",
+    description: `Pista da Ballo 3D
+Noleggio di Dance Floor con effetto Mirror 3D per trasformare l'area ballo in un'esperienza visiva unica.
+
+Varie metrature
+Disponiamo di diverse configurazioni modulari per adattarci a ogni spazio, dal piccolo party al grande wedding.
+
+Wedding & Club
+Ideale per matrimoni, 18esimi ed eventi aziendali a Napoli e in tutta la Campania.
+
+Personalizzazione
+Possibilità di aggiungere pedane rialzate e strutture per delimitare l'area ballo professionale.`,
     icon: Layers
   },
   // Gonfiabili
@@ -561,68 +679,204 @@ Servizio foto istantanea con Polaroid`,
   "attrezzature-dj": {
     title: "Attrezzature per DJ / Consolle",
     category: "Service",
-    description: "Noleggio strumentazione professionale per DJ (Pioneer, Allen & Heath) e setup completi per ogni tipo di performance.",
+    description: `Noleggio Attrezzature professionali per DJ
+Forniamo sia l'installazione che il noleggio con ritiro diretto nei nostri depositi.
+
+MIXER disponibili:
+PIONEER DJM 600/700/800/900 / 900 NXS
+ALLEN & HEATH XONE 92
+OUTLINE PRO 408
+
+Lettori CDJ e Digitali:
+PIONEER CDJ 350 / 400 / 2000 NEXUS 2
+TECHNICS SL DZ 1200
+Effetti Pioneer RMX 1000
+
+Giradischi e Vinile:
+Technics SL-1200 e SL-1210 (Il mito intramontabile)
+
+Controller e Interfacce:
+Native Instruments Traktor Kontrol X1 e S4
+Schede audio e tastiere MIDI (Vari modelli Native Instruments e M-Audio)`,
     icon: Music
   },
   "impianti-audio": {
     title: "Impianti audio",
     category: "Service",
-    description: "Sistemi audio professionali per piccoli eventi o grandi spazi, configurazioni line array e assistenza tecnica dedicata.",
+    description: `Service Audio e Impianti Professionali
+Disponiamo di impianti audio e luci di vari marchi e tipologie per ogni tipo di applicazione ed evento.
+
+Progettazione e Assistenza
+Curiamo trasporto, installazione e gestione tecnica per:
+Musica Live e Concerti
+Serate Dance e DJ set
+Sfilate di moda e Teatro
+Manifestazioni e Convegni
+Conferenze e Meeting aziendali
+
+Noleggio Rapido (Dry Hire)
+Puoi ritirare direttamente in deposito piccoli o medi impianti audio ideali per:
+Feste private
+Piano Bar
+Potenziamento impianto esistente
+Piccole manifestazioni`,
     icon: Radio
   },
   "ledwall": {
     title: "Ledwall maxischermo",
     category: "Service",
-    description: "Schermi LED ad alta risoluzione per proiezioni video, dirette streaming e contenuti spettacolari, modulari per ogni dimensione.",
+    description: `Noleggio Ledwall e Maxischermi
+Installiamo Ledwall modulari ad alta risoluzione per eventi pubblici, privati, fiere e concerti.
+
+Visibilità perfetta anche di giorno
+I nostri schermi assicurano una visione cristallina anche all'aperto sotto la luce del sole.
+
+Soluzioni per ogni esigenza:
+Stand fieristici e sfilate di moda
+Concerti live indoor e outdoor
+Eventi disco e party privati
+Meeting e convegni istituzionali
+Campagne pubblicitarie dinamiche
+
+Gestione Tecnica e VJ
+Ci occupiamo di montaggio e assistenza. Su richiesta, un VJ professionista può creare effetti video live spettacolari. Disponibili anche per installazioni fisse in vetrine e locali.`,
     icon: Monitor
   },
   "video-proiezioni": {
     title: "Video proiezioni",
     category: "Service",
-    description: "Proiettori ad alta luminosità e schermi per presentazioni aziendali, cinema all'aperto o proiezione di contenuti emozionali.",
+    description: `Video Proiezioni Professionali
+Installazioni fisse e mobili con schermi di varie misure e tipologie. Noleggio con o senza operatore tecnico.
+
+Tecnologia 2D e 3D
+Videoproiettori multimediali ad alta luminosità per risultati spettacolari in ogni condizione di luce.
+
+Ideale per:
+Meeting e Congressi
+Videoconferenze e Webinar
+Rappresentazioni Teatrali
+Visual per DJ set e Live Show
+Dirette televisive e Pubblicità
+Manifestazioni pubbliche`,
     icon: Monitor
   },
   "pedane-palchi": {
     title: "Pedane palchi passerelle",
     category: "Service",
-    description: "Strutture modulari certificate per la creazione di palcoscenici, passerelle per sfilate e aree rialzate sicure ed eleganti.",
+    description: `Noleggio Palchi e Pedane Modulari
+Strutture certificate e sicure per la creazione di aree rialzate, passerelle e palcoscenici professionali.
+
+Pedane modulari (1x2 mt)
+Altezze variabili: 20, 40, 60 o 80 cm. Ideali per piccole aree rialzate o passerelle per sfilate di moda.
+
+Palchi certificati per grandi eventi
+Installazioni di qualsiasi dimensione con moduli 2x2 mt, dotati di scale, protezioni laterali e opzione di copertura per sagre e concerti.`,
     icon: Layers
   },
   "service-illuminazione": {
     title: "Illuminazione Technical",
     category: "Service",
-    description: "Illuminazione tecnica per concerti, sfilate ed eventi aziendali, con fari motorizzati, sagomatori e regie luci professionali.",
+    description: `Service Illuminazione Professionale
+Progettiamo e installiamo impianti luci per discoteche, locali, piazze e teatri in tutta Italia.
+
+Illuminazione Tecnica e Creativa:
+Luci per concerti e spettacoli teatrali
+Illuminazione architettonica per esterni e facciate
+Luci per matrimoni e wedding light design
+Illuminotecnica per sfilate di moda e aree sportive
+Laser Show e proiezioni dinamiche
+
+Tecnologia Batteria Wireless
+Disponiamo di fari a batteria (Par e Bat Wash) per illuminare location senza cavi a vista, con fissaggio a calamita.
+
+Innovazione e Qualità
+Sempre al passo con le nuove tecnologie per offrire scenografie luminose di massimo impatto visivo.`,
     icon: Zap
   },
   "service-dance-floor": {
     title: "Dance floor / pedana Technical",
     category: "Service",
-    description: "Strutture tecniche per piste da ballo modulari, pavimentazioni per eventi e palcoscenici per sfilate.",
+    description: `Pista da Ballo Mirror 3D
+Trasforma la tua zona dance con una pedana luminosa professionale dall'effetto profondità 3D unico.
+
+Modularità e Dimensioni
+Disponibile in diverse metrature per adattarsi a ogni tipo di sala, piazza o location all'aperto.
+
+Noleggio Service Campania
+Effettuiamo consegne e installazioni a Napoli e in tutta la regione per:
+Matrimoni ed Eventi eleganti
+Feste di 18 Anni e compleanni
+Eventi aziendali e lanci di prodotto
+Party in discoteca e locali`,
     icon: Layers
   },
   // Comunicazione
   "volantinaggio": {
     title: "Volantinaggio",
     category: "Comunicazione",
-    description: "Distribuzione professionale di materiale pubblicitario door-to-door o in punti strategici per massimizzare la visibilità del brand.",
+    description: `Volantinaggio Non Convenzionale
+Usciamo dagli schemi classici per catturare l'attenzione con strumenti e figure inedite.
+
+Le nostre proposte creative:
+Volantinaggio con Trampolieri
+Distribuzione con Mascotte Disney
+Hostess, Ragazze Immagine e Ragazze Sexy
+Babbo Natale e Babba Natale in minigonna
+Roller Girls (Hostess sui pattini)
+
+Guerrilla Marketing
+Idee e strumenti inediti progettati per stupire il pubblico, generare passaparola e lasciare un segno.
+
+Copertura Territoriale
+Effettuiamo servizi di volantinaggio professionale a Napoli, Nola, Paesi Vesuviani, Salerno, Benevento, Caserta e in tutta la Campania.`,
     icon: Megaphone
   },
   "campagne-pubblicitarie": {
     title: "Campagne pubblicitarie",
     category: "Comunicazione",
-    description: "Pianificazione e gestione di campagne pubblicitarie integrate per promuovere il tuo business o evento con efficacia.",
+    description: `Progettazione Campagne Pubblicitarie
+Creare una campagna significa trovare il modo perfetto per suscitare interesse reale nel consumatore.
+
+Attenzione e Curiosità
+Il nostro studio realizza campagne inconsuete che catturano non solo il cliente interessato, ma anche il semplice curioso.
+
+Piano di Comunicazione Aziendale
+La campagna pubblicitaria è il cuore di ogni piano di crescita. Ci occupiamo della strategia dall'idea alla realizzazione.
+
+Risultati Stupefacenti
+Affidati alla nostra esperienza per proporre al mercato qualcosa che sappia davvero distinguersi dalla massa.`,
     icon: Megaphone
   },
   "servizio-hostess": {
     title: "Servizio hostess",
     category: "Comunicazione",
-    description: "Staff professionale e multilingua per accoglienza ospiti, stand fieristici, congressi ed eventi istituzionali.",
+    description: `Servizio Hostess e Promoter
+Forniamo staff qualificato per le aziende più note del panorama nazionale, garantendo professionalità e immagine.
+
+Eventi e Congressi
+Hostess specializzate per meeting, inaugurazioni, congressi istituzionali e feste private di alto livello.
+
+Promozione di Prodotto
+Staff promoter dedicato per centri commerciali e punti vendita, per valorizzare al meglio ogni articolo o servizio.
+
+Staff a Tema e Costumi
+Progettiamo l'immagine dello staff in base all'evento:
+Hostess in costume Bavarese o Medievale
+Abiti sportivi o Tailleur classici e moderni
+Conigliette e abiti a tema personalizzati`,
     icon: Heart
   },
   "roller-girls": {
     title: "Roller girls",
     category: "Comunicazione",
-    description: "Un tocco di originalità e dinamismo: hostess sui pattini per distribuzione gadget, flyer o accoglienza animata.",
+    description: `Roller Girls - Hostess sui Pattini
+Cambia il modo di comunicare! Attira l'attenzione distribuendo volantini con dinamismo grazie alle nostre Roller Girls.
+
+Dinamismo Urbano
+Un format perfetto per centri storici, piazze affollate e grandi centri commerciali dove la velocità e l'originalità fanno la differenza.
+
+Attira il tuo pubblico
+Le Roller Girls rappresentano un nuovo modo, fresco e divertente, per interagire con i potenziali clienti e farsi notare.`,
     icon: Zap
   },
 };
