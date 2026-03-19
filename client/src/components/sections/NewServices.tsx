@@ -32,6 +32,7 @@ const SERVICES = [
     iconColor: "text-pink-600",
     bgIcon: "bg-pink-100",
     btnColor: "bg-pink-600 hover:bg-pink-700",
+    img: "/images/allestimenti per compleanni/202341580_4309865342403574_4538620096295082383_n.webp",
   },
   {
     title: "Feste 18 Anni",
@@ -45,6 +46,7 @@ const SERVICES = [
     iconColor: "text-violet-600",
     bgIcon: "bg-violet-100",
     btnColor: "bg-violet-600 hover:bg-violet-700",
+    img: "/images/18esimi/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.webp",
   },
   {
     title: "40-50 Anni",
