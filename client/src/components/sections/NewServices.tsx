@@ -18,7 +18,6 @@ const SERVICES = [
     iconColor: "text-amber-600",
     bgIcon: "bg-amber-100",
     btnColor: "bg-amber-600 hover:bg-amber-700",
-    images: ["/images/ARCHI VELA/1.webp"],
   },
   {
     title: "Primo Compleanno",
@@ -32,12 +31,6 @@ const SERVICES = [
     iconColor: "text-pink-600",
     bgIcon: "bg-pink-100",
     btnColor: "bg-pink-600 hover:bg-pink-700",
-    images: [
-      "/images/1imo/251539037_4721967907859980_6889398567289818069_n.webp",
-      "/images/1imo/294255205_5542197332503696_2661678291067827710_n.webp",
-      "/images/1imo/297066370_5582994351757327_5714870777046302944_n.webp",
-      "/images/1imo/298168800_1602628480134195_7691046820701733505_n.webp"
-    ],
   },
   {
     title: "Compleanni",
@@ -51,11 +44,6 @@ const SERVICES = [
     iconColor: "text-sky-600",
     bgIcon: "bg-sky-100",
     btnColor: "bg-sky-600 hover:bg-sky-700",
-    images: [
-      "/images/generali/221235282_4416454168411357_1810285300504269591_n.webp",
-      "/images/generali/280690891_5359640354092729_7898705918205218487_n.webp",
-      "/images/generali/314953839_818141679640074_2033614512149437795_n.webp"
-    ],
   },
   {
     title: "Feste 18 Anni",
@@ -69,12 +57,6 @@ const SERVICES = [
     iconColor: "text-violet-600",
     bgIcon: "bg-violet-100",
     btnColor: "bg-violet-600 hover:bg-violet-700",
-    images: [
-      "/images/18esimi/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.webp",
-      "/images/18esimi/293324034_5523000047756758_2071711076166925323_n.webp",
-      "/images/18esimi/299985517_5629259487130813_6636565796765681418_n.webp",
-      "/images/18esimi/COSTO 250 EURO COME FOTO.webp"
-    ],
   },
   {
     title: "Compleanni per Adulti",
@@ -88,12 +70,6 @@ const SERVICES = [
     iconColor: "text-amber-600",
     bgIcon: "bg-amber-100",
     btnColor: "bg-amber-600 hover:bg-amber-700",
-    images: [
-      "/images/allestimenti per adulti/COSTO 150 EURO.webp",
-      "/images/allestimenti per adulti/COSTO 300 EURO.webp",
-      "/images/allestimenti per adulti/COSTO 350 EURO.webp",
-      "/images/allestimenti per adulti/250 EURO COME FOTO.webp"
-    ],
   },
   {
     title: "Prima Comunione",
@@ -176,12 +152,6 @@ const SERVICES = [
     iconColor: "text-teal-600",
     bgIcon: "bg-teal-100",
     btnColor: "bg-teal-600 hover:bg-teal-700",
-    images: [
-      "/images/battesimo/100 EURO.webp",
-      "/images/battesimo/150 EURO.webp",
-      "/images/battesimo/200 EURO.webp",
-      "/images/battesimo/250 EURO.webp"
-    ],
   },
 ] as const;
 
@@ -252,18 +222,7 @@ export function NewServices() {
                       </div>
                     )}
 
-                    {'images' in s && s.images && s.images.length > 0 && (
-                      <div className="relative h-52 overflow-hidden">
-                        <img 
-                          src={s.images[0]} 
-                          alt={s.title} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40" />
-                      </div>
-                    )}
-
-                    <CardContent className={cn("p-8 relative z-10 text-pretty", ('images' in s && s.images && s.images.length > 0) && "pt-6")}>
+                    <CardContent className="p-8 relative z-10 text-pretty">
                       <div className={cn(
                         "flex items-start justify-between gap-4 mb-8",
                         isCreative && "flex-row-reverse",
