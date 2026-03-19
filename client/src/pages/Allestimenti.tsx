@@ -143,7 +143,7 @@ export default function AllestimentiPage() {
     }));
   }, []);
 
-  const displayedItems = showAll ? items : items.slice(0, 6);
+  const displayedItems = showAll ? items : items.slice(0, 4);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -246,7 +246,7 @@ export default function AllestimentiPage() {
             ))}
           </motion.div>
 
-          {!showAll && items.length > 6 && (
+          {!showAll && items.length > 4 && (
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

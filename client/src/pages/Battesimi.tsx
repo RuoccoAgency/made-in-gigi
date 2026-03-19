@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Heart, Sparkles, Star, Flower2 } from "lucide-react";
@@ -23,13 +23,14 @@ const GALLERY_IMAGES: string[] = [
 ];
 
 export default function BattesimiPage() {
+    const [showAllPhotos, setShowAllPhotos] = useState(false);
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
 
-    const items = useMemo(() => {
+    const allItems = useMemo(() => {
         if (GALLERY_IMAGES.length === 0) {
-            return Array.from({ length: 8 }).map((_, i) => ({
+            return Array.from({ length: 4 }).map((_, i) => ({
                 id: `placeholder-${i}`,
                 src: "",
                 placeholder: true
@@ -41,6 +42,8 @@ export default function BattesimiPage() {
             placeholder: false
         }));
     }, []);
+
+    const items = showAllPhotos ? allItems : allItems.slice(0, 4);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -117,17 +120,17 @@ export default function BattesimiPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto"
+                    className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-5xl mx-auto"
                   >
                     {items.map((it) => (
                       <button
                         key={it.id}
-                        className="group relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100"
+                        className="group relative aspect-square rounded-xl overflow-hidden bg-slate-100 border border-slate-100"
                         onClick={() => !it.placeholder && window.open(it.src, "_blank")}
                       >
                         {it.placeholder ? (
                           <div className="absolute inset-0 flex items-center justify-center bg-teal-50/50">
-                            <span className="text-sm font-medium text-teal-800/50">Foto in arrivo</span>
+                            <span className="text-[10px] font-medium text-teal-800/50 uppercase tracking-tighter">Photo</span>
                           </div>
                         ) : (
                           <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -136,6 +139,18 @@ export default function BattesimiPage() {
                       </button>
                     ))}
                   </motion.div>
+
+                  {!showAllPhotos && allItems.length > 4 && (
+                    <div className="mt-12 text-center">
+                        <Button 
+                            onClick={() => setShowAllPhotos(true)} 
+                            variant="outline"
+                            className="border-slate-200 text-slate-600 hover:bg-teal-50 hover:text-teal-600 rounded-full px-10 h-14 text-sm font-bold shadow-sm transition-all hover:scale-105"
+                        >
+                            Vedi tutte le foto ({allItems.length})
+                        </Button>
+                    </div>
+                  )}
                 </section>
 
 

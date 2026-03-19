@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Navbar } from "./Navbar";
@@ -18,6 +18,7 @@ interface ServiceLayoutProps {
 }
 
 export function ServiceLayout({ title, description, category, icon: Icon, images }: ServiceLayoutProps) {
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
@@ -29,12 +30,14 @@ export function ServiceLayout({ title, description, category, icon: Icon, images
 
   const galleryItems = images && images.length > 0 
     ? images.map((src, idx) => ({ id: `img-${idx}`, src, label: `${title} ${idx + 1}`, placeholder: false }))
-    : Array.from({ length: 6 }).map((_, idx) => ({
+    : Array.from({ length: 4 }).map((_, idx) => ({
         id: `placeholder-${idx}`,
         src: "",
         label: `Progetto ${idx + 1}`,
         placeholder: true
       }));
+
+  const displayedItems = showAllPhotos ? galleryItems : galleryItems.slice(0, 4);
 
   // Parse description into sections
   const lines = description.split('\n').map(l => l.trim()).filter(Boolean);
@@ -176,23 +179,23 @@ export function ServiceLayout({ title, description, category, icon: Icon, images
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {galleryItems.map((p, idx) => (
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {displayedItems.map((p, idx) => (
                 <motion.div
                   key={p.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="group relative aspect-[4/3] bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center cursor-pointer"
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  className="group relative aspect-square bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center cursor-pointer"
                   onClick={() => !p.placeholder && window.open(p.src, "_blank")}
                 >
                   {p.placeholder ? (
-                    <div className="flex flex-col items-center gap-4 text-slate-300 group-hover:text-secondary transition-colors duration-500">
-                      <div className="w-16 h-16 rounded-full border-2 border-dashed border-current flex items-center justify-center">
-                        <span className="text-xs font-bold uppercase tracking-tighter">Photo</span>
+                    <div className="flex flex-col items-center gap-2 text-slate-300 group-hover:text-secondary transition-colors duration-500">
+                      <div className="w-10 h-10 rounded-full border-2 border-dashed border-current flex items-center justify-center">
+                        <span className="text-[10px] font-bold uppercase tracking-tighter">Photo</span>
                       </div>
-                      <span className="text-sm font-display font-bold uppercase tracking-widest">{p.label}</span>
+                      <span className="text-[10px] font-display font-medium uppercase tracking-widest">{p.label}</span>
                     </div>
                   ) : (
                     <img 
@@ -205,6 +208,19 @@ export function ServiceLayout({ title, description, category, icon: Icon, images
                 </motion.div>
               ))}
             </div>
+
+            {galleryItems.length > 4 && !showAllPhotos && (
+              <div className="mt-16 text-center">
+                <Button 
+                  onClick={() => setShowAllPhotos(true)} 
+                  variant="outline"
+                  size="lg" 
+                  className="border-secondary text-secondary hover:bg-secondary hover:text-white rounded-full px-10 h-14 text-sm font-bold shadow-lg shadow-secondary/5 transition-all hover:scale-105"
+                >
+                  Vedi tutte le foto ({galleryItems.length})
+                </Button>
+              </div>
+            )}
           </div>
         </section>
 

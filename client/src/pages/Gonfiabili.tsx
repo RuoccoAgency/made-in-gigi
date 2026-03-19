@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { PartyPopper, Zap, ShieldCheck, Clock, Smile, Star } from "lucide-react";
@@ -22,13 +22,14 @@ const GALLERY_IMAGES: string[] = [
 ];
 
 export default function GonfiabiliPage() {
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
 
-  const items = useMemo(() => {
+  const allItems = useMemo(() => {
     if (GALLERY_IMAGES.length === 0) {
-      return Array.from({ length: 8 }).map((_, idx) => ({
+      return Array.from({ length: 4 }).map((_, idx) => ({
         id: `placeholder-${idx}`,
         src: "",
         placeholder: true,
@@ -41,6 +42,8 @@ export default function GonfiabiliPage() {
       placeholder: false,
     }));
   }, []);
+
+  const items = showAllPhotos ? allItems : allItems.slice(0, 4);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -117,33 +120,45 @@ export default function GonfiabiliPage() {
           </div>
 
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
           >
             {items.map((it, idx) => (
               <motion.button
                 key={it.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="group relative aspect-square rounded-[2rem] overflow-hidden border-4 border-white shadow-lg hover:shadow-2xl transition-all"
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-white shadow-md hover:shadow-xl transition-all"
                 onClick={() => !it.placeholder && window.open(it.src, "_blank")}
               >
                 {it.placeholder ? (
                   <div className="absolute inset-0 flex items-center justify-center bg-orange-50">
-                    <span className="font-bold text-orange-200 uppercase tracking-widest">Foto in arrivo</span>
+                    <span className="text-[10px] font-bold text-orange-200 uppercase tracking-widest leading-none text-center">Photo</span>
                   </div>
                 ) : (
                   <img src={it.src} alt="Gonfiabile" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <span className="text-white font-bold uppercase tracking-widest text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    Visualizza Foto
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span className="text-white font-bold uppercase tracking-widest text-[10px] translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    Ingrandisci
                   </span>
                 </div>
               </motion.button>
             ))}
           </motion.div>
+
+          {!showAllPhotos && allItems.length > 4 && (
+            <div className="mt-12 text-center">
+                <Button 
+                    onClick={() => setShowAllPhotos(true)} 
+                    variant="outline"
+                    className="bg-white border-orange-200 text-orange-600 hover:bg-orange-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                >
+                    Vedi tutte le foto ({allItems.length})
+                </Button>
+            </div>
+          )}
         </section>
 
         {/* CTA FORM */}

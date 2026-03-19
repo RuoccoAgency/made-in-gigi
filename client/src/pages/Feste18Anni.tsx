@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Star, Music, Mic, MapPin, Check, Sparkles } from "lucide-react";
@@ -17,24 +17,25 @@ const GALLERY_IMAGES: string[] = [
 ];
 
 export default function Feste18AnniPage() {
+    const [showAllPhotos, setShowAllPhotos] = useState(false);
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
 
-    const items = GALLERY_IMAGES.map((src, i) => ({
-        id: `img-${i}`,
-        src,
-        placeholder: false
-    }));
-
-    // If no images, provide placeholders
-    const displayItems = items.length > 0 
-        ? items 
-        : Array.from({ length: 8 }).map((_, i) => ({
+    const allItems = useMemo(() => {
+        const baseItems = GALLERY_IMAGES.map((src, i) => ({
+            id: `img-${i}`,
+            src,
+            placeholder: false
+        }));
+        return baseItems.length > 0 ? baseItems : Array.from({ length: 4 }).map((_, i) => ({
             id: `placeholder-${i}`,
             src: "",
             placeholder: true
         }));
+    }, []);
+
+    const displayItems = showAllPhotos ? allItems : allItems.slice(0, 4);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -106,17 +107,17 @@ export default function Feste18AnniPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-4"
+                    className="grid grid-cols-2 lg:grid-cols-5 gap-4"
                   >
                     {displayItems.map((it) => (
                       <button
                         key={it.id}
-                        className="group relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-100"
+                        className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-violet-100 shadow-sm"
                         onClick={() => !it.placeholder && window.open(it.src, "_blank")}
                       >
                         {it.placeholder ? (
                           <div className="absolute inset-0 flex items-center justify-center bg-violet-50/50">
-                            <span className="text-sm font-medium text-violet-800/50">Foto in arrivo</span>
+                            <span className="text-[10px] font-bold text-violet-800/50 uppercase">Photo</span>
                           </div>
                         ) : (
                           <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -125,6 +126,18 @@ export default function Feste18AnniPage() {
                       </button>
                     ))}
                   </motion.div>
+
+                  {!showAllPhotos && allItems.length > 4 && (
+                    <div className="mt-12 text-center">
+                        <Button 
+                            onClick={() => setShowAllPhotos(true)} 
+                            variant="outline"
+                            className="bg-white border-violet-200 text-violet-600 hover:bg-violet-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                        >
+                            Vedi tutte le foto ({allItems.length})
+                        </Button>
+                    </div>
+                  )}
                 </section>
 
 

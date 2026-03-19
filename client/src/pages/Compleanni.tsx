@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Gift, PartyPopper, Smile, Star } from "lucide-react";
@@ -35,13 +35,14 @@ const GALLERY_IMAGES: string[] = [
 ];
 
 export default function CompleanniPage() {
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
 
-  const items = useMemo(() => {
+  const allItems = useMemo(() => {
     if (GALLERY_IMAGES.length === 0) {
-      return Array.from({ length: 8 }).map((_, idx) => ({
+      return Array.from({ length: 4 }).map((_, idx) => ({
         id: `placeholder-${idx}`,
         src: "",
         placeholder: true,
@@ -54,6 +55,8 @@ export default function CompleanniPage() {
       placeholder: false,
     }));
   }, []);
+
+  const items = showAllPhotos ? allItems : allItems.slice(0, 4);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -130,17 +133,17 @@ export default function CompleanniPage() {
           </div>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]"
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"
           >
             {items.map((it, idx) => (
               <button
                 key={it.id}
-                className={`group relative rounded-3xl overflow-hidden border-4 border-white shadow-lg hover:shadow-2xl transition-all ${idx % 3 === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
+                className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-white shadow-md hover:shadow-xl transition-all"
                 onClick={() => !it.placeholder && window.open(it.src, "_blank")}
               >
                 {it.placeholder ? (
                   <div className="absolute inset-0 flex items-center justify-center bg-pink-50">
-                    <span className="font-bold text-pink-300">Foto in arrivo</span>
+                    <span className="text-[10px] font-bold text-pink-300 uppercase">Photo</span>
                   </div>
                 ) : (
                   <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -149,6 +152,18 @@ export default function CompleanniPage() {
               </button>
             ))}
           </motion.div>
+
+          {!showAllPhotos && allItems.length > 4 && (
+            <div className="mt-12 text-center">
+                <Button 
+                    onClick={() => setShowAllPhotos(true)} 
+                    variant="outline"
+                    className="bg-white border-pink-200 text-pink-600 hover:bg-pink-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                >
+                    Vedi tutte le foto ({allItems.length})
+                </Button>
+            </div>
+          )}
         </section>
 
         <section className="mt-24 py-20 bg-white rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
