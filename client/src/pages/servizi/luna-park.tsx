@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { Tent } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function LunaParkPage() {
+  const data = SERVICES_DATA["luna-park"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Luna Park"
-      category="Format"
-      description="Rivivi l'atmosfera magica delle fiere classiche con il nostro luna park portatile. Giochi di abilità, attrazioni iconiche e profumo di festa per un evento dal sapore vintage."
-      icon={Tent}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }

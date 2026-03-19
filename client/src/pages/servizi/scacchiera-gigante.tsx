@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { LayoutGrid } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function ScacchieraGigantePage() {
+  const data = SERVICES_DATA["scacchiera-gigante"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Scacchiera Gigante"
-      category="Format"
-      description="Sfida il tuo avversario su una scala monumentale. I pezzi giganti aggiungono una dimensione fisica e divertente al gioco della strategia per eccellenza."
-      icon={LayoutGrid}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }

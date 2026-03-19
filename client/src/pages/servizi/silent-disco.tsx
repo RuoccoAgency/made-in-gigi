@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { Music } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function SilentDiscoPage() {
+  const data = SERVICES_DATA["silent-disco"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Silent Disco / Silent Party"
-      category="Format"
-      description="Porta la musica dove vuoi senza disturbare nessuno! Tre canali musicali simultanei su cuffie wireless ad alta fedeltà per un party esclusivo e coinvolgente."
-      icon={Music}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }

@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { Gamepad2 } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function SalaGiochiArcadePage() {
+  const data = SERVICES_DATA["sala-giochi-arcade"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Sala Giochi Arcade"
-      category="Format"
-      description="Un tuffo nel passato con i cabinati arcade più famosi. Da Pac-Man a Street Fighter, offriamo il noleggio di postazioni retrogaming originali per un tocco nerd al tuo party."
-      icon={Gamepad2}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }

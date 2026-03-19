@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { Target } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function PortaRigoriPage() {
+  const data = SERVICES_DATA["porta-rigori"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Porta rigori"
-      category="Format"
-      description="Metti alla prova la tua precisione dal dischetto! Una porta gonfiabile o professionale dotata di sensori o teloni per sfide ai rigori adrenaliniche e divertenti."
-      icon={Target}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }

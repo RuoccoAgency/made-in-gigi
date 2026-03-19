@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { Settings } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function GliImpiantatiPage() {
+  const data = SERVICES_DATA["gli-impiantati"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Gli impiantati"
-      category="Format"
-      description="Installazioni e allestimenti unici che trasformano lo spazio. Soluzioni scenografiche originali pensate per dare un carattere forte e distintivo al tuo evento."
-      icon={Settings}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }

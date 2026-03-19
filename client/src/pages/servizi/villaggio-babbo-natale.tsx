@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { Gift } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function VillaggioBabboNatalePage() {
+  const data = SERVICES_DATA["villaggio-babbo-natale"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Villaggio di Babbo Natale"
-      category="Format"
-      description="Tutta la magia del Natale racchiusa in un villaggio incantato. Casa di Babbo Natale, ufficio postale degli elfi e laboratori a tema per un'esperienza polare indimenticabile."
-      icon={Gift}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }

@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { Smile } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function CalcioBalillaPage() {
+  const data = SERVICES_DATA["calcio-balilla"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Calcio Balilla"
-      category="Format"
-      description="L'intramontabile classico dei bar e degli oratori. Noleggiamo biliardini professionali per tornei agguerriti e momenti di pura aggregazione durante ogni tipo di festa."
-      icon={Smile}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }

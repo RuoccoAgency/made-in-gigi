@@ -1,13 +1,17 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
-import { Puzzle } from "lucide-react";
+import { SERVICES_DATA } from "@/services-data";
 
 export default function GiochiQuartierePage() {
+  const data = SERVICES_DATA["giochi-quartiere"];
+  
+  if (!data) return null;
+
   return (
     <ServiceLayout
-      title="Giochi di Quartiere"
-      category="Format"
-      description="I giochi di una volta tornano protagonisti. Tiro alla fune, corsa nei sacchi e giochi in legno della tradizione per riscoprire il piacere dello stare insieme."
-      icon={Puzzle}
+      title={data.title}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
+      description={data.description}
+      icon={data.icon}
     />
   );
 }
