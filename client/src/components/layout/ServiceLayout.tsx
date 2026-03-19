@@ -34,24 +34,36 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
   // Parse description into sections
   const lines = description.split('\n').map(l => l.trim()).filter(Boolean);
   const sections: { title: string; content: string }[] = [];
+  let intro = "";
   let currentTitle = "";
   let currentContent: string[] = [];
 
-  lines.forEach(line => {
-    // Detect title (short line, no special chars)
-    const isTitle = line.length > 0 && line.length < 50 && !line.includes('(') && !line.startsWith('-') && !line.includes('€') && !line.includes(':');
-    if (isTitle) {
+  lines.forEach((line, idx) => {
+    // Detect title (short line, no special chars, no colon unless very short)
+    const isTitle = line.length > 0 && line.length < 50 && !line.includes('(') && !line.startsWith('-') && !line.includes('€') && (!line.includes(':') || line.length < 25);
+    
+    if (isTitle && idx > 0) {
       if (currentTitle || currentContent.length > 0) {
         sections.push({ title: currentTitle, content: currentContent.join(' ') });
       }
       currentTitle = line;
       currentContent = [];
+    } else if (idx === 0 && !isTitle) {
+      intro = line;
+    } else if (idx === 0 && isTitle) {
+      currentTitle = line;
     } else {
       currentContent.push(line);
     }
   });
+  
   if (currentTitle || currentContent.length > 0) {
     sections.push({ title: currentTitle, content: currentContent.join(' ') });
+  }
+
+  // If there's no explicit intro found but the first section is very general, we could use it
+  if (!intro && sections.length > 0) {
+    // optional: logic to move first section to intro if desirable
   }
 
   return (
@@ -90,23 +102,42 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
               </h1>
             </div>
 
+            {intro && (
+              <p className="text-lg md:text-xl text-slate-600 mb-12 max-w-4xl font-light leading-relaxed">
+                {intro}
+              </p>
+            )}
+
+            {intro && sections.length > 0 && (
+              <p className="text-lg md:text-xl text-slate-600 mb-12 max-w-4xl font-light leading-relaxed border-l-4 border-secondary/20 pl-6">
+                {intro}
+              </p>
+            )}
+
             {/* Content Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {sections.map((section, idx) => (
+              {(sections.length > 0 ? sections : (intro ? [{ title: "Descrizione Servizio", content: intro }] : [])).map((section, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                 >
-                  <div className="h-full bg-white/50 backdrop-blur-sm border border-slate-100 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-500 group">
-                    <div className="w-10 h-10 rounded-xl bg-secondary/5 flex items-center justify-center mb-6 group-hover:bg-secondary/10 transition-colors">
-                      {Icon ? <Icon className="w-5 h-5 text-secondary" /> : <div className="w-2 h-2 rounded-full bg-secondary" />}
+                  <div className="h-full bg-white/50 backdrop-blur-sm border border-slate-100 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-10 h-10 rounded-xl bg-secondary/5 flex items-center justify-center group-hover:bg-secondary/10 transition-colors">
+                        {Icon ? <Icon className="w-5 h-5 text-secondary" /> : <div className="w-2 h-2 rounded-full bg-secondary" />}
+                      </div>
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary/60 bg-secondary/5 px-3 py-1 rounded-full">
+                        Premium Service
+                      </span>
                     </div>
-                    <h3 className="text-xl font-display font-bold text-slate-900 mb-4 tracking-tight">
+                    
+                    <h3 className="text-xl font-display font-bold text-slate-900 mb-4 tracking-tight group-hover:text-secondary transition-colors">
                       {section.title || title}
                     </h3>
-                    <p className="text-slate-500 text-sm md:text-base leading-relaxed font-light">
+                    
+                    <p className="text-slate-500 text-sm md:text-base leading-relaxed font-light flex-grow">
                       {section.content}
                     </p>
                   </div>

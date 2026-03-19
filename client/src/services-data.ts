@@ -672,8 +672,10 @@ Possibilità di aggiungere pedane rialzate e strutture per delimitare l'area bal
   "primo-compleanno": {
     title: "Allestimenti Primo Compleanno",
     category: "Compleanni",
-    description: `Traguardo Magico
-Il primo compleanno è un'emozione unica. Creiamo allestimenti delicati e spettacolari per festeggiare il tuo bimbo.
+    description: `Celebra il primo anno di vita del tuo bimbo con un evento magico, allestimenti delicati e scenografie indimenticabili curate in ogni dettaglio.
+
+Traguardo Magico
+Il primo compleanno è un'emozione unica. Creiamo allestimenti spettacolari per festeggiare questo momento irripetibile.
 
 Temi Personalizzati
 Archi di palloncini e backdrop a tema: dal Piccolo Principe alle Mongolfiere, ogni dettaglio è curato con amore.
@@ -685,7 +687,9 @@ Allestiamo set fotografici dedicati per catturare ogni sorriso in una cornice da
   "18-anni": {
     title: "Feste 18 Anni",
     category: "Compleanni",
-    description: `Party Esclusivo
+    description: `Organizziamo il tuo 18esimo compleanno con allestimenti glamour, musica di tendenza e tutta l'energia necessaria per un party esclusivo.
+
+Party Esclusivo
 Il debutto più atteso: organizziamo party indimenticabili con allestimenti moderni e tutta l'energia che meriti.
 
 Style & Glamour
@@ -698,7 +702,9 @@ Service audio professionale, DJ set coinvolgenti e show di luci per far ballare 
   "40-50-anni": {
     title: "Feste 40-50 Anni",
     category: "Compleanni",
-    description: `Traguardi Importanti
+    description: `Rendi memorabili i traguardi dei 40 e 50 anni con un evento elegante e sofisticato, perfetto per festeggiare con stile e classe.
+
+Traguardi Importanti
 Celebra la maturità con un evento sofisticato. Allestimenti eleganti pensati per chi vuole festeggiare con classe.
 
 Eleganza Raffinata
