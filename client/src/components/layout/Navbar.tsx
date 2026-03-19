@@ -97,11 +97,13 @@ export function Navbar() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const showSolid = isScrolled || location !== "/";
+
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled ? "bg-white/95 backdrop-blur-xl shadow-lg py-2" : "bg-transparent py-6"
+        showSolid ? "bg-white/95 backdrop-blur-xl shadow-lg py-2" : "bg-transparent py-6"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -117,13 +119,13 @@ export function Navbar() {
           <span
             className={cn(
               "font-display font-bold text-2xl hidden lg:block tracking-tight",
-              isScrolled ? "text-slate-900" : "text-white"
+              showSolid ? "text-slate-900" : "text-white"
             )}
           >
             MadeinGigi <span className="text-secondary">Events</span>
           </span>
         </button>
-
+ 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
           <NavigationMenu>
@@ -132,7 +134,7 @@ export function Navbar() {
                 <NavigationMenuTrigger
                   className={cn(
                     "bg-transparent hover:bg-white/10 text-sm font-semibold uppercase tracking-wider transition-all duration-300 h-10 px-4 group",
-                    isScrolled ? "text-slate-700 hover:text-secondary" : "text-white hover:text-white"
+                    showSolid ? "text-slate-700 hover:text-secondary" : "text-white hover:text-white"
                   )}
                 >
                   Servizi
@@ -227,7 +229,7 @@ export function Navbar() {
               }}
               className={cn(
                 "font-bold text-xs uppercase tracking-[0.2em] px-4 py-2 hover:text-secondary transition-all",
-                isScrolled ? "text-slate-500" : "text-white/80"
+                showSolid ? "text-slate-500" : "text-white/80"
               )}
             >
               {link.name}
@@ -264,7 +266,7 @@ export function Navbar() {
           </Button>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={isScrolled ? "text-slate-900" : "text-white"}>
+              <Button variant="ghost" size="icon" className={showSolid ? "text-slate-900" : "text-white"}>
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>
