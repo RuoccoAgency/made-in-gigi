@@ -31,6 +31,29 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
     label: `Progetto ${idx + 1}`
   }));
 
+  // Parse description into sections
+  const lines = description.split('\n').map(l => l.trim()).filter(Boolean);
+  const sections: { title: string; content: string }[] = [];
+  let currentTitle = "";
+  let currentContent: string[] = [];
+
+  lines.forEach(line => {
+    // Detect title (short line, no special chars)
+    const isTitle = line.length > 0 && line.length < 50 && !line.includes('(') && !line.startsWith('-') && !line.includes('€') && !line.includes(':');
+    if (isTitle) {
+      if (currentTitle || currentContent.length > 0) {
+        sections.push({ title: currentTitle, content: currentContent.join(' ') });
+      }
+      currentTitle = line;
+      currentContent = [];
+    } else {
+      currentContent.push(line);
+    }
+  });
+  if (currentTitle || currentContent.length > 0) {
+    sections.push({ title: currentTitle, content: currentContent.join(' ') });
+  }
+
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
       <Navbar />
@@ -47,48 +70,55 @@ export function ServiceLayout({ title, description, category, icon: Icon }: Serv
         </div>
 
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-12 relative overflow-hidden">
+        <section className="container mx-auto px-4 py-8 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none" />
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-4xl"
+            className="max-w-6xl"
           >
-            {Icon && (
-              <div className="inline-flex items-center justify-center p-3 bg-secondary/10 rounded-xl mb-6">
-                <Icon className="w-8 h-8 text-secondary" />
-              </div>
-            )}
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6 tracking-tight">
-              {title}
-            </h1>
-            <div className="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl font-light whitespace-pre-wrap">
-              {description.split('\n').map((line, i) => {
-                const trimmedLine = line.trim();
-                if (!trimmedLine) return <div key={i} className="h-4" />;
-                
-                const isTitle = trimmedLine.length > 0 && 
-                               trimmedLine.length < 65 && 
-                               !trimmedLine.includes('(') && 
-                               !trimmedLine.startsWith('-') &&
-                               !trimmedLine.includes('€');
-                return (
-                  <span key={i} className={cn(
-                    "block",
-                    isTitle ? "text-secondary font-bold mt-6 mb-2 text-lg md:text-xl tracking-tight" : "mb-1 text-sm md:text-base text-slate-500/90"
-                  )}>
-                    {trimmedLine}
-                  </span>
-                );
-              })}
+            <div className="flex flex-col md:flex-row md:items-center gap-6 mb-12">
+              {Icon && (
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary/10 rounded-2xl shrink-0">
+                  <Icon className="w-8 h-8 text-secondary" />
+                </div>
+              )}
+              <h1 className="text-3xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">
+                {title}
+              </h1>
             </div>
-            <div className="mt-12">
+
+            {/* Content Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {sections.map((section, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                >
+                  <div className="h-full bg-white/50 backdrop-blur-sm border border-slate-100 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-500 group">
+                    <div className="w-10 h-10 rounded-xl bg-secondary/5 flex items-center justify-center mb-6 group-hover:bg-secondary/10 transition-colors">
+                      {Icon ? <Icon className="w-5 h-5 text-secondary" /> : <div className="w-2 h-2 rounded-full bg-secondary" />}
+                    </div>
+                    <h3 className="text-xl font-display font-bold text-slate-900 mb-4 tracking-tight">
+                      {section.title || title}
+                    </h3>
+                    <p className="text-slate-500 text-sm md:text-base leading-relaxed font-light">
+                      {section.content}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-16 text-center md:text-left">
               <Button 
                 onClick={scrollToForm} 
                 size="lg" 
-                className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-10 h-16 text-lg font-bold shadow-xl shadow-secondary/20 transition-all hover:scale-105"
+                className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-12 h-16 text-lg font-bold shadow-xl shadow-secondary/20 transition-all hover:scale-105"
               >
                 Richiedi Preventivo
               </Button>

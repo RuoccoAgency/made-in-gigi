@@ -672,40 +672,40 @@ Possibilità di aggiungere pedane rialzate e strutture per delimitare l'area bal
   "primo-compleanno": {
     title: "Allestimenti Primo Compleanno",
     category: "Compleanni",
-    description: `Il tuo Primo Grande Traguardo
-Il primo compleanno è un momento magico per tutta la famiglia. Creiamo allestimenti delicati e scenografici per celebrare questo giorno indimenticabile.
+    description: `Traguardo Magico
+Il primo compleanno è un'emozione unica. Creiamo allestimenti delicati e spettacolari per festeggiare il tuo bimbo.
 
-Temi e Allestimenti
-Dalle mongolfiere ai temi "Little Prince" o "Little Princess", ogni dettaglio è pensato per i più piccoli. Balloon art professionale e backdrop personalizzati.
+Temi Personalizzati
+Archi di palloncini e backdrop a tema: dal Piccolo Principe alle Mongolfiere, ogni dettaglio è curato con amore.
 
-Ricordi Indimenticabili
-Angolo foto dedicato, tavoli coordinati e scenografie che rendono le foto del tuo bimbo dei veri capolavori da conservare per sempre.`,
+Ricordi Eterni
+Allestiamo set fotografici dedicati per catturare ogni sorriso in una cornice da favola che resterà nel cuore.`,
     icon: Baby
   },
   "18-anni": {
     title: "Feste 18 Anni",
     category: "Compleanni",
-    description: `Il tuo debutto in Società
-Il 18esimo è il compleanno più atteso. Organizziamo party esclusivi con allestimenti moderni, luci spettacolari e intrattenimento di tendenza.
+    description: `Party Esclusivo
+Il debutto più atteso: organizziamo party indimenticabili con allestimenti moderni e tutta l'energia che meriti.
 
-Allestimenti Glamour
-Utilizziamo strutture oro, archi di palloncini organici, neon signs e backdrop glitterati per un effetto wow garantito.
+Style & Glamour
+Strutture oro, neon signs e balloon art organica per creare un'atmosfera di classe e di forte impatto visivo.
 
-Musica e Party
-Supporto nella scelta della location, DJ set professionali, speaker trascinanti e coreografie di luci per una serata indimenticabile.`,
+Sound & Light
+Service audio professionale, DJ set coinvolgenti e show di luci per far ballare te e i tuoi amici fino a tardi.`,
     icon: Star
   },
   "40-50-anni": {
     title: "Feste 40-50 Anni",
     category: "Compleanni",
-    description: `I Grandi Traguardi
-I 40 e i 50 anni sono l'occasione perfetta per un evento elegante e sofisticato che celebri la maturità e i successi raggiunti.
+    description: `Traguardi Importanti
+Celebra la maturità con un evento sofisticato. Allestimenti eleganti pensati per chi vuole festeggiare con classe.
 
-Eleganza e Stile
-Allestimenti raffinati con palette colori sobrie come Black & Gold, Navy o temi vintage. Scenografie curate nei minimi dettagli.
+Eleganza Raffinata
+Palette Black & Gold o temi vintage ricercati per trasformare la location in un club privato di alto livello.
 
-Party Esclusivo
-Intrattenimento musicale ricercato, angoli bar specializzati e un'atmosfera che unisce divertimento e classe per te e i tuoi amici.`,
+Atmosfera di Classe
+Musica ricercata, angoli bar d'eccellenza e un'organizzazione impeccabile per un party dedicato ai tuoi traguardi.`,
     icon: Trophy
   },
   // Gonfiabili
