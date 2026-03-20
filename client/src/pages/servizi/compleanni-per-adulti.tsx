@@ -5,7 +5,6 @@ const IMAGES = [
   "/images/allestimenti per adulti/160 EURO CON 3 STRUTTURE ORO E ARCO 2 M.webp",
   "/images/allestimenti per adulti/250 EURO COME FOTO.webp",
   "/images/allestimenti per adulti/293324034_5523000047756758_2071711076166925323_n.webp",
-  "/images/allestimenti per adulti/COSTO 150 EURO.webp",
   "/images/allestimenti per adulti/COSTO 250 EURO COME FOTO.webp",
   "/images/allestimenti per adulti/COSTO 300 EURO COME FOTO.webp",
   "/images/allestimenti per adulti/COSTO 300 EURO.webp",
