@@ -1,5 +1,4 @@
 # Ignore build outputs and unnecessary folders
-dist
 node_modules
 .DS_Store
 attached_assets

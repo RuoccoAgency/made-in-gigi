@@ -1,4 +1,4 @@
-import { appWithRoutes } from "../server/index";
+import { appWithRoutes } from "../dist/index.cjs";
 
 export default async (req: any, res: any) => {
     const app = await appWithRoutes;
