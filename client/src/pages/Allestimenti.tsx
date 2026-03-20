@@ -173,7 +173,7 @@ export default function AllestimentiPage() {
               Allestimenti <span className="text-amber-600">Esclusivi</span>
             </h1>
             <p className="mt-6 text-xl text-slate-600 leading-relaxed max-w-2xl">
-              Trasformiamo spazi vuoti in scenografie emozionanti. Decorazioni, balloon art e dettagli di design curati per creare un'atmosfera coerente e raffinata.
+              Trasformiamo spazi vuoti in scenografie emozionanti. Decorazioni, balloon art e dettagli di design curati per creare un'atmosfera coerente e raffinata. <strong>Realizziamo anche archi scenografici per eventi, perfetti per ingressi d’impatto e foto memorabili.</strong>
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button onClick={scrollToForm} size="lg" className="bg-amber-600 hover:bg-amber-700 text-white shadow-lg shadow-amber-900/10 font-bold px-8 h-14 text-lg">

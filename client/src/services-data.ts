@@ -719,6 +719,9 @@ Service audio professionale, DJ set coinvolgenti e show di luci per far ballare 
     category: "Compleanni",
     description: `Rendi memorabili i traguardi dei 40 e 50 anni con un evento elegante e sofisticato, perfetto per festeggiare con stile e classe.
 
+Feste di Laurea
+Allestimenti anche per feste di laurea, con scenografie personalizzate e dettagli eleganti per celebrare il tuo grande traguardo.
+
 Traguardi Importanti
 Celebra la maturità con un evento sofisticato. Allestimenti eleganti pensati per chi vuole festeggiare con classe.
 
@@ -943,14 +946,16 @@ Le Roller Girls rappresentano un nuovo modo, fresco e divertente, per interagire
   "mascotte": {
     title: "Mascotte",
     category: "Format",
-    description: `Mascotte per Eventi
+    description: `Porta la magia dei tuoi personaggi preferiti direttamente al tuo evento con le nostre mascotte professionali, per un'esperienza indimenticabile che farà sognare grandi e piccini.
+
+Mascotte per Eventi
 Mascotte dei personaggi più amati per animare feste ed eventi in modo divertente e coinvolgente.
 
 Divertimento per tutti
-Le nostre mascotte sono perfette per compleanni, eventi e feste a tema, portando gioia e sorrisi a grandi e piccini.
+Le nostre mascotte sono perfette per compleanni, eventi e feste a tema, portando gioia e sorrisi a tutti gli invitati.
 
 Contatti
-Perfette per compleanni, eventi e feste a tema. Per info e prenotazioni contatta lo 081 19802287.`,
+Perfette per ogni occasione speciale. Per ricevere info e prenotazioni contatta lo 081 19802287.`,
     icon: Smile
   }
 };
