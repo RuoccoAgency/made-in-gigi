@@ -26,6 +26,7 @@ import GliImpiantatiPage from "@/pages/servizi/gli-impiantati";
 import ScacchieraGigantePage from "@/pages/servizi/scacchiera-gigante";
 import PortaRigoriPage from "@/pages/servizi/porta-rigori";
 import VillaggioBabboNatalePage from "@/pages/servizi/villaggio-babbo-natale";
+import MascottePage from "@/pages/servizi/mascotte";
 import PrimoCompleannoPage from "./pages/servizi/primo-compleanno";
 import CompleanniPage from "./pages/servizi/compleanni";
 import Feste18AnniPage from "./pages/servizi/18-anni";
@@ -67,6 +68,7 @@ function Router() {
       <Route path="/servizi/scacchiera-gigante" component={ScacchieraGigantePage} />
       <Route path="/servizi/porta-rigori" component={PortaRigoriPage} />
       <Route path="/servizi/villaggio-babbo-natale" component={VillaggioBabboNatalePage} />
+      <Route path="/servizi/mascotte" component={MascottePage} />
       <Route path="/servizi/:slug" component={ServiceDetailPage} />
 
       <Route component={NotFound} />

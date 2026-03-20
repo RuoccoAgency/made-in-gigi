@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Check, Sparkles, PartyPopper, Flower2, Palette, Candy, Baby, Music, Star, Heart, Trophy } from "lucide-react";
+import { Check, Sparkles, PartyPopper, Flower2, Palette, Candy, Baby, Music, Star, Heart, Trophy, Smile } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,7 @@ const SERVICES = [
   {
     title: "Allestimenti",
     href: "/allestimenti",
-    description: "Decorazioni, balloon art, scenografie e dettagli su misura per rendere l’evento unico.",
+    description: "Allestimenti su misura, balloon art e scenografie. Realizziamo anche archi scenografici per ingressi d’impatto e foto memorabili.",
     bullets: ["Tema personalizzato", "Backdrop e decorazioni", "Montaggio e assistenza"],
     cta: "Scopri Allestimenti",
     icon: Sparkles,
@@ -61,7 +61,7 @@ const SERVICES = [
   {
     title: "Compleanni per Adulti",
     href: "/servizi/compleanni-per-adulti",
-    description: "Celebra i grandi traguardi con stile: eventi eleganti, allestimenti raffinati e atmosfere sofisticate.",
+    description: "Celebra i tuoi traguardi con eventi eleganti e raffinati. Allestimenti anche per feste di laurea con scenografie personalizzate e dettagli eleganti.",
     bullets: ["Stile Black & Gold", "Musica e Intrattenimento", "Scenografie di classe"],
     cta: "Scopri Compleanni Adulti",
     icon: Trophy,
@@ -139,6 +139,19 @@ const SERVICES = [
     bgIcon: "bg-orange-100",
     btnColor: "bg-orange-600 hover:bg-orange-700",
     variant: "dynamic",
+  },
+  {
+    title: "Mascotte",
+    href: "/servizi/mascotte",
+    description: "Mascotte dei personaggi più amati per animare feste ed eventi in modo divertente e coinvolgente.",
+    bullets: ["Personaggi assortiti", "Intrattenimento bimbi", "Ideale per feste a tema"],
+    cta: "Scopri di più",
+    icon: Smile,
+    theme: "amber",
+    borderColor: "hover:border-amber-400",
+    iconColor: "text-amber-600",
+    bgIcon: "bg-amber-100",
+    btnColor: "bg-amber-600 hover:bg-amber-700",
   },
   {
     title: "Battesimi",

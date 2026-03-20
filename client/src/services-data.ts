@@ -940,4 +940,17 @@ Attira il tuo pubblico
 Le Roller Girls rappresentano un nuovo modo, fresco e divertente, per interagire con i potenziali clienti e farsi notare.`,
     icon: Zap
   },
+  "mascotte": {
+    title: "Mascotte",
+    category: "Format",
+    description: `Mascotte per Eventi
+Mascotte dei personaggi più amati per animare feste ed eventi in modo divertente e coinvolgente.
+
+Divertimento per tutti
+Le nostre mascotte sono perfette per compleanni, eventi e feste a tema, portando gioia e sorrisi a grandi e piccini.
+
+Contatti
+Perfette per compleanni, eventi e feste a tema. Per info e prenotazioni contatta lo 081 19802287.`,
+    icon: Smile
+  }
 };
