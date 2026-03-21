@@ -129,13 +129,7 @@ export function ServiceLayout({
             </div>
 
             {intro && (
-              <p className="text-lg md:text-xl text-slate-600 mb-12 max-w-4xl font-light leading-relaxed">
-                {intro}
-              </p>
-            )}
-
-            {intro && sections.length > 0 && (
-              <p className="text-lg md:text-xl text-slate-600 mb-12 max-w-4xl font-light leading-relaxed border-l-4 border-secondary/20 pl-6">
+              <p className="text-xl text-slate-600 mb-16 max-w-4xl font-light leading-relaxed border-l-4 border-secondary/20 pl-8">
                 {intro}
               </p>
             )}
