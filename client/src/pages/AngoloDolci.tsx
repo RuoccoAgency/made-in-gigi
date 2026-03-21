@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Candy, Cookie, IceCream, Cake, Star, Heart } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
@@ -10,34 +10,25 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useMemo } from "react";
 
-const GALLERY_IMAGES: string[] = [
-  "/images/ARCHI VELA/sweet.webp",
-  "/images/torte/297039539_5582994698423959_4263431021959720845_n.webp",
-  "/images/torte/3fcdd9b7afb02487dec6962b2a7c1903.webp",
-  "/images/torte/408961082_1169670374487201_2688390413769390592_n.webp",
-  "/images/torte/BBUG3367.webp",
-  "/images/torte/FB_IMG_1626127615333.webp",
-  "/images/torte/FB_IMG_1627479916939.webp",
-  "/images/torte/FB_IMG_1632555017368.webp",
-  "/images/torte/IMG_20210703_193159.webp",
-  "/images/torte/IMG_20210703_193204.webp",
-  "/images/torte/IMG_3112.webp",
-  "/images/torte/JGQI0534.webp",
-  "/images/torte/NZCJ2958.webp",
-  "/images/torte/RLMT9631.webp",
-  "/images/torte/WhatsApp Image 2023-09-27 at 17.29.20.webp",
-  "/images/torte/WhatsApp Image 2025-05-12 at 19.03.51.webp",
-];
+// Load images from optimized assets folder
+const dolciModules = import.meta.glob("@/assets/optimized/dolci/*.webp", { 
+  eager: true, 
+  query: '?url', 
+  import: 'default' 
+});
+
+const GALLERY_IMAGES = Object.values(dolciModules) as string[];
 
 export default function AngoloDolciPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+        document.title = "Angolo dei Dolci | MadeinGigi Events";
     }, []);
 
     const allItems = useMemo(() => {
         if (GALLERY_IMAGES.length === 0) {
-            return Array.from({ length: 4 }).map((_, i) => ({
+            return Array.from({ length: 6 }).map((_, i) => ({
                 id: `placeholder-${i}`,
                 src: "",
                 placeholder: true
@@ -50,7 +41,7 @@ export default function AngoloDolciPage() {
         }));
     }, []);
 
-    const items = showAllPhotos ? allItems : allItems.slice(0, 4);
+    const items = showAllPhotos ? allItems : allItems.slice(0, 6);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -58,7 +49,7 @@ export default function AngoloDolciPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#fffafa] text-slate-800 font-sans">
+        <div className="min-h-screen bg-[#fffafa] text-slate-800 font-sans cursor-default">
             <Navbar />
             <main className="pt-28 pb-0">
                 <section className="container mx-auto px-4 relative overflow-hidden">
@@ -69,7 +60,7 @@ export default function AngoloDolciPage() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                         className="max-w-4xl relative z-10 mx-auto text-center"
                     >
                         <Link href="/">
@@ -92,49 +83,66 @@ export default function AngoloDolciPage() {
                 </section>
 
                 {/* GALLERY */}
-                <section className="container mx-auto px-4 mt-24">
-                    <div className="text-center mb-12">
-                        <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 uppercase tracking-tighter">I Nostri Angoli</h2>
-                        <p className="mt-4 text-xl text-slate-600 font-bold">Un'esplosione di dolcezza per i tuoi occhi.</p>
+                <section className="container mx-auto px-4 mt-32">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 uppercase tracking-tighter">I Nostri Allestimenti</h2>
+                        <div className="w-24 h-2 bg-gradient-to-r from-rose-400 to-fuchsia-500 mx-auto mt-4 rounded-full" />
+                        <p className="mt-6 text-xl text-slate-600 font-bold max-w-xl mx-auto italic">Scopri la cura nei dettagli delle nostre proposte dolciarie.</p>
                     </div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
+                        layout
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto"
                     >
-                        {items.map((it, idx) => (
-                            <button
-                                key={it.id}
-                                className="group relative aspect-square rounded-2xl overflow-hidden bg-white shadow-md border-2 border-white hover:shadow-xl transition-all"
-                                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
-                            >
-                                {it.placeholder ? (
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-[10px] font-black text-rose-200 uppercase tracking-widest">Photo</span>
-                                    </div>
-                                ) : (
-                                    <img src={it.src} alt="Gallery" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                                )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-rose-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </button>
-                        ))}
+                        <AnimatePresence mode="popLayout">
+                            {items.map((it, idx) => (
+                                <motion.button
+                                    layout
+                                    key={it.id}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                                    className="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-rose-900/10 transition-all duration-500 ring-1 ring-rose-100"
+                                    onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                                >
+                                    {it.placeholder ? (
+                                        <div className="absolute inset-0 flex items-center justify-center bg-rose-50/50">
+                                            <Star className="h-10 w-10 text-rose-200 animate-pulse" />
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <img 
+                                                src={it.src} 
+                                                alt={`Dolci Gallery ${idx + 1}`} 
+                                                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-rose-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                            <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100 border border-rose-100 shadow-sm">
+                                                <span className="text-[10px] font-black text-rose-600 uppercase tracking-widest">Dettaglio</span>
+                                            </div>
+                                        </>
+                                    )}
+                                </motion.button>
+                            ))}
+                        </AnimatePresence>
                     </motion.div>
 
-                    {!showAllPhotos && allItems.length > 4 && (
-                        <div className="mt-12 text-center">
+                    {!showAllPhotos && allItems.length > 6 && (
+                        <div className="mt-20 text-center">
                             <Button 
                                 onClick={() => setShowAllPhotos(true)} 
                                 variant="outline"
-                                className="bg-white border-rose-200 text-rose-600 hover:bg-rose-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                                className="bg-white border-2 border-rose-200 text-rose-600 hover:bg-rose-600 hover:text-white hover:border-rose-600 rounded-full px-12 h-16 text-lg font-black shadow-xl shadow-rose-900/5 transition-all hover:scale-105 active:scale-95 uppercase tracking-tighter"
                             >
-                                Vedi tutte le foto ({allItems.length})
+                                Scopri di più ({allItems.length - 6} foto)
                             </Button>
                         </div>
                     )}
                 </section>
+
 
                 <section className="container mx-auto px-4 mt-32">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
