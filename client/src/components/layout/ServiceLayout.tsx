@@ -18,6 +18,9 @@ interface ServiceLayoutProps {
   initialImageCount?: number;
   gridClassName?: string;
   aspectRatioClassName?: string;
+  filters?: string[];
+  activeFilter?: string;
+  onFilterChange?: (filter: string) => void;
 }
 
 export function ServiceLayout({ 
@@ -28,7 +31,10 @@ export function ServiceLayout({
   images,
   initialImageCount = 4,
   gridClassName,
-  aspectRatioClassName = "aspect-square"
+  aspectRatioClassName = "aspect-square",
+  filters,
+  activeFilter,
+  onFilterChange
 }: ServiceLayoutProps) {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
@@ -189,6 +195,25 @@ export function ServiceLayout({
                   Ogni evento è unico e personalizzato.
                 </p>
               </div>
+
+              {filters && filters.length > 0 && onFilterChange && (
+                <div className="flex bg-white/80 backdrop-blur p-2 rounded-2xl border border-slate-200/50 shadow-sm w-fit shrink-0">
+                  {filters.map((f) => (
+                    <button
+                      key={f}
+                      onClick={() => onFilterChange(f)}
+                      className={cn(
+                        "px-8 py-2.5 rounded-xl text-sm font-bold uppercase tracking-widest transition-all duration-300",
+                        activeFilter === f 
+                          ? "bg-secondary text-white shadow-lg shadow-secondary/10" 
+                          : "text-slate-400 hover:text-secondary hover:bg-slate-50"
+                      )}
+                    >
+                      {f}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className={cn("grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6", gridClassName)}>
