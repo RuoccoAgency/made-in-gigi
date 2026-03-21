@@ -1,13 +1,22 @@
 import { ServiceLayout } from "@/components/layout/ServiceLayout";
 import { SERVICES_DATA } from "@/services-data";
 
+// Dynamically load images from optimized folders
+const adultiModules = import.meta.glob("@/assets/optimized/allestimenti-adulti/*.webp", { 
+  eager: true, 
+  query: '?url', 
+  import: 'default' 
+});
+const laureeModules = import.meta.glob("@/assets/optimized/lauree/*.webp", { 
+  eager: true, 
+  query: '?url', 
+  import: 'default' 
+});
+
 const IMAGES = [
-  "/images/allestimenti per adulti/250 EURO COME FOTO.webp",
-  "/images/allestimenti per adulti/30.jpg",
-  "/images/allestimenti per adulti/COSTO 150 EURO.webp",
-  "/images/allestimenti per adulti/COSTO 300 EURO.webp",
-  "/images/allestimenti per adulti/COSTO 350 EURO.webp",
-];
+  ...Object.values(adultiModules),
+  ...Object.values(laureeModules)
+] as string[];
 
 export default function CompleanniAdultiPage() {
   const data = SERVICES_DATA["compleanni-per-adulti"];
@@ -20,6 +29,8 @@ export default function CompleanniAdultiPage() {
       description={data.description}
       icon={data.icon}
       images={IMAGES}
+      initialImageCount={6}
+      gridClassName="grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
     />
   );
 }

@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Music, Wand2, Star, Zap, PartyPopper, Flame, Mic2, Check } from "lucide-react";
+import { Music, Wand2, Star, Zap, PartyPopper, Flame, Mic2, Check, LayoutGrid } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
@@ -9,10 +9,34 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+// Dynamically load all webp images from the optimized assets folder
+const imageModules = import.meta.glob("@/assets/optimized/spettacoli/*.webp", { 
+  eager: true, 
+  query: '?url', 
+  import: 'default' 
+});
+
+const IMAGES = Object.values(imageModules) as string[];
+
 export default function ArtistiSpettacoliPage() {
+    const [showAllPhotos, setShowAllPhotos] = useState(false);
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
+
+    const allItems = useMemo(() => {
+        if (IMAGES.length === 0) {
+            return [];
+        }
+
+        return IMAGES.map((src, idx) => ({
+            id: `img-${idx}`,
+            src,
+            placeholder: false,
+        }));
+    }, []);
+
+    const items = showAllPhotos ? allItems : allItems.slice(0, 6);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -74,6 +98,57 @@ export default function ArtistiSpettacoliPage() {
                         ))}
                     </div>
                 </section>
+
+                {/* GALLERY SECTION */}
+                {allItems.length > 0 && (
+                    <section className="container mx-auto px-4 mt-40">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 border-b border-orange-100 pb-16">
+                            <div>
+                                <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 uppercase italic leading-none">
+                                    Momenti <span className="text-orange-600">Magici</span>
+                                </h2>
+                                <p className="mt-6 text-slate-500 text-lg font-medium max-w-xl">
+                                    Scatti rubati durante i nostri spettacoli e performance.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            {items.map((p, idx) => (
+                                <motion.div
+                                    key={p.id}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                                    className="group relative aspect-square bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center cursor-pointer"
+                                    onClick={() => window.open(p.src, "_blank")}
+                                >
+                                    <img 
+                                        src={p.src} 
+                                        alt={`Spettacolo ${idx + 1}`} 
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-orange-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {allItems.length > 6 && !showAllPhotos && (
+                            <div className="mt-16 text-center">
+                                <Button 
+                                    onClick={() => setShowAllPhotos(true)} 
+                                    variant="outline"
+                                    size="lg" 
+                                    className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white rounded-none px-12 h-16 text-lg font-black uppercase tracking-widest shadow-xl shadow-orange-900/5 transition-all hover:scale-105"
+                                >
+                                    Scopri di più ({allItems.length})
+                                </Button>
+                            </div>
+                        )}
+                    </section>
+                )}
 
                 <section className="mt-40 py-40 bg-orange-600 relative overflow-hidden">
                     <div className="absolute inset-0 opacity-10 pointer-events-none">
