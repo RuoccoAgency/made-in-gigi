@@ -15,9 +15,19 @@ interface ServiceLayoutProps {
   category: string;
   icon?: LucideIcon;
   images?: string[];
+  initialImageCount?: number;
+  gridClassName?: string;
 }
 
-export function ServiceLayout({ title, description, category, icon: Icon, images }: ServiceLayoutProps) {
+export function ServiceLayout({ 
+  title, 
+  description, 
+  category, 
+  icon: Icon, 
+  images,
+  initialImageCount = 4,
+  gridClassName
+}: ServiceLayoutProps) {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -37,7 +47,7 @@ export function ServiceLayout({ title, description, category, icon: Icon, images
         placeholder: true
       }));
 
-  const displayedItems = showAllPhotos ? galleryItems : galleryItems.slice(0, 4);
+  const displayedItems = showAllPhotos ? galleryItems : galleryItems.slice(0, initialImageCount);
 
   // Parse description into sections
   const lines = description.split('\n').map(l => l.trim()).filter(Boolean);
@@ -179,7 +189,7 @@ export function ServiceLayout({ title, description, category, icon: Icon, images
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <div className={cn("grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6", gridClassName)}>
               {displayedItems.map((p, idx) => (
                 <motion.div
                   key={p.id}
@@ -202,6 +212,7 @@ export function ServiceLayout({ title, description, category, icon: Icon, images
                       src={p.src} 
                       alt={p.label} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
                     />
                   )}
                   <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -209,7 +220,7 @@ export function ServiceLayout({ title, description, category, icon: Icon, images
               ))}
             </div>
 
-            {galleryItems.length > 4 && !showAllPhotos && (
+            {galleryItems.length > initialImageCount && !showAllPhotos && (
               <div className="mt-16 text-center">
                 <Button 
                   onClick={() => setShowAllPhotos(true)} 
