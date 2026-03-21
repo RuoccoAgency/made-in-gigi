@@ -717,7 +717,7 @@ Service audio professionale, DJ set coinvolgenti e show di luci per far ballare 
   "compleanni-per-adulti": {
     title: "Compleanni per Adulti",
     category: "Compleanni",
-    description: `Celebra i grandi traguardi o il tuo successo accademico con stile. Realizziamo allestimenti eleganti per compleanni e feste di laurea, con scenografie personalizzate e dettagli raffinati per ogni occasione speciale.
+    description: ` Allestimenti eleganti e personalizzati per compleanni per adulti, curati in ogni dettaglio. Perfetti per feste raffinate, lauree e occasioni speciali da ricordare.
 
 Traguardi Importanti
 Celebra la maturità con un evento sofisticato. Allestimenti eleganti pensati per chi vuole festeggiare con classe, dai 18 ai 99 anni.
