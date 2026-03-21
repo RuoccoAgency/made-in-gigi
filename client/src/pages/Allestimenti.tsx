@@ -34,14 +34,13 @@ export default function AllestimentiPage() {
 
   // Combine and categorise images
   const allItems = useMemo(() => {
-    // Specific names from the original archi folder to include in the filter
+    // Categorise images based on their source folder pattern
     const archiFolderImages = getImagesFromModules(archiModules).map((src, idx) => {
         const filename = src.split('/').pop()?.toLowerCase() || "";
-        // Heuristic: ARCHI VELA images are 1.webp, 2.webp etc or sweet.webp
-        // The ones from original archi folder have dates or long strings
-        const isFromArchiFolder = filename.includes('_n.webp') || 
+        // Archi VELA images are named 1.webp, 2.webp... sweet.webp (short names)
+        // Original archi folder images have dates or long social network strings (long names)
+        const isFromArchiFolder = filename.length > 10 || 
                                  filename.startsWith('20') || 
-                                 filename.startsWith('img') || 
                                  filename.includes('arco_madda');
         
         return { 
@@ -60,7 +59,6 @@ export default function AllestimentiPage() {
         ...getImagesFromModules(temiModules)
     ].map((src, idx) => ({ id: `other-${idx}`, src, category: "Altro" }));
 
-    // Return combined list for "Tutto"
     return [...archiFolderImages, ...otherFolders];
   }, []);
 
@@ -70,7 +68,8 @@ export default function AllestimentiPage() {
       : allItems.filter(it => it.category === filter);
   }, [filter, allItems]);
 
-  const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 6);
+  // For the specific Archi filter, show all images immediately as requested
+  const displayedItems = (showAll || filter === "Archi") ? filteredItems : filteredItems.slice(0, 6);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
