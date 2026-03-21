@@ -77,24 +77,24 @@ export default function ArtistiSpettacoliPage() {
                     </motion.div>
                 </section>
 
-                <section className="container mx-auto px-4 mt-40">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <section className="container mx-auto px-4 mt-24 py-16">
+                    <div className="max-w-4xl mx-auto space-y-16">
                         {[
-                            { icon: Wand2, title: "Maghi & Illusionisti", desc: "Spettacoli di grande impatto per tutte le età." },
-                            { icon: Mic2, title: "Cabaret & Intrattenimento", desc: "Artisti di strada e professionisti del sorriso." },
-                            { icon: Zap, title: "Performance Dinamiche", desc: "Ali danzanti, ballerini e performer professionisti." },
-                            { icon: Star, title: "Bolle Giganti", desc: "Uno show incantevole che lascia tutti a bocca aperta." },
-                            { icon: Flame, title: "Effetti Speciali", desc: "Fuochi scenografici e momenti ad alto impatto visivo." },
-                            { icon: PartyPopper, title: "Special Host", desc: "Presentatori e vocalist per gestire ogni fase dell'evento." },
-                        ].map((f, i) => (
-                            <Card key={i} className="bg-white/80 backdrop-blur-md border border-orange-100 hover:border-orange-500/30 shadow-sm hover:shadow-xl transition-all group rounded-3xl overflow-hidden relative">
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-orange-100/50 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-orange-100 transition-all duration-700" />
-                                <CardContent className="p-12">
-                                    <f.icon className="h-10 w-10 text-orange-600 mb-8 transition-transform group-hover:scale-110" />
-                                    <h3 className="font-display font-black text-2xl mb-4 uppercase tracking-tight italic text-slate-900">{f.title}</h3>
-                                    <p className="text-slate-600 font-medium leading-relaxed">{f.desc}</p>
-                                </CardContent>
-                            </Card>
+                            { title: "Maghi & Illusionisti", desc: "Spettacoli di grande impatto per tutte le età, con prestigiatori e illusionisti pronti a stupire il vostro pubblico." },
+                            { title: "Cabaret & Intrattenimento", desc: "Artisti di strada, comici e professionisti del sorriso per un'atmosfera leggera e coinvolgente." },
+                            { title: "Performance Dinamiche", desc: "Ali danzanti, performer LED e ballerini professionisti per dare un tocco di energia al tuo evento." },
+                            { title: "Bolle Giganti", desc: "Uno show incantevole di bolle di sapone che lascerà incantati grandi e piccini." },
+                            { title: "Effetti Speciali", desc: "Spettacoli con il fuoco, fontane fredde e momenti ad alto impatto visivo coordinati dai nostri tecnici." },
+                            { title: "Special Host", desc: "Vocalist e presentatori esperti per gestire i momenti chiave e l'energia della serata." },
+                        ].map((item, idx) => (
+                            <div key={idx} className="relative pl-12 border-l-2 border-orange-100 py-2">
+                                <h3 className="font-display font-black text-2xl md:text-3xl mb-4 uppercase tracking-tighter italic text-slate-900">
+                                    {item.title}
+                                </h3>
+                                <p className="text-xl text-slate-600 font-medium leading-relaxed tracking-tight">
+                                    {item.desc}
+                                </p>
+                            </div>
                         ))}
                     </div>
                 </section>

@@ -84,24 +84,22 @@ export default function BattesimiPage() {
                     </motion.div>
                 </section>
 
-                <section className="container mx-auto px-4 mt-32">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
-                        {[
-                            { icon: Sparkles, title: "Allestimenti Eleganti", desc: "Scenografie raffinate e delicate per un'atmosfera magica." },
-                            { icon: Heart, title: "Decorazioni Personalizzate", desc: "Dettagli creati su misura per riflettere il tuo stile." },
-                            { icon: Star, title: "Tavoli Coordinati", desc: "Confettate, sweet table e allestimenti tavoli spettacolari." },
-                            { icon: Flower2, title: "Dettagli Curati", desc: "Ogni piccolo elemento è pensato per rendere l'evento indimenticabile." },
-                        ].map((f, i) => (
-                            <Card key={i} className="bg-white/50 backdrop-blur-sm border border-slate-100 hover:border-teal-200 shadow-sm hover:shadow-md transition-all group rounded-none">
-                                <CardContent className="p-8 flex flex-col items-center text-center">
-                                    <div className="h-16 w-16 rounded-full bg-slate-50 flex items-center justify-center mb-6 border border-white shadow-inner group-hover:bg-teal-50 transition-colors -mt-16 relative z-10">
-                                        <f.icon className="h-6 w-6 text-slate-400 group-hover:text-teal-400 transition-colors" />
-                                    </div>
-                                    <h3 className="font-display font-medium text-lg mb-4 text-slate-900 uppercase tracking-widest">{f.title}</h3>
-                                    <p className="text-slate-500 font-light text-sm leading-relaxed">{f.desc}</p>
-                                </CardContent>
-                            </Card>
-                        ))}
+                <section className="container mx-auto px-4 mt-24 py-16 bg-white">
+                    <div className="max-w-4xl mx-auto space-y-16">
+                        <div className="space-y-12">
+                            <div className="border-l-4 border-teal-100 pl-8 py-2">
+                                <h2 className="text-3xl font-display font-light text-slate-900 uppercase tracking-widest mb-4">Allestimenti Eleganti</h2>
+                                <p className="text-xl text-slate-500 font-light leading-relaxed italic">
+                                    Creamo scenografie raffinate e delicate per un'atmosfera magica e sognante durante la cerimonia.
+                                </p>
+                            </div>
+                            <div className="border-l-4 border-emerald-100 pl-8 py-2">
+                                <h2 className="text-3xl font-display font-light text-slate-900 uppercase tracking-widest mb-4">Dettagli su Misura</h2>
+                                <p className="text-xl text-slate-500 font-light leading-relaxed italic">
+                                    Dalle confettate agli sweet table, curiamo ogni dettaglio personalizzato per rendere il Battesimo un momento unico e indimenticabile per la tua famiglia.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 

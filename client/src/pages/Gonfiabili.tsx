@@ -82,31 +82,29 @@ export default function GonfiabiliPage() {
           </motion.div>
         </section>
 
-        {/* FEATURES */}
-        <section className="container mx-auto px-4 mt-12 mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, staggerChildren: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {[
-              { icon: ShieldCheck, title: "Sicurezza Certificata", desc: "Tutte le nostre strutture sono certificate e sanificate prima di ogni utilizzo.", color: "text-blue-500", bg: "bg-blue-100" },
-              { icon: Smile, title: "Assistenza Inclusa", desc: "Un operatore esperto seguirà l'allestimento e l'utilizzo per la massima tranquillità.", color: "text-orange-500", bg: "bg-orange-100" },
-              { icon: Star, title: "Effetto WOW", desc: "Scivoli giganti, percorsi ad ostacoli e castelli che lasceranno tutti a bocca aperta.", color: "text-yellow-500", bg: "bg-yellow-100" },
-            ].map((f, i) => (
-              <Card key={i} className="bg-white border-2 border-transparent hover:border-orange-200 shadow-sm hover:shadow-xl transition-all group overflow-hidden">
-                <CardContent className="p-8 text-center">
-                  <div className={`h-16 w-16 rounded-full ${f.bg} flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                    <f.icon className={`h-8 w-8 ${f.color}`} />
-                  </div>
-                  <div className="font-display font-bold text-xl mb-3 text-slate-900 uppercase tracking-tight">{f.title}</div>
-                  <div className="text-slate-600">{f.desc}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </motion.div>
+        <section className="container mx-auto px-4 mt-12 py-16 bg-white">
+          <div className="max-w-4xl mx-auto space-y-16">
+            <div className="space-y-12">
+                <div className="border-l-4 border-orange-100 pl-8 py-2">
+                    <h2 className="text-3xl font-display font-black text-slate-900 uppercase tracking-tight mb-4">Sicurezza Certificata</h2>
+                    <p className="text-xl text-slate-600 font-light leading-relaxed">
+                        Tutte le nostre strutture gonfiabili sono certificate e sanificate prima di ogni utilizzo, garantendo un ambiente di gioco sicuro per bambini e adulti.
+                    </p>
+                </div>
+                <div className="border-l-4 border-blue-100 pl-8 py-2">
+                    <h2 className="text-3xl font-display font-black text-slate-900 uppercase tracking-tight mb-4">Assistenza & Allestimento</h2>
+                    <p className="text-xl text-slate-600 font-light leading-relaxed">
+                        Un operatore esperto del nostro staff seguirà l'allestimento e l'utilizzo delle attrazioni per la tua massima tranquillità durante tutta la durata dell'evento.
+                    </p>
+                </div>
+                <div className="border-l-4 border-yellow-100 pl-8 py-2">
+                    <h2 className="text-3xl font-display font-black text-slate-900 uppercase tracking-tight mb-4">Effetto WOW</h2>
+                    <p className="text-xl text-slate-600 font-light leading-relaxed">
+                        Dai grandi scivoli ai percorsi ad ostacoli interattivi, offriamo soluzioni spettacolari capaci di trasformare qualsiasi spazio in un vero parco divertimenti.
+                    </p>
+                </div>
+            </div>
+          </div>
         </section>
 
         {/* GALLERY */}

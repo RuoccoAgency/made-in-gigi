@@ -109,33 +109,19 @@ export default function AllestimentiPage() {
           </motion.div>
         </section>
 
-        {/* FEATURES - Amber/Gold Theme */}
-        <section className="container mx-auto px-4 mt-24">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
+        <section className="container mx-auto px-4 mt-20 py-12">
+          <div className="max-w-4xl mx-auto space-y-12">
             {[
-              { icon: Palette, title: "Moodboard Design", desc: "Studio della palette colori e dello stile" },
-              { icon: Crown, title: "Finiture Premium", desc: "Materiali di alta qualità e dettagli oro" },
-              { icon: Camera, title: "Scenografie", desc: "Backdrop d'impatto per foto perfette" },
+              { title: "Moodboard & Design", desc: "Ogni progetto inizia con uno studio accurato della palette colori e dello stile per garantire un risultato armonioso." },
+              { title: "Finiture Premium", desc: "Utilizziamo materiali d'alta qualità e dettagli ricercati, con finiture in oro e texture pregiate." },
+              { title: "Scenografie d'Impatto", desc: "Progettiamo backdrop e installazioni che diventano lo sfondo perfetto per i vostri scatti memorabili." },
             ].map((f, i) => (
-              <Card key={i} className="bg-white/50 backdrop-blur border border-amber-100/50 hover:border-amber-200 shadow-sm hover:shadow-md transition-all group overflow-hidden">
-                <CardContent className="p-8">
-                  <div className="h-12 w-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-6 group-hover:bg-amber-100 transition-colors">
-                    <f.icon className="h-6 w-6 text-amber-600" />
-                  </div>
-                  <div>
-                    <div className="font-display font-bold text-xl mb-2 text-slate-800">{f.title}</div>
-                    <div className="text-slate-500 leading-relaxed">{f.desc}</div>
-                  </div>
-                </CardContent>
-              </Card>
+              <div key={i} className="border-l-4 border-amber-100 pl-8 py-2">
+                <h3 className="font-display font-bold text-2xl mb-3 text-slate-800 uppercase tracking-tight">{f.title}</h3>
+                <p className="text-lg text-slate-600 font-light leading-relaxed">{f.desc}</p>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </section>
 
         {/* GALLERY */}

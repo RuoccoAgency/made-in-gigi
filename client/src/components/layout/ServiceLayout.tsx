@@ -57,40 +57,8 @@ export function ServiceLayout({
 
   const displayedItems = showAllPhotos ? galleryItems : galleryItems.slice(0, initialImageCount);
 
-  // Parse description into sections
-  const lines = description.split('\n').map(l => l.trim()).filter(Boolean);
-  const sections: { title: string; content: string }[] = [];
-  let intro = "";
-  let currentTitle = "";
-  let currentContent: string[] = [];
-
-  lines.forEach((line, idx) => {
-    // Detect title (short line, no special chars, no colon unless very short)
-    const isTitle = line.length > 0 && line.length < 50 && !line.includes('(') && !line.startsWith('-') && !line.includes('€') && (!line.includes(':') || line.length < 25);
-    
-    if (isTitle && idx > 0) {
-      if (currentTitle || currentContent.length > 0) {
-        sections.push({ title: currentTitle, content: currentContent.join(' ') });
-      }
-      currentTitle = line;
-      currentContent = [];
-    } else if (idx === 0 && !isTitle) {
-      intro = line;
-    } else if (idx === 0 && isTitle) {
-      currentTitle = line;
-    } else {
-      currentContent.push(line);
-    }
-  });
-  
-  if (currentTitle || currentContent.length > 0) {
-    sections.push({ title: currentTitle, content: currentContent.join(' ') });
-  }
-
-  // If there's no explicit intro found but the first section is very general, we could use it
-  if (!intro && sections.length > 0) {
-    // optional: logic to move first section to intro if desirable
-  }
+  // Parse description into simple paragraphs for a clean, minimal presentation
+  const paragraphs = description.split('\n').map(l => l.trim()).filter(Boolean);
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
@@ -107,65 +75,53 @@ export function ServiceLayout({
           </nav>
         </div>
 
-        {/* Hero Section */}
-        <section className="container mx-auto px-4 py-8 relative overflow-hidden">
+        {/* Presentation Section */}
+        <section className="container mx-auto px-4 py-12 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none" />
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-6xl"
+            className="max-w-4xl mx-auto"
           >
-            <div className="flex flex-col md:flex-row md:items-center gap-6 mb-12">
+            <div className="flex flex-col items-center text-center mb-16">
               {Icon && (
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary/10 rounded-2xl shrink-0">
-                  <Icon className="w-8 h-8 text-secondary" />
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary/10 rounded-3xl mb-8">
+                  <Icon className="w-10 h-10 text-secondary" />
                 </div>
               )}
-              <h1 className="text-3xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">
+              <h1 className="text-4xl md:text-6xl font-display font-black text-slate-900 tracking-tight leading-tight">
                 {title}
               </h1>
+              <div className="w-20 h-1.5 bg-secondary/30 rounded-full mt-6" />
             </div>
 
-            {intro && (
-              <p className="text-xl text-slate-600 mb-16 max-w-4xl font-light leading-relaxed border-l-4 border-secondary/20 pl-8">
-                {intro}
-              </p>
-            )}
+            <div className="space-y-8 text-slate-600 leading-relaxed text-lg font-light">
+              {paragraphs.map((line, idx) => {
+                // Heuristic for subtitles/headings: short line, no trailing period
+                const isHeading = line.length < 60 && !line.endsWith('.') && !line.includes(':') && idx > 0;
+                
+                if (isHeading) {
+                  return (
+                    <h2 key={idx} className="text-2xl md:text-3xl font-display font-bold text-slate-900 mt-16 mb-6 tracking-tight">
+                      {line}
+                    </h2>
+                  );
+                }
 
-            {/* Content Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {(sections.length > 0 ? sections : (intro ? [{ title: "Descrizione Servizio", content: intro }] : [])).map((section, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                >
-                  <div className="h-full bg-white/50 backdrop-blur-sm border border-slate-100 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-10 h-10 rounded-xl bg-secondary/5 flex items-center justify-center group-hover:bg-secondary/10 transition-colors">
-                        {Icon ? <Icon className="w-5 h-5 text-secondary" /> : <div className="w-2 h-2 rounded-full bg-secondary" />}
-                      </div>
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary/60 bg-secondary/5 px-3 py-1 rounded-full">
-                        Premium Service
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-xl font-display font-bold text-slate-900 mb-4 tracking-tight group-hover:text-secondary transition-colors">
-                      {section.title || title}
-                    </h3>
-                    
-                    <p className="text-slate-500 text-sm md:text-base leading-relaxed font-light flex-grow">
-                      {section.content}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+                return (
+                  <p key={idx} className={cn(
+                    "relative",
+                    idx === 0 && "text-xl md:text-2xl text-slate-700 font-normal leading-relaxed border-l-4 border-secondary/20 pl-8 py-2"
+                  )}>
+                    {line}
+                  </p>
+                );
+              })}
             </div>
 
-            <div className="mt-16 text-center md:text-left">
+            <div className="mt-20 text-center">
               <Button 
                 onClick={scrollToForm} 
                 size="lg" 

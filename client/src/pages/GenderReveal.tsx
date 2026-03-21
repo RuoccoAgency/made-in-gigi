@@ -88,25 +88,28 @@ export default function GenderRevealPage() {
                     </motion.div>
                 </section>
 
-                <section className="container mx-auto px-4 mt-32">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {[
-                            { icon: Baby, title: "Allestimenti Boy or Girl", desc: "Archi e decorazioni tematiche in tinte pastello." },
-                            { icon: PartyPopper, title: "Lancio Segreto", desc: "Effetti speciali, fumo colorato o palloncini giganti." },
-                            { icon: Star, title: "Lettere Luminose", desc: "Scritte BOY o GIRL a LED per un impatto scenico totale." },
-                            { icon: Heart, title: "Percorsi Emozionali", desc: "Un cammino guidato verso la grande rivelazione." },
-                            { icon: Sparkles, title: "Dettagli Magici", desc: "Confettate, gadget e inviti coordinati per gli ospiti." },
-                        ].map((f, i) => (
-                            <Card key={i} className="bg-white/50 backdrop-blur-sm border border-slate-100 hover:border-fuchsia-200 shadow-sm hover:shadow-md transition-all group rounded-none">
-                                <CardContent className="p-10 flex flex-col items-center text-center">
-                                    <div className="h-16 w-16 rounded-full bg-slate-50 flex items-center justify-center mb-8 border border-white shadow-inner group-hover:bg-fuchsia-50 transition-colors">
-                                        <f.icon className="h-6 w-6 text-slate-400 group-hover:text-fuchsia-400 transition-colors" />
-                                    </div>
-                                    <h3 className="font-display font-medium text-lg mb-4 text-slate-900 uppercase tracking-widest">{f.title}</h3>
-                                    <p className="text-slate-500 font-light text-sm leading-relaxed">{f.desc}</p>
-                                </CardContent>
-                            </Card>
-                        ))}
+               <section className="container mx-auto px-4 mt-24 py-16 bg-white">
+                    <div className="max-w-4xl mx-auto space-y-16">
+                        <div className="space-y-12">
+                            <div className="border-l-4 border-blue-100 pl-8 py-2">
+                                <h2 className="text-3xl font-display font-light text-slate-900 uppercase tracking-widest mb-4">Allestimenti Tematici</h2>
+                                <p className="text-xl text-slate-600 font-light leading-relaxed italic">
+                                    Archi di palloncini e decorazioni in tinte pastello blue e pink per creare un'attesa magica.
+                                </p>
+                            </div>
+                            <div className="border-l-4 border-fuchsia-100 pl-8 py-2">
+                                <h2 className="text-3xl font-display font-light text-slate-900 uppercase tracking-widest mb-4">La Grande Rivelazione</h2>
+                                <p className="text-xl text-slate-600 font-light leading-relaxed italic">
+                                    Effetti speciali, fumo colorato, lettere giganti a LED e lanci segreti per il momento del reveal.
+                                </p>
+                            </div>
+                            <div className="border-l-4 border-pink-100 pl-8 py-2">
+                                <h2 className="text-3xl font-display font-light text-slate-900 uppercase tracking-widest mb-4">Percorsi Emozionali</h2>
+                                <p className="text-xl text-slate-600 font-light leading-relaxed italic">
+                                    Dettagli curati, confettate e gadget coordinati per guidare gli ospiti verso il momento più atteso.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
