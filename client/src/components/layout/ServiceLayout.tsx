@@ -57,16 +57,36 @@ export function ServiceLayout({
 
   const displayedItems = showAllPhotos ? galleryItems : galleryItems.slice(0, initialImageCount);
 
-  // Parse description into simple paragraphs for a clean, minimal presentation
-  const paragraphs = description.split('\n').map(l => l.trim()).filter(Boolean);
+  const cleanCategories = ["Matrimoni", "Effetti Speciali", "Format", "Gonfiabili", "Service", "Comunicazione"];
+  const isCleanLayout = cleanCategories.some(c => category?.toLowerCase().includes(c.toLowerCase()));
+
+  // Parse description
+  const lines = description.split('\n').map(l => l.trim()).filter(Boolean);
+  const sections: { title: string; content: string[] }[] = [];
+  let currentSection: { title: string; content: string[] } | null = null;
+
+  lines.forEach((line, idx) => {
+    const isTitle = line.length > 0 && line.length < 55 && !line.includes('(') && !line.startsWith('-') && !line.includes('€') && (!line.includes(':') || line.length < 25) && !line.includes('.') && !line.includes(',');
+    
+    if (isTitle && idx > 0) {
+      if (currentSection) sections.push(currentSection);
+      currentSection = { title: line.replace(':', ''), content: [] };
+    } else {
+      if (!currentSection) {
+        currentSection = { title: "Dettagli", content: [] };
+      }
+      currentSection.content.push(line);
+    }
+  });
+  if (currentSection) sections.push(currentSection);
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
       <Navbar />
       <main className="pt-32">
         {/* Breadcrumb */}
-        <div className="container mx-auto px-4 mb-8">
-          <nav className="flex items-center gap-2 text-sm font-medium text-slate-400 uppercase tracking-widest">
+        <div className="container mx-auto px-4 mb-10">
+          <nav className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
             <Link href="/" className="hover:text-secondary transition-colors">Home</Link>
             <span>/</span>
             <span className="text-slate-300">{category}</span>
@@ -76,56 +96,71 @@ export function ServiceLayout({
         </div>
 
         {/* Presentation Section */}
-        <section className="container mx-auto px-4 py-12 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none" />
-          
+        <section className="container mx-auto px-4 py-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-4xl mx-auto"
+            transition={{ duration: 0.6 }}
+            className={cn("mx-auto", isCleanLayout ? "max-w-3xl text-left" : "max-w-5xl text-center")}
           >
-            <div className="flex flex-col items-center text-center mb-16">
-              {Icon && (
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary/10 rounded-3xl mb-8">
-                  <Icon className="w-10 h-10 text-secondary" />
+            {isCleanLayout ? (
+              <div className="space-y-10">
+                <header className="mb-12">
+                  <h1 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6 uppercase tracking-tight">
+                    {title}
+                  </h1>
+                  <div className="w-16 h-1 bg-secondary/30 rounded-full" />
+                </header>
+
+                <div className="space-y-8 text-slate-600 leading-relaxed text-base italic md:text-lg">
+                  {lines.map((line, idx) => {
+                    const isHeading = line.length < 50 && !line.endsWith('.') && !line.includes(':') && idx > 0;
+                    if (isHeading) return <h3 key={idx} className="text-xl font-bold text-slate-900 pt-10 border-t border-slate-50 not-italic uppercase tracking-wide">{line}</h3>;
+                    return (
+                      <p key={idx} className={cn(idx === 0 && "text-lg md:text-xl text-slate-800 font-medium not-italic border-l-2 border-secondary/30 pl-8 mb-12")}>
+                        {line}
+                      </p>
+                    );
+                  })}
                 </div>
-              )}
-              <h1 className="text-4xl md:text-6xl font-display font-black text-slate-900 tracking-tight leading-tight">
-                {title}
-              </h1>
-              <div className="w-20 h-1.5 bg-secondary/30 rounded-full mt-6" />
-            </div>
+              </div>
+            ) : (
+              // Visual Layout with Cards
+              <>
+                <div className="flex flex-col items-center mb-16">
+                  {Icon && (
+                    <div className="p-5 bg-secondary/5 rounded-3xl mb-8">
+                      <Icon className="w-10 h-10 text-secondary" />
+                    </div>
+                  )}
+                  <h1 className="text-4xl md:text-7xl font-display font-black text-slate-900 uppercase italic tracking-tighter leading-none mb-4">
+                    {title}
+                  </h1>
+                </div>
 
-            <div className="space-y-8 text-slate-600 leading-relaxed text-lg font-light">
-              {paragraphs.map((line, idx) => {
-                // Heuristic for subtitles/headings: short line, no trailing period
-                const isHeading = line.length < 60 && !line.endsWith('.') && !line.includes(':') && idx > 0;
-                
-                if (isHeading) {
-                  return (
-                    <h2 key={idx} className="text-2xl md:text-3xl font-display font-bold text-slate-900 mt-16 mb-6 tracking-tight">
-                      {line}
-                    </h2>
-                  );
-                }
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {sections.map((section, idx) => (
+                    <div key={idx} className="bg-[#fafafa] border border-slate-100 p-10 shadow-sm hover:shadow-xl transition-all text-left group">
+                      <h3 className="font-display font-bold text-xl mb-6 text-slate-900 border-b border-secondary/20 pb-4 flex items-center gap-3">
+                        <span className="w-2 h-2 bg-secondary rounded-full" />
+                        {section.title}
+                      </h3>
+                      <div className="space-y-4">
+                        {section.content.map((p, i) => (
+                          <p key={i} className="text-slate-600 text-sm leading-relaxed font-medium">{p}</p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
 
-                return (
-                  <p key={idx} className={cn(
-                    "relative",
-                    idx === 0 && "text-xl md:text-2xl text-slate-700 font-normal leading-relaxed border-l-4 border-secondary/20 pl-8 py-2"
-                  )}>
-                    {line}
-                  </p>
-                );
-              })}
-            </div>
-
-            <div className="mt-20 text-center">
+            <div className={cn("mt-20", isCleanLayout ? "text-left" : "text-center")}>
               <Button 
                 onClick={scrollToForm} 
                 size="lg" 
-                className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-12 h-16 text-lg font-bold shadow-xl shadow-secondary/20 transition-all hover:scale-105"
+                className="bg-secondary hover:bg-secondary/90 text-white rounded-full px-12 h-16 text-lg font-bold shadow-xl shadow-secondary/10 transition-all hover:scale-105"
               >
                 Richiedi Preventivo
               </Button>

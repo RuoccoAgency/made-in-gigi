@@ -82,28 +82,22 @@ export default function GonfiabiliPage() {
           </motion.div>
         </section>
 
-        <section className="container mx-auto px-4 mt-12 py-16 bg-white">
-          <div className="max-w-4xl mx-auto space-y-16">
-            <div className="space-y-12">
-                <div className="border-l-4 border-orange-100 pl-8 py-2">
-                    <h2 className="text-3xl font-display font-black text-slate-900 uppercase tracking-tight mb-4">Sicurezza Certificata</h2>
-                    <p className="text-xl text-slate-600 font-light leading-relaxed">
-                        Tutte le nostre strutture gonfiabili sono certificate e sanificate prima di ogni utilizzo, garantendo un ambiente di gioco sicuro per bambini e adulti.
-                    </p>
-                </div>
-                <div className="border-l-4 border-blue-100 pl-8 py-2">
-                    <h2 className="text-3xl font-display font-black text-slate-900 uppercase tracking-tight mb-4">Assistenza & Allestimento</h2>
-                    <p className="text-xl text-slate-600 font-light leading-relaxed">
-                        Un operatore esperto del nostro staff seguirà l'allestimento e l'utilizzo delle attrazioni per la tua massima tranquillità durante tutta la durata dell'evento.
-                    </p>
-                </div>
-                <div className="border-l-4 border-yellow-100 pl-8 py-2">
-                    <h2 className="text-3xl font-display font-black text-slate-900 uppercase tracking-tight mb-4">Effetto WOW</h2>
-                    <p className="text-xl text-slate-600 font-light leading-relaxed">
-                        Dai grandi scivoli ai percorsi ad ostacoli interattivi, offriamo soluzioni spettacolari capaci di trasformare qualsiasi spazio in un vero parco divertimenti.
-                    </p>
-                </div>
-            </div>
+        <section className="container mx-auto px-4 mt-16 max-w-3xl">
+          <div className="space-y-12">
+              {[
+                  { title: "Sicurezza Certificata", desc: "Tutte le nostre strutture gonfiabili sono certificate e sanificate prima di ogni utilizzo, garantendo un ambiente di gioco sicuro." },
+                  { title: "Assistenza & Allestimento", desc: "Il nostro staff segue l'allestimento e l'utilizzo delle attrazioni per la tua massima tranquillità." },
+                  { title: "Effetto WOW", desc: "Dai grandi scivoli ai percorsi ad ostacoli interattivi, offriamo soluzioni spettacolari." },
+              ].map((item, idx) => (
+                  <div key={idx} className="space-y-3">
+                      <h3 className="font-display font-bold text-xl text-slate-900 uppercase tracking-tight">
+                          {item.title}
+                      </h3>
+                      <p className="text-base text-slate-600 leading-relaxed font-medium">
+                          {item.desc}
+                      </p>
+                  </div>
+              ))}
           </div>
         </section>
 

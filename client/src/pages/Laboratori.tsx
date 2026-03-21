@@ -80,27 +80,25 @@ export default function LaboratoriPage() {
                             </Button>
                         </div>
                     </motion.div>
-                </section>                <section className="container mx-auto px-4 mt-24 py-16">
-                    <div className="max-w-4xl mx-auto space-y-12">
-                        <div className="space-y-16">
-                            {[
-                                { title: "Scatola dei sogni", desc: "Un viaggio nella fantasia attraverso creazioni artigianali che stimolano la manualità e lo spirito creativo di ogni bambino." },
-                                { title: "Scatola per foto booth", desc: "Set creativi e originali per scatti indimenticabili, per trasformare ogni festa in un set fotografico divertente." },
-                                { title: "Passerella per sfilata", desc: "Un momento dedicato al protagonismo e all'espressione artistica, dove la fantasia prende vita in movimento." },
-                                { title: "Laser games", desc: "Sfide tecnologiche adrenaliniche e percorsi a ostacoli avvincenti per un divertimento dinamico e sicuro." },
-                                { title: "Laboratori creativi", desc: "Pittura, slime, scienziato pazzo e tantissime altre attività manuali per esplorare nuovi mondi attraverso il gioco." },
-                            ].map((item, idx) => (
-                                <div key={idx} className="relative pl-12">
-                                    <div className="absolute left-0 top-1.5 w-1 h-8 bg-indigo-200 rounded-full" />
-                                    <h3 className="text-2xl md:text-3xl font-display font-black text-slate-800 mb-4 italic tracking-wide">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-xl text-slate-600 leading-relaxed font-medium">
-                                        {item.desc}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
+                </section>                <section id="features" className="container mx-auto px-4 mt-24">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            { icon: Box, title: "Scatola dei sogni", desc: "Un viaggio nella fantasia attraverso creazioni artigianali." },
+                            { icon: Camera, title: "Scatola per foto booth", desc: "Set creativi per scatti indimenticabili e divertenti." },
+                            { icon: Layout, title: "Passerella per sfilata", desc: "Il momento del protagonismo e dell'espressione artistica." },
+                            { icon: Zap, title: "Laser games", desc: "Sfide tecnologiche adrenaliniche e percorsi a ostacoli." },
+                            { icon: Shapes, title: "Laboratori creativi", desc: "Pittura, slime, scienziato pazzo e molto altro." },
+                        ].map((f, i) => (
+                            <Card key={i} className="bg-white/70 backdrop-blur border border-indigo-100/50 hover:border-indigo-300 shadow-sm hover:shadow-xl transition-all group overflow-hidden rounded-[2rem]">
+                                <CardContent className="p-8 text-center flex flex-col items-center">
+                                    <div className="h-16 w-16 rounded-3xl bg-indigo-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform rotate-3 group-hover:rotate-0">
+                                        <f.icon className="h-8 w-8 text-indigo-600" />
+                                    </div>
+                                    <h3 className="font-display font-bold text-xl mb-3 text-slate-900 italic tracking-wide">{f.title}</h3>
+                                    <p className="text-slate-500 font-medium">{f.desc}</p>
+                                </CardContent>
+                            </Card>
+                        ))}
                     </div>
                 </section>
 

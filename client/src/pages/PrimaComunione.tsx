@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Sparkles, Check, Trophy, Wand2, PartyPopper, Zap, Tent, Ghost, Star, Plus } from "lucide-react";
+import { Sparkles, Check, Trophy, Wand2, PartyPopper, Zap, Tent, Ghost, Star, Plus, Cross, Heart, Flower2 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
@@ -169,51 +169,74 @@ export default function PrimaComunionePage() {
           </motion.div>
         </section>
 
-        <section className="container mx-auto px-4 mt-24 py-16 bg-white">
-          <div className="max-w-4xl mx-auto space-y-24">
+        {/* SECTION: PACCHETTI COMUNIONE */}
+        <section className="container mx-auto px-4 mt-32">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-light text-slate-900 uppercase tracking-widest">Pacchetti Comunione</h2>
+            <div className="w-12 h-px bg-sky-200 mx-auto mt-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PACKAGES.map((pkg, i) => (
-              <div key={i} className="relative pl-12 border-l-2 border-sky-100 py-4">
-                <h2 className="text-3xl md:text-4xl font-display font-light text-slate-900 uppercase tracking-widest mb-6">
-                  {pkg.title}
-                </h2>
-                <p className="text-xl text-slate-500 font-light italic mb-8">
-                  {pkg.description}
-                </p>
-
-                <div className="space-y-8">
-                  {pkg.activities && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                      {pkg.activities.map((act, idx) => (
-                        <div key={idx} className="flex gap-4 text-lg text-slate-600 font-light leading-relaxed">
-                          <Check className="w-5 h-5 text-sky-400 shrink-0 mt-1" />
-                          <span>{act}</span>
-                        </div>
-                      ))}
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="h-full"
+              >
+                <Card className="h-full border-slate-100 hover:border-sky-100 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-500 rounded-none bg-white flex flex-col group">
+                  <CardContent className="p-8 flex flex-col flex-grow">
+                    <div className="mb-4">
+                      <h3 className="text-xl font-display font-medium text-slate-900 uppercase tracking-wide leading-tight min-h-[3rem] flex items-center">
+                        {pkg.title}
+                      </h3>
                     </div>
-                  )}
 
-                  {pkg.special && (
-                    <div className="mt-8 p-8 bg-sky-50 border border-sky-100">
-                      <h4 className="text-xs uppercase tracking-[0.2em] text-sky-600 font-bold mb-4">Focus Speciale</h4>
-                      <p className="text-xl font-medium text-slate-800 mb-4">{pkg.special.title}</p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {pkg.special.includes.map((inc: string, idx: number) => (
-                          <div key={idx} className="text-lg text-sky-700 flex items-center gap-3">
-                            <Plus className="w-4 h-4 text-sky-400" />
-                            {inc}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {pkg.outro && (
-                    <p className="mt-8 text-xl text-slate-400 italic font-serif">
-                      {pkg.outro}
+                    <p className="text-sm text-slate-400 italic mb-6">
+                      {pkg.description}
                     </p>
-                  )}
-                </div>
-              </div>
+
+                    <div className="space-y-4 flex-grow">
+                      {pkg.activities && (
+                        <div>
+                          <h4 className="text-[10px] uppercase tracking-[0.2em] text-slate-300 font-bold mb-3">Attività</h4>
+                          <ul className="space-y-2">
+                            {pkg.activities.map((act, idx) => (
+                              <li key={idx} className="flex gap-3 text-sm text-slate-600 font-light leading-relaxed">
+                                <Check className="w-4 h-4 text-sky-300 shrink-0 mt-0.5" />
+                                <span>{act}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {pkg.special && (
+                        <div className="mt-6 p-4 bg-sky-50/50 border border-sky-100/50">
+                          <h4 className="text-[10px] uppercase tracking-[0.2em] text-sky-600/70 font-bold mb-2">Attività Speciale</h4>
+                          <p className="text-sm font-medium text-sky-800 mb-2">{pkg.special.title}</p>
+                          <ul className="space-y-1">
+                            {pkg.special.includes.map((inc: string, idx: number) => (
+                              <li key={idx} className="text-xs text-sky-600 flex items-center gap-2">
+                                <div className="w-1 h-1 bg-sky-300 rounded-full" />
+                                {inc}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+
+                    {pkg.outro && (
+                      <p className="mt-8 pt-6 border-t border-slate-50 text-sm text-slate-500 italic">
+                        {pkg.outro}
+                      </p>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </section>

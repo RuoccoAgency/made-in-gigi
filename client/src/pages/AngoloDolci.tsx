@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Candy, Cookie, IceCream, Cake, Star, Heart } from "lucide-react";
+import { Candy, Star, IceCream } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
@@ -144,21 +144,22 @@ export default function AngoloDolciPage() {
                 </section>
 
 
-                <section className="container mx-auto px-4 mt-24 py-16 bg-white">
-                    <div className="max-w-4xl mx-auto space-y-16">
+                <section className="container mx-auto px-4 mt-32">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { title: "Angolo per Dolci & Caramelle", desc: "Una parete di caramelle mozzafiato, perfetta per scatti memorabili e per deliziare ogni ospite con una varietà infinita di gusti e colori." },
-                            { title: "Zucchero Filato", desc: "La magia intramontabile delle nuvole dolci preparate al momento, capace di regalare un sorriso a grandi e piccini." },
-                            { title: "Fontana di Cioccolato", desc: "Un'installazione spettacolare con fiumi di cioccolato belga fuso, accompagnata da frutta fresca di stagione e biscotti artigianali." },
-                        ].map((item, idx) => (
-                            <div key={idx} className="relative pl-12 border-l-2 border-rose-100 py-2">
-                                <h3 className="font-display font-black text-2xl md:text-3xl mb-4 uppercase tracking-tighter text-slate-800">
-                                    {item.title}
-                                </h3>
-                                <p className="text-xl text-slate-600 font-medium leading-relaxed tracking-tight">
-                                    {item.desc}
-                                </p>
-                            </div>
+                            { icon: Candy, title: "Angolo per Dolci", desc: "Una parete di caramelle mozzafiato, perfetta per foto e golosi." },
+                            { icon: Star, title: "Zucchero filato", desc: "La magia classica delle nuvole dolci appena fatte." },
+                            { icon: IceCream, title: "Fontana di cioccolato", desc: "Fiumi di cioccolato belga per tuffare frutta e biscotti." },
+                        ].map((f, i) => (
+                            <Card key={i} className="bg-white border-none shadow-xl shadow-rose-900/5 hover:shadow-rose-900/10 transition-all group overflow-hidden rounded-[2.5rem]">
+                                <CardContent className="p-10 text-center flex flex-col items-center">
+                                    <div className="h-20 w-20 rounded-[2.5rem] bg-gradient-to-br from-rose-50 to-rose-100/50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                                        <f.icon className="h-10 w-10 text-rose-500 animate-bounce-slow" />
+                                    </div>
+                                    <h3 className="font-display font-black text-2xl mb-4 text-slate-900 uppercase tracking-tighter">{f.title}</h3>
+                                    <p className="text-slate-600 font-medium leading-relaxed">{f.desc}</p>
+                                </CardContent>
+                            </Card>
                         ))}
                     </div>
                 </section>
