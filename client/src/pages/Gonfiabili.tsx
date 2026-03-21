@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { PartyPopper, Zap, ShieldCheck, Clock, Smile, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
@@ -9,27 +9,25 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = [
-  "/images/gonfiabili/20150913_130141.webp",
-  "/images/gonfiabili/81ulwVwHslL._AC_SX522_.webp",
-  "/images/gonfiabili/Calcetto 8 4 noleggio un ora 40 euro - Copia.webp",
-  "/images/gonfiabili/gonfiabile scivolo - Copia.webp",
-  "/images/gonfiabili/gonfiabile scivolo misure - Copia.webp",
-  "/images/gonfiabili/noleggio gonfiabile 50 euro.webp",
-  "/images/gonfiabili/noleggio gonfiabile acquatico 70 euro.webp",
-  "/images/gonfiabili/noleggio gonfiabile pesce 70 euro - Copia.webp",
-  "/images/gonfiabili/noleggio un ora 50 euro - Copia.webp"
-];
+// Load images from optimized assets folder
+const gonfiabiliModules = import.meta.glob("@/assets/optimized/gonfiabili/*.webp", { 
+  eager: true, 
+  query: '?url', 
+  import: 'default' 
+});
+
+const GALLERY_IMAGES = Object.values(gonfiabiliModules) as string[];
 
 export default function GonfiabiliPage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    document.title = "Noleggio Gonfiabili | MadeinGigi Events";
   }, []);
 
   const allItems = useMemo(() => {
     if (GALLERY_IMAGES.length === 0) {
-      return Array.from({ length: 4 }).map((_, idx) => ({
+      return Array.from({ length: 6 }).map((_, idx) => ({
         id: `placeholder-${idx}`,
         src: "",
         placeholder: true,
@@ -43,7 +41,7 @@ export default function GonfiabiliPage() {
     }));
   }, []);
 
-  const items = showAllPhotos ? allItems : allItems.slice(0, 4);
+  const items = showAllPhotos ? allItems : allItems.slice(0, 6);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -120,35 +118,46 @@ export default function GonfiabiliPage() {
           </div>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
+            layout
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto"
           >
-            {items.map((it, idx) => (
-              <motion.button
-                key={it.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-white shadow-md hover:shadow-xl transition-all"
-                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
-              >
-                {it.placeholder ? (
-                  <div className="absolute inset-0 flex items-center justify-center bg-orange-50">
-                    <span className="text-[10px] font-bold text-orange-200 uppercase tracking-widest leading-none text-center">Photo</span>
-                  </div>
-                ) : (
-                  <img src={it.src} alt="Gonfiabile" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className="text-white font-bold uppercase tracking-widest text-[10px] translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    Ingrandisci
-                  </span>
-                </div>
-              </motion.button>
-            ))}
+            <AnimatePresence mode="popLayout">
+              {items.map((it, idx) => (
+                <motion.button
+                  layout
+                  key={it.id}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  className="group relative aspect-square rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-orange-900/10 transition-all duration-500 ring-1 ring-orange-100"
+                  onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                >
+                  {it.placeholder ? (
+                    <div className="absolute inset-0 flex items-center justify-center bg-orange-50/50">
+                      <Star className="h-10 w-10 text-orange-200 animate-pulse" />
+                    </div>
+                  ) : (
+                    <>
+                      <img 
+                        src={it.src} 
+                        alt={`Gonfiabili Gallery ${idx + 1}`} 
+                        className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100 border border-orange-100 shadow-sm">
+                        <span className="text-[10px] font-black text-orange-600 uppercase tracking-widest">Dettaglio</span>
+                      </div>
+                    </>
+                  )}
+                </motion.button>
+              ))}
+            </AnimatePresence>
           </motion.div>
 
-          {!showAllPhotos && allItems.length > 4 && (
+          {!showAllPhotos && allItems.length > 6 && (
             <div className="mt-12 text-center">
                 <Button 
                     onClick={() => setShowAllPhotos(true)} 

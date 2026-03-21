@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
-import { Palette, Box, Camera, Zap, Layout, Shapes } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Palette, Box, Camera, Zap, Layout, Shapes, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
@@ -9,30 +9,25 @@ import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GALLERY_IMAGES: string[] = [
-    "/images/Laser games luna park/11.webp",
-    "/images/Laser games luna park/12.webp",
-    "/images/Laser games luna park/3.webp",
-    "/images/Laser games luna park/4.webp",
-    "/images/Laser games luna park/5.webp",
-    "/images/Laser games luna park/6.webp",
-    "/images/Laser games luna park/7.webp",
-    "/images/Laser games luna park/8.webp",
-    "/images/Laser games luna park/9.webp",
-    "/images/Laser games luna park/WhatsApp Image 2025-10-24 at 11.14.58.webp",
-    "/images/Laser games luna park/WhatsApp Image 2025-10-24 at 11.15.07.webp",
-];
+// Load images from optimized assets folder
+const laboratoriModules = import.meta.glob("@/assets/optimized/laboratori/*.webp", { 
+  eager: true, 
+  query: '?url', 
+  import: 'default' 
+});
 
+const GALLERY_IMAGES = Object.values(laboratoriModules) as string[];
 
 export default function LaboratoriPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+        document.title = "Laboratori Creativi | MadeinGigi Events";
     }, []);
 
     const allItems = useMemo(() => {
         if (GALLERY_IMAGES.length === 0) {
-            return Array.from({ length: 4 }).map((_, idx) => ({
+            return Array.from({ length: 6 }).map((_, idx) => ({
                 id: `placeholder-${idx}`,
                 src: "",
                 placeholder: true,
@@ -46,7 +41,7 @@ export default function LaboratoriPage() {
         }));
     }, []);
 
-    const items = showAllPhotos ? allItems : allItems.slice(0, 4);
+    const items = showAllPhotos ? allItems : allItems.slice(0, 6);
 
 
     const scrollToForm = () => {
@@ -116,36 +111,51 @@ export default function LaboratoriPage() {
                     </div>
 
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"
+                        layout
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto"
                     >
-                        {items.map((it, idx) => (
-                            <button
-                                key={it.id}
-                                className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-white shadow-md hover:shadow-xl transition-all"
-                                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
-                            >
-                                {it.placeholder ? (
-                                    <div className="absolute inset-0 flex items-center justify-center bg-indigo-50">
-                                        <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-tighter">Photo</span>
-                                    </div>
-                                ) : (
-                                    <img
-                                        src={it.src}
-                                        alt="Laboratori Gallery"
-                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                )}
-                                <div className="absolute inset-0 bg-indigo-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </button>
-                        ))}
+                        <AnimatePresence mode="popLayout">
+                            {items.map((it, idx) => (
+                                <motion.button
+                                    layout
+                                    key={it.id}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                                    className="group relative aspect-square rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-indigo-900/10 transition-all duration-500 ring-1 ring-indigo-100"
+                                    onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                                >
+                                    {it.placeholder ? (
+                                        <div className="absolute inset-0 flex items-center justify-center bg-indigo-50/50">
+                                            <Star className="h-10 w-10 text-indigo-200 animate-pulse" />
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <img
+                                                src={it.src}
+                                                alt={`Laboratori Gallery ${idx + 1}`}
+                                                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                            <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100 border border-indigo-100 shadow-sm">
+                                                <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest">Dettaglio</span>
+                                            </div>
+                                        </>
+                                    )}
+                                </motion.button>
+                            ))}
+                        </AnimatePresence>
                     </motion.div>
 
-                    {!showAllPhotos && allItems.length > 4 && (
-                        <div className="mt-12 text-center">
+                    {!showAllPhotos && allItems.length > 6 && (
+                        <div className="mt-20 text-center">
                             <Button 
                                 onClick={() => setShowAllPhotos(true)} 
                                 variant="outline"
-                                className="bg-white border-indigo-200 text-indigo-600 hover:bg-indigo-50 rounded-full px-10 h-14 text-sm font-bold shadow-md transition-all hover:scale-105"
+                                className="bg-white border-2 border-indigo-200 text-indigo-600 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 rounded-full px-12 h-16 text-lg font-black shadow-xl shadow-indigo-900/5 transition-all hover:scale-105 active:scale-95 uppercase tracking-tighter"
                             >
                                 Vedi tutte le foto ({allItems.length})
                             </Button>
