@@ -96,6 +96,15 @@ const PACKAGES = [
   }
 ];
 
+// Dynamically load all webp images from the optimized assets folder
+const imageModules = import.meta.glob("@/assets/optimized/comunioni/*.webp", { 
+  eager: true, 
+  query: '?url', 
+  import: 'default' 
+});
+
+const IMAGES = Object.values(imageModules) as string[];
+
 export default function PrimaComunionePage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
@@ -103,7 +112,7 @@ export default function PrimaComunionePage() {
   }, []);
 
   const allItems = useMemo(() => {
-    if (GALLERY_IMAGES.length === 0) {
+    if (IMAGES.length === 0) {
       return Array.from({ length: 4 }).map((_, idx) => ({
         id: `placeholder-${idx}`,
         src: "",
@@ -111,14 +120,14 @@ export default function PrimaComunionePage() {
       }));
     }
 
-    return GALLERY_IMAGES.map((src, idx) => ({
+    return IMAGES.map((src, idx) => ({
       id: `img-${idx}`,
       src,
       placeholder: false,
     }));
   }, []);
 
-  const items = showAllPhotos ? allItems : allItems.slice(0, 4);
+  const items = showAllPhotos ? allItems : allItems.slice(0, 6);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -347,7 +356,7 @@ export default function PrimaComunionePage() {
           </div>
 
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
             {items.map((it, idx) => (
               <motion.button
@@ -356,7 +365,7 @@ export default function PrimaComunionePage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm"
+                className="group relative aspect-video rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm"
                 onClick={() => !it.placeholder && window.open(it.src, "_blank")}
               >
                 {it.placeholder ? (
@@ -364,14 +373,19 @@ export default function PrimaComunionePage() {
                     <span className="text-[10px] font-bold text-sky-200 uppercase tracking-widest">Photo</span>
                   </div>
                 ) : (
-                  <img src={it.src} alt="Portfolio" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img 
+                    src={it.src} 
+                    alt="Portfolio" 
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    loading="lazy"
+                  />
                 )}
                 <div className="absolute inset-0 bg-sky-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.button>
             ))}
           </motion.div>
 
-          {!showAllPhotos && allItems.length > 4 && (
+          {!showAllPhotos && allItems.length > 6 && (
             <div className="mt-16 text-center">
                 <Button 
                     onClick={() => setShowAllPhotos(true)} 

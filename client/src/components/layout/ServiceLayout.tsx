@@ -17,6 +17,7 @@ interface ServiceLayoutProps {
   images?: string[];
   initialImageCount?: number;
   gridClassName?: string;
+  aspectRatioClassName?: string;
 }
 
 export function ServiceLayout({ 
@@ -26,7 +27,8 @@ export function ServiceLayout({
   icon: Icon, 
   images,
   initialImageCount = 4,
-  gridClassName
+  gridClassName,
+  aspectRatioClassName = "aspect-square"
 }: ServiceLayoutProps) {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   useEffect(() => {
@@ -197,7 +199,10 @@ export function ServiceLayout({
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="group relative aspect-square bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center cursor-pointer"
+                  className={cn(
+                    "group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center cursor-pointer",
+                    aspectRatioClassName
+                  )}
                   onClick={() => !p.placeholder && window.open(p.src, "_blank")}
                 >
                   {p.placeholder ? (
