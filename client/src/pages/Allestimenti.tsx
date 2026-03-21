@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Palette, Camera, Crown, Filter } from "lucide-react";
+import { Palette, Camera, Crown } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
@@ -10,14 +10,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-// Dynamically load images from optimized Archi folder
-const archiModules = import.meta.glob("@/assets/optimized/archi/*.webp", { 
-  eager: true, 
-  query: '?url', 
-  import: 'default' 
-});
+// Helper to load all webp from a glob result
+const getImagesFromModules = (modules: Record<string, any>) => Object.values(modules) as string[];
 
-const ALL_ARCHI = Object.values(archiModules) as string[];
+// Load images from all optimized folders
+const archiModules = import.meta.glob("@/assets/optimized/archi/*.webp", { eager: true, query: '?url', import: 'default' });
+const battesimoModules = import.meta.glob("@/assets/optimized/battesimo/*.webp", { eager: true, query: '?url', import: 'default' });
+const adultiModules = import.meta.glob("@/assets/optimized/allestimenti-adulti/*.webp", { eager: true, query: '?url', import: 'default' });
+const compleanniModules = import.meta.glob("@/assets/optimized/allestimenti-compleanni/*.webp", { eager: true, query: '?url', import: 'default' });
+const bioancaneveModules = import.meta.glob("@/assets/optimized/bioancaneve/*.webp", { eager: true, query: '?url', import: 'default' });
+const cenerentolaModules = import.meta.glob("@/assets/optimized/cenerentola/*.webp", { eager: true, query: '?url', import: 'default' });
+const temiModules = import.meta.glob("@/assets/optimized/temi-personalizzati/*.webp", { eager: true, query: '?url', import: 'default' });
 
 export default function AllestimentiPage() {
   const [showAll, setShowAll] = useState(false);
@@ -29,13 +32,20 @@ export default function AllestimentiPage() {
 
   const filters = ["Tutto", "Archi"];
 
-  // Filter logic: currently all images are Archi
+  // Combine and categorise images
   const allItems = useMemo(() => {
-    return ALL_ARCHI.map((src, idx) => ({
-      id: `img-${idx}`,
-      src,
-      category: "Archi"
-    }));
+    const archi = getImagesFromModules(archiModules).map((src, idx) => ({ id: `archi-${idx}`, src, category: "Archi" }));
+    const others = [
+        ...getImagesFromModules(battesimoModules),
+        ...getImagesFromModules(adultiModules),
+        ...getImagesFromModules(compleanniModules),
+        ...getImagesFromModules(bioancaneveModules),
+        ...getImagesFromModules(cenerentolaModules),
+        ...getImagesFromModules(temiModules)
+    ].map((src, idx) => ({ id: `other-${idx}`, src, category: "Altro" }));
+
+    // Shuffle them slightly to make the "Tutto" view interesting
+    return [...archi, ...others].sort(() => Math.random() - 0.5);
   }, []);
 
   const filteredItems = useMemo(() => {
@@ -66,7 +76,7 @@ export default function AllestimentiPage() {
             className="max-w-4xl relative z-10"
           >
             <Link href="/">
-              <a className="inline-flex items-center text-sm font-medium text-amber-700/70 hover:text-amber-800 transition-colors mb-6 bg-amber-50 px-3 py-1 rounded-full border border-amber-100" data-testid="link-breadcrumb-home">
+              <a className="inline-flex items-center text-sm font-medium text-amber-700/70 hover:text-amber-800 transition-colors mb-6 bg-amber-50 px-3 py-1 rounded-full border border-amber-100">
                 ← Torna alla Home
               </a>
             </Link>
@@ -161,7 +171,7 @@ export default function AllestimentiPage() {
                 >
                   <img 
                     src={it.src} 
-                    alt={`Archi Portfolio ${idx + 1}`} 
+                    alt={`Allestimenti Portfolio ${idx + 1}`} 
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     loading="lazy" 
                   />
