@@ -23,6 +23,7 @@ const fattoriaModules = import.meta.glob("@/assets/optimized/fattoria/*.webp", {
 const piccoloPrincipeModules = import.meta.glob("@/assets/optimized/piccolo-principe/*.webp", { eager: true, query: '?url', import: 'default' });
 const napoliModules = import.meta.glob("@/assets/optimized/napoli/*.webp", { eager: true, query: '?url', import: 'default' });
 const shimmerModules = import.meta.glob("@/assets/optimized/shimmer/*.webp", { eager: true, query: '?url', import: 'default' });
+const topolinoModules = import.meta.glob("@/assets/optimized/topolino/*.webp", { eager: true, query: '?url', import: 'default' });
 
 const CATEGORIES = [
   "Tutti",
@@ -32,7 +33,8 @@ const CATEGORIES = [
   "Cenerentola",
   "Piccolo Principe",
   "Napoli",
-  "Shimmer"
+  "Shimmer",
+  "Topolino"
 ];
 
 export default function AllestimentiPage() {
@@ -61,6 +63,7 @@ export default function AllestimentiPage() {
     addCategorized(piccoloPrincipeModules, "Piccolo Principe", "piccolo-principe");
     addCategorized(napoliModules, "Napoli", "napoli");
     addCategorized(shimmerModules, "Shimmer", "shimmer");
+    addCategorized(topolinoModules, "Topolino", "topolino");
 
     return items;
   }, []);
