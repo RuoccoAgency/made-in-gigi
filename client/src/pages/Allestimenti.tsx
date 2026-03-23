@@ -17,14 +17,12 @@ const getImagesFromModules = (modules: Record<string, any>) => Object.values(mod
 const archiModules = import.meta.glob("@/assets/optimized/archi/*.webp", { eager: true, query: '?url', import: 'default' });
 const biancaneveModules = import.meta.glob("@/assets/optimized/bioancaneve/*.webp", { eager: true, query: '?url', import: 'default' });
 const cenerentolaModules = import.meta.glob("@/assets/optimized/cenerentola/*.webp", { eager: true, query: '?url', import: 'default' });
-const temiModules = import.meta.glob("@/assets/optimized/temi-personalizzati/*.webp", { eager: true, query: '?url', import: 'default' });
-const adultiModules = import.meta.glob("@/assets/optimized/allestimenti-adulti/*.webp", { eager: true, query: '?url', import: 'default' });
-const compleanniModules = import.meta.glob("@/assets/optimized/allestimenti-compleanni/*.webp", { eager: true, query: '?url', import: 'default' });
 
 // We also prepare for potential new folders requested by the user
 const fattoriaModules = import.meta.glob("@/assets/optimized/fattoria/*.webp", { eager: true, query: '?url', import: 'default' });
 const piccoloPrincipeModules = import.meta.glob("@/assets/optimized/piccolo-principe/*.webp", { eager: true, query: '?url', import: 'default' });
 const napoliModules = import.meta.glob("@/assets/optimized/napoli/*.webp", { eager: true, query: '?url', import: 'default' });
+const shimmerModules = import.meta.glob("@/assets/optimized/shimmer/*.webp", { eager: true, query: '?url', import: 'default' });
 
 const CATEGORIES = [
   "Tutti",
@@ -33,7 +31,8 @@ const CATEGORIES = [
   "Biancaneve",
   "Cenerentola",
   "Piccolo Principe",
-  "Napoli"
+  "Napoli",
+  "Shimmer"
 ];
 
 export default function AllestimentiPage() {
@@ -61,11 +60,7 @@ export default function AllestimentiPage() {
     addCategorized(fattoriaModules, "Fattoria", "fattoria");
     addCategorized(piccoloPrincipeModules, "Piccolo Principe", "piccolo-principe");
     addCategorized(napoliModules, "Napoli", "napoli");
-
-    // "Other" categories that show up in "Tutti" but don't have a specific filter yet
-    addCategorized(temiModules, "Altri Temi", "temi");
-    addCategorized(adultiModules, "Adulti", "adulti");
-    addCategorized(compleanniModules, "Compleanni", "compleanni");
+    addCategorized(shimmerModules, "Shimmer", "shimmer");
 
     return items;
   }, []);
