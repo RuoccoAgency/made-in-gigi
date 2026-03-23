@@ -9,7 +9,6 @@ const IMAGES = [
   "/images/1imo/310013885_5752612191462208_8532070385258570788_n.webp",
   "/images/1imo/62337316_2417653101624817_1748230815378046976_n.webp",
   "/images/1imo/79217998_2800111720045618_477256714391912448_n.webp",
-  "/images/1imo/IMG_20210730_181059.webp",
   "/images/1imo/WhatsApp Image 2023-04-19 at 18.18.47 (7).webp",
   "/images/1imo/cddf96db-8b8a-4f0c-91c2-e4e04872dce9.webp",
 ];
