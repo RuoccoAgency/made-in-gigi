@@ -61,9 +61,15 @@ const formSchema = z.object({
 });
 
 const serviceOptions = [
+  { id: "animazione", label: "Animazione" },
+  { id: "allestimenti", label: "Allestimenti Scenografici" },
+  { id: "archi", label: "Archi di Palloncini" },
+  { id: "dolci", label: "Angolo per Dolci" },
   { id: "gonfiabili", label: "Gonfiabili" },
-  { id: "spettacoli", label: "Spettacoli" },
-  { id: "allestimenti", label: "Allestimenti" },
+  { id: "mascotte", label: "Mascotte" },
+  { id: "spettacoli", label: "Artisti e Spettacoli" },
+  { id: "laboratori", label: "Laboratori Creativi" },
+  { id: "service", label: "Service Audio/Luci" },
 ];
 
 export function QuoteForm() {
@@ -184,9 +190,14 @@ export function QuoteForm() {
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent>
-                                  <SelectItem value="compleanno">Compleanno</SelectItem>
-                                  <SelectItem value="comunione">Comunione / Battesimo</SelectItem>
+                                  <SelectItem value="compleanno-bambini">Compleanno Bambini / 1° Compleanno</SelectItem>
+                                  <SelectItem value="compleanno-adulti">Compleanno Adulti (40, 50, ecc.)</SelectItem>
+                                  <SelectItem value="18-anni">Festa di 18 Anni</SelectItem>
+                                  <SelectItem value="comunione">Prima Comunione</SelectItem>
+                                  <SelectItem value="battesimo">Battesimo</SelectItem>
                                   <SelectItem value="matrimonio">Matrimonio</SelectItem>
+                                  <SelectItem value="gender-reveal">Gender Reveal</SelectItem>
+                                  <SelectItem value="laurea">Festa di Laurea</SelectItem>
                                   <SelectItem value="aziendale">Evento Aziendale</SelectItem>
                                   <SelectItem value="altro">Altro</SelectItem>
                                 </SelectContent>
