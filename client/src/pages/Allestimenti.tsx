@@ -24,6 +24,9 @@ const piccoloPrincipeModules = import.meta.glob("@/assets/optimized/piccolo-prin
 const napoliModules = import.meta.glob("@/assets/optimized/napoli/*.webp", { eager: true, query: '?url', import: 'default' });
 const shimmerModules = import.meta.glob("@/assets/optimized/shimmer/*.webp", { eager: true, query: '?url', import: 'default' });
 const topolinoModules = import.meta.glob("@/assets/optimized/topolino/*.webp", { eager: true, query: '?url', import: 'default' });
+const mercolediModules = import.meta.glob("@/assets/optimized/mercoledi/*.webp", { eager: true, query: '?url', import: 'default' });
+const harryPotterModules = import.meta.glob("@/assets/optimized/harry-potter/*.webp", { eager: true, query: '?url', import: 'default' });
+const sirenettaModules = import.meta.glob("@/assets/optimized/sirenetta/*.webp", { eager: true, query: '?url', import: 'default' });
 
 const CATEGORIES = [
   "Tutti",
@@ -34,7 +37,10 @@ const CATEGORIES = [
   "Piccolo Principe",
   "Napoli",
   "Shimmer",
-  "Topolino"
+  "Topolino",
+  "Mercoledì",
+  "Harry Potter",
+  "La Sirenetta"
 ];
 
 export default function AllestimentiPage() {
@@ -64,6 +70,9 @@ export default function AllestimentiPage() {
     addCategorized(napoliModules, "Napoli", "napoli");
     addCategorized(shimmerModules, "Shimmer", "shimmer");
     addCategorized(topolinoModules, "Topolino", "topolino");
+    addCategorized(mercolediModules, "Mercoledì", "mercoledi");
+    addCategorized(harryPotterModules, "Harry Potter", "harry-potter");
+    addCategorized(sirenettaModules, "La Sirenetta", "sirenetta");
 
     return items;
   }, []);
