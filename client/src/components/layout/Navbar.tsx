@@ -65,7 +65,6 @@ const NAV_SERVICES = finalCategoryOrder.map(catName => ({
 
 const QUICK_LINKS = [
   { name: "Chi Siamo", href: "/chi-siamo" },
-  { name: "Gallery", href: "#gallery" },
   { name: "Zone", href: "#zone" },
   { name: "Contatti", href: "#contatti" },
 ];
