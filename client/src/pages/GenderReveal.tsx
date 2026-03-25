@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 const GALLERY_IMAGES: string[] = [
@@ -25,6 +26,9 @@ const GALLERY_IMAGES: string[] = [
 
 export default function GenderRevealPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
@@ -47,6 +51,13 @@ export default function GenderRevealPage() {
 
     const items = showAllPhotos ? allItems : allItems.slice(0, 4);
 
+    // Lightbox Handlers
+    const openLightbox = (idx: number) => {
+      setLightboxIndex(idx);
+      setLightboxOpen(true);
+    };
+    const handleNext = () => setLightboxIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -89,7 +100,7 @@ export default function GenderRevealPage() {
                 </section>
 
                 <section className="container mx-auto px-4 mt-32">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
                         {[
                             { icon: Baby, title: "Allestimenti Boy or Girl", desc: "Archi e decorazioni tematiche in tinte pastello." },
                             { icon: PartyPopper, title: "Lancio Segreto", desc: "Effetti speciali, fumo colorato o palloncini giganti." },
@@ -117,13 +128,13 @@ export default function GenderRevealPage() {
                     </div>
 
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"
+                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
                     >
                         {items.map((it, idx) => (
                             <button
                                 key={it.id}
-                                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm"
-                                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm cursor-pointer"
+                                onClick={() => !it.placeholder && openLightbox(idx)}
                             >
                                 {it.placeholder ? (
                                     <div className="absolute inset-0 flex items-center justify-center bg-slate-50 border border-slate-100">
@@ -154,6 +165,14 @@ export default function GenderRevealPage() {
                     )}
                 </section>
 
+                <ImageLightbox
+                  isOpen={lightboxOpen}
+                  images={GALLERY_IMAGES}
+                  currentIndex={lightboxIndex}
+                  onClose={() => setLightboxOpen(false)}
+                  onNext={handleNext}
+                  onPrev={handlePrev}
+                />
 
                 <section className="mt-32 py-24 bg-gradient-to-tr from-blue-50/20 via-white to-pink-50/20 border-y border-slate-100">
                     <div className="container mx-auto px-4">
@@ -173,3 +192,4 @@ export default function GenderRevealPage() {
         </div>
     );
 }
+

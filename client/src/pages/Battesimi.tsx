@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -28,6 +29,9 @@ const GALLERY_IMAGES: string[] = [
 
 export default function BattesimiPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
@@ -48,6 +52,14 @@ export default function BattesimiPage() {
     }, []);
 
     const items = showAllPhotos ? allItems : allItems.slice(0, 4);
+
+    // Lightbox Handlers
+    const openLightbox = (idx: number) => {
+      setLightboxIndex(idx);
+      setLightboxOpen(true);
+    };
+    const handleNext = () => setLightboxIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -126,11 +138,11 @@ export default function BattesimiPage() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-5xl mx-auto"
                   >
-                    {items.map((it) => (
+                    {items.map((it, idx) => (
                       <button
                         key={it.id}
                         className="group relative aspect-square rounded-xl overflow-hidden bg-slate-100 border border-slate-100"
-                        onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                        onClick={() => !it.placeholder && openLightbox(idx)}
                       >
                         {it.placeholder ? (
                           <div className="absolute inset-0 flex items-center justify-center bg-teal-50/50">
@@ -157,6 +169,14 @@ export default function BattesimiPage() {
                   )}
                 </section>
 
+                <ImageLightbox
+                  isOpen={lightboxOpen}
+                  images={GALLERY_IMAGES}
+                  currentIndex={lightboxIndex}
+                  onClose={() => setLightboxOpen(false)}
+                  onNext={handleNext}
+                  onPrev={handlePrev}
+                />
 
                 <section className="mt-32 py-24 bg-gradient-to-tr from-teal-50/20 via-white to-emerald-50/20 border-y border-slate-100">
                     <div className="container mx-auto px-4">

@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -59,7 +60,7 @@ const PACKAGES = [
       "Regalini e modellabili"
     ],
     special: {
-      title: "Laser games con strutture di gioco per creare percorsi e sfide.",
+      title: "Laser games with strutture di gioco per creare percorsi e sfide.",
       includes: ["Pistole laser", "Pettorine per tutti i bambini"]
     }
   },
@@ -107,6 +108,9 @@ const IMAGES = Object.values(imageModules) as string[];
 
 export default function PrimaComunionePage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
@@ -128,6 +132,14 @@ export default function PrimaComunionePage() {
   }, []);
 
   const items = showAllPhotos ? allItems : allItems.slice(0, 6);
+
+  // Lightbox Handlers
+  const openLightbox = (idx: number) => {
+    setLightboxIndex(idx);
+    setLightboxOpen(true);
+  };
+  const handleNext = () => setLightboxIndex((prev) => (prev + 1) % IMAGES.length);
+  const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + IMAGES.length) % IMAGES.length);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -322,8 +334,8 @@ export default function PrimaComunionePage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group relative aspect-video rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm"
-                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                className="group relative aspect-video rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm cursor-pointer"
+                onClick={() => !it.placeholder && openLightbox(idx)}
               >
                 {it.placeholder ? (
                   <div className="absolute inset-0 flex items-center justify-center bg-sky-50/30">
@@ -354,6 +366,15 @@ export default function PrimaComunionePage() {
             </div>
           )}
         </section>
+
+        <ImageLightbox
+          isOpen={lightboxOpen}
+          images={IMAGES}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
 
         {/* FINAL CALL TO ACTION */}
         <section className="mt-32 bg-sky-50/50 py-24 border-y border-sky-100/30">

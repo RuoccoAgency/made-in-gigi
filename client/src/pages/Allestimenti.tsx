@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -46,6 +47,8 @@ const CATEGORIES = [
 export default function AllestimentiPage() {
   const [activeFilter, setActiveFilter] = useState("Tutti");
   const [showAll, setShowAll] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -83,6 +86,14 @@ export default function AllestimentiPage() {
   }, [activeFilter, allItems]);
 
   const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 6);
+
+  // Lightbox Handlers
+  const openLightbox = (idx: number) => {
+    setLightboxIndex(idx);
+    setLightboxOpen(true);
+  };
+  const handleNext = () => setLightboxIndex((prev) => (prev + 1) % filteredItems.length);
+  const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -195,7 +206,8 @@ export default function AllestimentiPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 shadow-sm hover:shadow-2xl hover:shadow-amber-900/5 transition-all duration-500"
+                  className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 shadow-sm hover:shadow-2xl hover:shadow-amber-900/5 transition-all duration-500 cursor-pointer"
+                  onClick={() => openLightbox(idx)}
                 >
                   <img 
                     src={item.src} 
@@ -207,13 +219,10 @@ export default function AllestimentiPage() {
                     <span className="text-amber-400 font-bold uppercase tracking-widest text-[10px] mb-1">
                       {item.category}
                     </span>
-                    <button 
-                       onClick={() => window.open(item.src, "_blank")}
-                       className="text-white font-display font-medium text-lg flex items-center gap-2 group/btn"
-                    >
+                    <div className="text-white font-display font-medium text-lg flex items-center gap-2 group/btn">
                       Visualizza Foto
                       <ChevronDown className="w-4 h-4 -rotate-90 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -242,6 +251,15 @@ export default function AllestimentiPage() {
           </AnimatePresence>
         </section>
 
+        {/* Lightbox */}
+        <ImageLightbox
+          isOpen={lightboxOpen}
+          images={filteredItems.map(item => item.src)}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
         {/* Call to action */}
         <section className="mt-40 bg-white py-32 border-t border-amber-100/50">
           <div className="container mx-auto px-4">

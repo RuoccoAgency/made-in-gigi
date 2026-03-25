@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -20,6 +21,9 @@ const IMAGES = Object.values(imageModules) as string[];
 
 export default function ArtistiSpettacoliPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }, []);
@@ -37,6 +41,14 @@ export default function ArtistiSpettacoliPage() {
     }, []);
 
     const items = showAllPhotos ? allItems : allItems.slice(0, 6);
+
+    // Lightbox Handlers
+    const openLightbox = (idx: number) => {
+      setLightboxIndex(idx);
+      setLightboxOpen(true);
+    };
+    const handleNext = () => setLightboxIndex((prev) => (prev + 1) % IMAGES.length);
+    const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + IMAGES.length) % IMAGES.length);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -67,7 +79,7 @@ export default function ArtistiSpettacoliPage() {
                             Artisti <span className="text-orange-600 block md:inline">& Spettacoli</span>
                         </h1>
                         <p className="mt-12 text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-medium tracking-tight">
-                            Collaboriamo con artisti e performer professionisti per rendere ogni evento ancora più spettacolare e coinvolgente. Dal cabaret alle grandi illusioni, portiamo il palco a casa tua.
+                            Collaboriamo con artists e performer professionisti per rendere ogni evento ancora più spettacolare e coinvolgente. Dal cabaret alle grandi illusioni, portiamo il palco a casa tua.
                         </p>
                         <div className="mt-16 flex flex-col md:flex-row gap-6 justify-center">
                             <Button onClick={scrollToForm} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-black px-12 h-20 text-xl rounded-none uppercase tracking-widest transition-all hover:shadow-[10px_10px_0px_rgba(255,165,0,0.1)]">
@@ -78,7 +90,7 @@ export default function ArtistiSpettacoliPage() {
                 </section>
 
                 <section id="services" className="container mx-auto px-4 mt-40">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
                         {[
                             { icon: Wand2, title: "Maghi & Illusionisti", desc: "Spettacoli di grande impatto per tutte le età." },
                             { icon: Mic2, title: "Cabaret & Intrattenimento", desc: "Artisti di strada e professionisti del sorriso." },
@@ -122,7 +134,7 @@ export default function ArtistiSpettacoliPage() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.4, delay: idx * 0.05 }}
                                     className="group relative aspect-square bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center cursor-pointer"
-                                    onClick={() => window.open(p.src, "_blank")}
+                                    onClick={() => openLightbox(idx)}
                                 >
                                     <img 
                                         src={p.src} 
@@ -149,6 +161,15 @@ export default function ArtistiSpettacoliPage() {
                         )}
                     </section>
                 )}
+
+                <ImageLightbox
+                  isOpen={lightboxOpen}
+                  images={IMAGES}
+                  currentIndex={lightboxIndex}
+                  onClose={() => setLightboxOpen(false)}
+                  onNext={handleNext}
+                  onPrev={handlePrev}
+                />
 
                 <section className="mt-40 py-40 bg-orange-600 relative overflow-hidden">
                     <div className="absolute inset-0 opacity-10 pointer-events-none">

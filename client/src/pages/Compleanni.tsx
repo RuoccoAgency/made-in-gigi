@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -36,6 +37,9 @@ const GALLERY_IMAGES: string[] = [
 
 export default function CompleanniPage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
@@ -57,6 +61,14 @@ export default function CompleanniPage() {
   }, []);
 
   const items = showAllPhotos ? allItems : allItems.slice(0, 4);
+
+  // Lightbox Handlers
+  const openLightbox = (idx: number) => {
+    setLightboxIndex(idx);
+    setLightboxOpen(true);
+  };
+  const handleNext = () => setLightboxIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+  const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -139,7 +151,7 @@ export default function CompleanniPage() {
               <button
                 key={it.id}
                 className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-white shadow-md hover:shadow-xl transition-all"
-                onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                onClick={() => !it.placeholder && openLightbox(idx)}
               >
                 {it.placeholder ? (
                   <div className="absolute inset-0 flex items-center justify-center bg-pink-50">
@@ -165,6 +177,15 @@ export default function CompleanniPage() {
             </div>
           )}
         </section>
+
+        <ImageLightbox
+          isOpen={lightboxOpen}
+          images={GALLERY_IMAGES}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
 
         <section className="mt-24 py-20 bg-white rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
           <div className="container mx-auto px-4">

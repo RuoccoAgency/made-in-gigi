@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useMemo } from "react";
@@ -21,6 +22,9 @@ const GALLERY_IMAGES = Object.values(dolciModules) as string[];
 
 export default function AngoloDolciPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
         document.title = "Angolo dei Dolci | MadeinGigi Events";
@@ -42,6 +46,14 @@ export default function AngoloDolciPage() {
     }, []);
 
     const items = showAllPhotos ? allItems : allItems.slice(0, 6);
+
+    // Lightbox Handlers
+    const openLightbox = (idx: number) => {
+      setLightboxIndex(idx);
+      setLightboxOpen(true);
+    };
+    const handleNext = () => setLightboxIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -103,8 +115,8 @@ export default function AngoloDolciPage() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                                    className="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-rose-900/10 transition-all duration-500 ring-1 ring-rose-100"
-                                    onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                                    className="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-rose-900/10 transition-all duration-500 ring-1 ring-rose-100 cursor-pointer"
+                                    onClick={() => !it.placeholder && openLightbox(idx)}
                                 >
                                     {it.placeholder ? (
                                         <div className="absolute inset-0 flex items-center justify-center bg-rose-50/50">
@@ -143,6 +155,14 @@ export default function AngoloDolciPage() {
                     )}
                 </section>
 
+                <ImageLightbox
+                  isOpen={lightboxOpen}
+                  images={GALLERY_IMAGES}
+                  currentIndex={lightboxIndex}
+                  onClose={() => setLightboxOpen(false)}
+                  onNext={handleNext}
+                  onPrev={handlePrev}
+                />
 
                 <section className="container mx-auto px-4 mt-32">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

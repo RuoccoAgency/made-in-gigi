@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -20,6 +21,9 @@ const GALLERY_IMAGES = Object.values(gonfiabiliModules) as string[];
 
 export default function GonfiabiliPage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     document.title = "Noleggio Gonfiabili | MadeinGigi Events";
@@ -42,6 +46,14 @@ export default function GonfiabiliPage() {
   }, []);
 
   const items = showAllPhotos ? allItems : allItems.slice(0, 6);
+
+  // Lightbox Handlers
+  const openLightbox = (idx: number) => {
+    setLightboxIndex(idx);
+    setLightboxOpen(true);
+  };
+  const handleNext = () => setLightboxIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+  const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
 
   const scrollToForm = () => {
     const el = document.querySelector("#preventivo");
@@ -71,7 +83,7 @@ export default function GonfiabiliPage() {
             <h1 className="text-5xl md:text-7xl font-display font-black text-slate-900 tracking-tight leading-tight uppercase">
               Divertimento <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Gonfiabile</span>
             </h1>
-            <p className="mt-8 text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-8 text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto font-bold tracking-tight">
               Noleggio di strutture gonfiabili per bambini e adulti: scivoli, percorsi a ostacoli e castelli per un divertimento in totale sicurezza.
             </p>
             <div className="mt-10">
@@ -106,7 +118,7 @@ export default function GonfiabiliPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-black text-slate-900 uppercase tracking-tighter">Il Nostro Parco Giochi</h2>
             <div className="w-20 h-1.5 bg-orange-500 mx-auto mt-4 rounded-full" />
-            <p className="mt-6 text-lg text-slate-600">Scopri le nostre fantastiche attrazioni.</p>
+            <p className="mt-6 text-lg text-slate-600 font-bold">Scopri le nostre fantastiche attrazioni.</p>
           </div>
 
           <motion.div
@@ -122,8 +134,8 @@ export default function GonfiabiliPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="group relative aspect-square rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-orange-900/10 transition-all duration-500 ring-1 ring-orange-100"
-                  onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                  className="group relative aspect-square rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-orange-900/10 transition-all duration-500 ring-1 ring-orange-100 cursor-pointer"
+                  onClick={() => !it.placeholder && openLightbox(idx)}
                 >
                   {it.placeholder ? (
                     <div className="absolute inset-0 flex items-center justify-center bg-orange-50/50">
@@ -161,6 +173,15 @@ export default function GonfiabiliPage() {
             </div>
           )}
         </section>
+
+        <ImageLightbox
+          isOpen={lightboxOpen}
+          images={GALLERY_IMAGES}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
 
         {/* CTA FORM */}
         <section className="py-24" id="preventivo">

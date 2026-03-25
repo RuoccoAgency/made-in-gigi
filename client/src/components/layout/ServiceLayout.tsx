@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "./Navbar";
 import { QuoteForm } from "../sections/QuoteForm";
 import { Contact } from "../sections/Contact";
 import { WhatsAppWidget } from "../ui/WhatsAppWidget";
+import { ImageLightbox } from "../ui/ImageLightbox";
 import { Button } from "../ui/button";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ServiceLayoutProps {
@@ -37,6 +38,9 @@ export function ServiceLayout({
   onFilterChange
 }: ServiceLayoutProps) {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
@@ -46,16 +50,24 @@ export function ServiceLayout({
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const galleryItems = images && images.length > 0 
+  const galleryItems = useMemo(() => images && images.length > 0 
     ? images.map((src, idx) => ({ id: `img-${idx}`, src, label: `${title} ${idx + 1}`, placeholder: false }))
     : Array.from({ length: 4 }).map((_, idx) => ({
         id: `placeholder-${idx}`,
         src: "",
         label: `Progetto ${idx + 1}`,
         placeholder: true
-      }));
+      })), [images, title]);
 
   const displayedItems = showAllPhotos ? galleryItems : galleryItems.slice(0, initialImageCount);
+
+  // Lightbox Handlers
+  const openLightbox = (idx: number) => {
+    setLightboxIndex(idx);
+    setLightboxOpen(true);
+  };
+  const handleNext = () => setLightboxIndex((prev) => (prev + 1) % galleryItems.length);
+  const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
 
   const cleanCategories = ["Matrimoni", "Effetti Speciali", "Format", "Gonfiabili", "Service", "Comunicazione"];
   const isCleanLayout = cleanCategories.some(c => category?.toLowerCase().includes(c.toLowerCase()));
@@ -64,7 +76,7 @@ export function ServiceLayout({
   const lines = description.split('\n').map(l => l.trim()).filter(Boolean);
   const sections: { title: string; content: string[] }[] = [];
   let currentSection: { title: string; content: string[] } | null = null;
-
+  
   lines.forEach((line, idx) => {
     const isTitle = line.length > 0 && line.length < 55 && !line.includes('(') && !line.startsWith('-') && !line.includes('€') && (!line.includes(':') || line.length < 25) && !line.includes('.') && !line.includes(',');
     
@@ -213,7 +225,7 @@ export function ServiceLayout({
                     "group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex items-center justify-center cursor-pointer",
                     aspectRatioClassName
                   )}
-                  onClick={() => !p.placeholder && window.open(p.src, "_blank")}
+                  onClick={() => !p.placeholder && openLightbox(idx)}
                 >
                   {p.placeholder ? (
                     <div className="flex flex-col items-center gap-2 text-slate-300 group-hover:text-secondary transition-colors duration-500">
@@ -249,6 +261,16 @@ export function ServiceLayout({
             )}
           </div>
         </section>
+
+        {/* Lightbox Implementation */}
+        <ImageLightbox
+          isOpen={lightboxOpen}
+          images={galleryItems.filter(p => !p.placeholder).map(p => p.src)}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
 
         {/* CTA Section */}
         <section className="py-32" id="preventivo">

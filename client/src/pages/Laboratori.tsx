@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Contact } from "@/components/sections/Contact";
 import { WhatsAppWidget } from "@/components/ui/WhatsAppWidget";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -20,6 +21,9 @@ const GALLERY_IMAGES = Object.values(laboratoriModules) as string[];
 
 export default function LaboratoriPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
         document.title = "Laboratori Creativi | MadeinGigi Events";
@@ -43,6 +47,13 @@ export default function LaboratoriPage() {
 
     const items = showAllPhotos ? allItems : allItems.slice(0, 6);
 
+    // Lightbox Handlers
+    const openLightbox = (idx: number) => {
+      setLightboxIndex(idx);
+      setLightboxOpen(true);
+    };
+    const handleNext = () => setLightboxIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    const handlePrev = () => setLightboxIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
 
     const scrollToForm = () => {
         const el = document.querySelector("#preventivo");
@@ -80,8 +91,10 @@ export default function LaboratoriPage() {
                             </Button>
                         </div>
                     </motion.div>
-                </section>                <section id="features" className="container mx-auto px-4 mt-24">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                </section>
+
+                <section id="features" className="container mx-auto px-4 mt-24">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
                         {[
                             { icon: Box, title: "Scatola dei sogni", desc: "Un viaggio nella fantasia attraverso creazioni artigianali." },
                             { icon: Camera, title: "Scatola per foto booth", desc: "Set creativi per scatti indimenticabili e divertenti." },
@@ -121,8 +134,8 @@ export default function LaboratoriPage() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                                    className="group relative aspect-square rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-indigo-900/10 transition-all duration-500 ring-1 ring-indigo-100"
-                                    onClick={() => !it.placeholder && window.open(it.src, "_blank")}
+                                    className="group relative aspect-square rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl hover:shadow-indigo-900/10 transition-all duration-500 ring-1 ring-indigo-100 cursor-pointer"
+                                    onClick={() => !it.placeholder && openLightbox(idx)}
                                 >
                                     {it.placeholder ? (
                                         <div className="absolute inset-0 flex items-center justify-center bg-indigo-50/50">
@@ -161,6 +174,14 @@ export default function LaboratoriPage() {
                     )}
                 </section>
 
+                <ImageLightbox
+                  isOpen={lightboxOpen}
+                  images={GALLERY_IMAGES}
+                  currentIndex={lightboxIndex}
+                  onClose={() => setLightboxOpen(false)}
+                  onNext={handleNext}
+                  onPrev={handlePrev}
+                />
 
                 <section className="mt-24 py-24 bg-indigo-50/30">
                     <div className="container mx-auto px-4">
