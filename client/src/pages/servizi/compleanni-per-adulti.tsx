@@ -14,24 +14,25 @@ const laureeModules = import.meta.glob("@/assets/optimized/lauree/*.webp", {
   import: 'default' 
 });
 
-const getImagesFromModules = (modules: Record<string, any>) => Object.values(modules) as string[];
+
 
 export default function CompleanniAdultiPage() {
   const [filter, setFilter] = useState("Tutto");
   const data = SERVICES_DATA["compleanni-per-adulti"];
 
   const allItems = useMemo(() => {
-    const rawImages = [
-      ...getImagesFromModules(adultiModules),
-      ...getImagesFromModules(laureeModules)
-    ];
-
-    return rawImages.map((src, idx) => {
-      // User Logic: 1st, 2nd, 4th, 5th (indices 0, 1, 3, 4) are "Compleanni"
-      // Everything else is "Lauree"
-      const isCompleanno = [0, 1, 3, 4].includes(idx);
-      return { src, category: isCompleanno ? "Compleanni" : "Lauree" };
+    const adultImages = Object.entries(adultiModules).map(([path, src]) => {
+      // The image COSTO_150_EURO is actually a graduation setup
+      const isLaurea = path.includes('COSTO_150_EURO');
+      return { src: src as string, category: isLaurea ? "Lauree" : "Compleanni" };
     });
+
+    const laureeImages = Object.values(laureeModules).map(src => ({
+      src: src as string,
+      category: "Lauree"
+    }));
+
+    return [...adultImages, ...laureeImages];
   }, []);
 
   const filteredImages = useMemo(() => {
@@ -51,7 +52,7 @@ export default function CompleanniAdultiPage() {
       icon={data.icon}
       images={filteredImages}
       initialImageCount={6}
-      filters={["Tutto", "Lauree"]}
+      filters={["Tutto", "Compleanni", "Lauree"]}
       activeFilter={filter}
       onFilterChange={setFilter}
       gridClassName="grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6"

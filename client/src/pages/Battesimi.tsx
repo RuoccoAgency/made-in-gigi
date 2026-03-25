@@ -10,6 +10,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
+  "/images/battesimo/battesimo-butterfly-setup.webp",
+  "/images/battesimo/battesimo-green-wall-pink-bows.webp",
+  "/images/battesimo/battesimo-white-vittoria-setup.webp",
+  "/images/battesimo/battesimo-butterfly-detail.webp",
+  "/images/battesimo/battesimo-cake-vittoria.webp",
   "/images/battesimo/100 EURO.webp",
   "/images/battesimo/150 EURO.webp",
   "/images/battesimo/200 EURO.webp",
