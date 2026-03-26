@@ -39,6 +39,7 @@ export const SERVICES_DATA: Record<string, {
   category: string | string[];
   description: string;
   icon: any;
+  images?: string[];
 }> = {
   // Format
   "photobooth": {
@@ -112,7 +113,8 @@ BOWLING IN LEGNO
 
 Animazione e Sweet Food
 Personale in abiti tipici gestisce i giochi consegnando gadget. Possiamo integrare carrettini di pop corn, zucchero filato, hot dog e crepes.`,
-    icon: Tent
+    icon: Tent,
+    images: ["/images/luna-park/catalog/cat-1.png", "/images/luna-park/catalog/cat-2.png", "/images/luna-park/catalog/cat-3.png"]
   },
   "sala-giochi-arcade": {
     title: "Sala Giochi Arcade",
@@ -484,7 +486,8 @@ Il nostro cannone raggiunge un getto di oltre 15 metri, garantendo una copertura
 
 Due modalità in una
 La macchina funziona sia come cannone che come generatore di schiuma: una caratteristica che permette di usarlo in due modi diversi nella stessa serata.`,
-    icon: Waves
+    icon: Waves,
+    images: ["/images/effetti/catalog/cat-1.png"]
   },
   "nevicata-artificiale": {
     title: "Nevicata Artificiale Cannone Neve",
@@ -497,7 +500,8 @@ Le macchine piccole sono ideali per teatri, locali e sale al chiuso. Per spazi a
 
 Cannone Snow 500
 Progettato per piazze, set cinematografici e grandi discoteche. Riesce a far nevicare fino a 20 metri di distanza dall'installazione.`,
-    icon: Snowflake
+    icon: Snowflake,
+    images: ["/images/effetti/catalog/cat-1.png"]
   },
   "spara-coriandoli": {
     title: "Spara coriandoli a CO2",
@@ -593,7 +597,8 @@ La macchina copre fino a 80 mq al minuto. L'effetto è di lunga durata, non lasc
 
 Ambiti d'uso
 Ideale per il primo ballo degli sposi, produzioni televisive, teatri, set cinematografici e showroom.`,
-    icon: Wind
+    icon: Wind,
+    images: ["/images/effetti/catalog/cat-1.png"]
   },
   "fontane-fredde": {
     title: "Fontane fredde / fuochi freddi",

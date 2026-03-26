@@ -18,7 +18,8 @@ const dolciModules = import.meta.glob("@/assets/optimized/dolci/*.webp", {
   import: 'default' 
 });
 
-const GALLERY_IMAGES = Object.values(dolciModules) as string[];
+const CATALOG_IMAGES = Array.from({ length: 6 }, (_, i) => `/images/dolci/catalog/cat-${i + 1}.png`);
+const GALLERY_IMAGES = [...Object.values(dolciModules) as string[], ...CATALOG_IMAGES];
 
 export default function AngoloDolciPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);

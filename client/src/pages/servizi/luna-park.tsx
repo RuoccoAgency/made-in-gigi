@@ -12,6 +12,7 @@ export default function LunaParkPage() {
       category={Array.isArray(data.category) ? data.category[0] : data.category}
       description={data.description}
       icon={data.icon}
+      images={data.images}
     />
   );
 }

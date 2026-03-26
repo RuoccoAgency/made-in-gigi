@@ -17,8 +17,9 @@ export default function ServiceDetailPage() {
     <ServiceLayout
       title={data.title}
       description={data.description}
-      category={data.category}
+      category={Array.isArray(data.category) ? data.category[0] : data.category}
       icon={data.icon}
+      images={data.images}
     />
   );
 }

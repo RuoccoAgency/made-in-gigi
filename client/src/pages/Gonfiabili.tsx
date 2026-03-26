@@ -17,7 +17,8 @@ const gonfiabiliModules = import.meta.glob("@/assets/optimized/gonfiabili/*.webp
   import: 'default' 
 });
 
-const GALLERY_IMAGES = Object.values(gonfiabiliModules) as string[];
+const CATALOG_IMAGES = Array.from({ length: 20 }, (_, i) => `/images/gonfiabili/catalog/cat-${i + 1}.png`);
+const GALLERY_IMAGES = [...Object.values(gonfiabiliModules) as string[], ...CATALOG_IMAGES];
 
 export default function GonfiabiliPage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
