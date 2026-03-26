@@ -27,10 +27,12 @@ export default function CompleanniAdultiPage() {
       return { src: src as string, category: isLaurea ? "Lauree" : "Compleanni" };
     });
 
-    const laureeImages = Object.values(laureeModules).map(src => ({
-      src: src as string,
-      category: "Lauree"
-    }));
+    const laureeImages = Object.entries(laureeModules)
+      .filter(([path]) => !path.includes('18.13.02_(5)') && !path.includes('18.13.02_(6)'))
+      .map(([_, src]) => ({
+        src: src as string,
+        category: "Lauree"
+      }));
 
     return [...adultImages, ...laureeImages];
   }, []);

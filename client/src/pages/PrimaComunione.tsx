@@ -104,7 +104,9 @@ const imageModules = import.meta.glob("@/assets/optimized/comunioni/*.webp", {
   import: 'default' 
 });
 
-const IMAGES = Object.values(imageModules) as string[];
+const ALL_IMAGES = Object.values(imageModules) as string[];
+const EXCLUDED_INDEXES = [21, 22, 30, 31, 40, 45, 52, 53, 54, 57];
+const IMAGES = ALL_IMAGES.filter((_, idx) => !EXCLUDED_INDEXES.includes(idx));
 
 export default function PrimaComunionePage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
