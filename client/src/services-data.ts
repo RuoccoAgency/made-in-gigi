@@ -114,7 +114,14 @@ BOWLING IN LEGNO
 Animazione e Sweet Food
 Personale in abiti tipici gestisce i giochi consegnando gadget. Possiamo integrare carrettini di pop corn, zucchero filato, hot dog e crepes.`,
     icon: Tent,
-    images: ["/images/luna-park/catalog/cat-1.png", "/images/luna-park/catalog/cat-2.png", "/images/luna-park/catalog/cat-3.png"]
+    images: [
+      "/images/luna-park/catalog/cat-1.png",
+      "/images/luna-park/catalog/cat-2.png",
+      "/images/luna-park/catalog/cat-3.png",
+      "/images/luna-park/catalog/cat-4.png",
+      "/images/luna-park/catalog/cat-5.png",
+      "/images/luna-park/catalog/cat-6.png"
+    ]
   },
   "sala-giochi-arcade": {
     title: "Sala Giochi Arcade",
