@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const GALLERY_IMAGES: string[] = [
-  "/images/18esimi/festa-18-new-1.jpg",
   "/images/18esimi/festa-18-new-2.jpg",
   "/images/18esimi/festa-18-new-3.jpg",
   "/images/18esimi/festa-18-new-4.jpg",
