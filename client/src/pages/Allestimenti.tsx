@@ -28,10 +28,12 @@ const topolinoModules = import.meta.glob("@/assets/optimized/topolino/*.webp", {
 const mercolediModules = import.meta.glob("@/assets/optimized/mercoledi/*.webp", { eager: true, query: '?url', import: 'default' });
 const harryPotterModules = import.meta.glob("@/assets/optimized/harry-potter/*.webp", { eager: true, query: '?url', import: 'default' });
 const sirenettaModules = import.meta.glob("@/assets/optimized/sirenetta/*.webp", { eager: true, query: '?url', import: 'default' });
+const reLeoneModules = import.meta.glob("@/assets/optimized/re-leone/*.jpg", { eager: true, query: '?url', import: 'default' });
 
 const CATEGORIES = [
   "Tutti",
   "Archi per eventi",
+  "Il Re Leone",
   "Fattoria",
   "Biancaneve",
   "Cenerentola",
@@ -76,6 +78,7 @@ export default function AllestimentiPage() {
     addCategorized(mercolediModules, "Mercoledì", "mercoledi");
     addCategorized(harryPotterModules, "Harry Potter", "harry-potter");
     addCategorized(sirenettaModules, "La Sirenetta", "sirenetta");
+    addCategorized(reLeoneModules, "Il Re Leone", "re-leone");
 
     const EXCLUDED_ALLESTIMENTI_INDEXES = [81]; // 82nd photo
     return items.filter((_, idx) => !EXCLUDED_ALLESTIMENTI_INDEXES.includes(idx));

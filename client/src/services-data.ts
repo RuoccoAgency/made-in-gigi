@@ -694,7 +694,14 @@ Archi di palloncini e backdrop a tema: dal Piccolo Principe alle Mongolfiere, og
 
 Ricordi Eterni
 Allestiamo set fotografici dedicati per catturare ogni sorriso in una cornice da favola che resterà nel cuore.`,
-    icon: Baby
+    icon: Baby,
+    images: [
+      "/images/1imo/catalog/cat-1.jpg",
+      "/images/1imo/catalog/cat-2.jpg",
+      "/images/1imo/catalog/cat-3.jpg",
+      "/images/1imo/catalog/cat-4.jpg",
+      "/images/1imo/catalog/cat-5.jpg"
+    ]
   },
   "compleanni": {
     title: "Compleanni",
@@ -724,7 +731,13 @@ Strutture oro, neon signs e balloon art organica per creare un'atmosfera di clas
 
 Sound & Light
 Service audio professionale, DJ set coinvolgenti e show di luci per far ballare te e i tuoi amici fino a tardi.`,
-    icon: Star
+    icon: Star,
+    images: [
+      "/images/18esimi/catalog/cat-1.jpg",
+      "/images/18esimi/catalog/cat-2.jpg",
+      "/images/18esimi/catalog/cat-3.jpg",
+      "/images/18esimi/catalog/cat-4.png"
+    ]
   },
   "compleanni-per-adulti": {
     title: "Compleanni per Adulti",

@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 // Dynamically load all webp images from the optimized assets folder
-const imageModules = import.meta.glob("@/assets/optimized/spettacoli/*.webp", { 
+const imageModules = import.meta.glob("@/assets/optimized/spettacoli/*.{webp,jpg,png}", { 
   eager: true, 
   query: '?url', 
   import: 'default' 
