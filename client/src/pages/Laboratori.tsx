@@ -18,7 +18,8 @@ const laboratoriModules = import.meta.glob("@/assets/optimized/laboratori/*.webp
 });
 
 const ALL_LAB_IMAGES = Object.values(laboratoriModules) as string[];
-const GALLERY_IMAGES = ALL_LAB_IMAGES.slice(11);
+const CATALOG_LAB_IMAGES = ["/images/laboratori/catalog/cat-1.jpg", "/images/laboratori/catalog/cat-2.png"];
+const GALLERY_IMAGES = [...CATALOG_LAB_IMAGES, ...ALL_LAB_IMAGES.slice(11)];
 
 export default function LaboratoriPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);

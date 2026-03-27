@@ -77,7 +77,8 @@ export default function AllestimentiPage() {
     addCategorized(harryPotterModules, "Harry Potter", "harry-potter");
     addCategorized(sirenettaModules, "La Sirenetta", "sirenetta");
 
-    return items;
+    const EXCLUDED_ALLESTIMENTI_INDEXES = [81]; // 82nd photo
+    return items.filter((_, idx) => !EXCLUDED_ALLESTIMENTI_INDEXES.includes(idx));
   }, []);
 
   const filteredItems = useMemo(() => {

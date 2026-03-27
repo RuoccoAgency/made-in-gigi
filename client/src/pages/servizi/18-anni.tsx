@@ -10,6 +10,8 @@ const IMAGES = [
   "/images/18esimi/293324034_5523000047756758_2071711076166925323_n.webp",
   "/images/18esimi/299985517_5629259487130813_6636565796765681418_n.webp",
   "/images/18esimi/COSTO 250 EURO COME FOTO.webp",
+  "/images/18esimi/festa-18-new-5.jpg",
+  "/images/18esimi/festa-18-new-6.jpg",
 ];
 
 export default function Feste18AnniPage() {

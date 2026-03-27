@@ -19,7 +19,9 @@ const dolciModules = import.meta.glob("@/assets/optimized/dolci/*.webp", {
 });
 
 const CATALOG_IMAGES = Array.from({ length: 6 }, (_, i) => `/images/dolci/catalog/cat-${i + 1}.png`);
-const GALLERY_IMAGES = [...Object.values(dolciModules) as string[], ...CATALOG_IMAGES];
+const ALL_DOLCI_IMAGES = [...Object.values(dolciModules) as string[], ...CATALOG_IMAGES];
+const EXCLUDED_DOLCI_INDEXES = [28]; // 29th photo
+const GALLERY_IMAGES = ALL_DOLCI_IMAGES.filter((_, idx) => !EXCLUDED_DOLCI_INDEXES.includes(idx));
 
 export default function AngoloDolciPage() {
     const [showAllPhotos, setShowAllPhotos] = useState(false);
