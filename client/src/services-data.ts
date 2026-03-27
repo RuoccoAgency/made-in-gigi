@@ -700,7 +700,8 @@ Allestiamo set fotografici dedicati per catturare ogni sorriso in una cornice da
       "/images/1imo/catalog/cat-2.jpg",
       "/images/1imo/catalog/cat-3.jpg",
       "/images/1imo/catalog/cat-4.jpg",
-      "/images/1imo/catalog/cat-5.jpg"
+      "/images/1imo/catalog/cat-5.jpg",
+      "/images/1imo/catalog/cat-6.jpg"
     ]
   },
   "compleanni": {
